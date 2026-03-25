@@ -729,9 +729,47 @@ document.querySelector('.quote-form').addEventListener('submit', function(e) {
 
   // For demo: show success message
   // In production: send to backend
-  alert('Thank you for your inquiry! We will get back to you within 24 hours.');
+  showSuccessModal();
   this.reset();
 });
 </script>
+
+<!-- ===== SUCCESS MODAL ===== -->
+<div class="success-modal-overlay" id="successModal" onclick="closeSuccessModal(event)">
+  <div class="success-modal">
+    <div class="success-modal-icon">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <polyline points="20 6 9 17 4 12"></polyline>
+      </svg>
+    </div>
+    <h3>Inquiry Received!</h3>
+    <p>Thanks for Your Inquiry, We will Get back to You within 8 Working Hours!</p>
+    <button class="success-close-btn" onclick="closeSuccessModal()">Got It</button>
+  </div>
+</div>
+
+
+<script>
+// ── Success Modal ──────────────────────────────────────────────────────────────
+function showSuccessModal() {
+  var overlay = document.getElementById('successModal');
+  if (overlay) {
+    overlay.classList.add('show');
+    document.body.style.overflow = 'hidden';
+  }
+}
+function closeSuccessModal(e) {
+  if (e && e.target !== document.getElementById('successModal') && !e.target.classList.contains('success-close-btn')) return;
+  var overlay = document.getElementById('successModal');
+  if (overlay) {
+    overlay.classList.remove('show');
+    document.body.style.overflow = '';
+  }
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeSuccessModal({target: document.getElementById('successModal')});
+});
+</script>
+
 </body>
 </html>

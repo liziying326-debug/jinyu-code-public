@@ -1542,50 +1542,100 @@ const PRODUCTS = {
   }
 };
 
-// ── Main Init ──────────────────────────────────────────────────────────────────
-document.addEventListener('DOMContentLoaded', () => {
+// ── Main Init (API-driven) ────────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', async () => {
   const params = new URLSearchParams(window.location.search);
   const id = params.get('id');
-  const product = id ? PRODUCTS[id] : null;
+  if (!id) {
+    document.getElementById('pdNotFound').style.display = 'block';
+    document.title = 'Product Not Found – Jinyu';
+    return;
+  }
 
+  // Placeholder SVG
+  function placeholderSVG(name) {
+    const txt = encodeURIComponent((name||'').length > 20 ? (name||'').slice(0, 20) + '\u2026' : (name||''));
+    return `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600'%3E%3Crect width='800' height='600' fill='%23f0f0f0'/%3E%3Ctext x='50%25' y='48%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='22' fill='%23999'%3E${txt}%3C/text%3E%3C/svg%3E`;
+  }
+
+  // 尝试从 API 加载，失败时 fallback 到本地 PRODUCTS 对象
+  let apiProduct = null;
+  let allApiProducts = [];
+  try {
+    const [r1, r2] = await Promise.all([
+      fetch('/api/products/' + id),
+      fetch('/api/products')
+    ]);
+    const j1 = await r1.json();
+    const j2 = await r2.json();
+    if (j1.success) apiProduct = j1.data;
+    if (j2.success) allApiProducts = j2.data;
+  } catch(e) {}
+
+  // 合并：API 数据优先，本地 PRODUCTS 作为 fallback
+  function getImages(p) {
+    if (Array.isArray(p.images) && p.images.length > 0) return p.images;
+    if (p.img) return [p.img];
+    if (p.image) return [p.image];
+    return [];
+  }
+  function getMainImage(p) {
+    const imgs = getImages(p);
+    if (!imgs.length) return '';
+    const idx = parseInt(p.main_image) || 0;
+    return imgs[idx] || imgs[0];
+  }
+  function getName(p) {
+    return p.name_en || p.name || p.id || '';
+  }
+  function getDesc(p) {
+    return p.description_en || p.desc || '';
+  }
+  function getCategory(p) {
+    const CAT = { 'advertising-media':'Advertising Media','advertising-panel':'Advertising Panel','display-stand':'Display Stand','accessory':'Accessory' };
+    return CAT[p.category_id] || p.category || p.category_id || '';
+  }
+
+  // 本地 fallback
+  const localProduct = typeof PRODUCTS !== 'undefined' ? PRODUCTS[id] : null;
+
+  const product = apiProduct || localProduct;
   if (!product) {
     document.getElementById('pdNotFound').style.display = 'block';
     document.title = 'Product Not Found – Jinyu';
     return;
   }
 
+  const name = getName(product);
+  const desc = getDesc(product);
+  const category = getCategory(product);
+
   // Update page title & breadcrumb
-  document.title = `${product.name} – Jinyu Material`;
+  document.title = `${name} – Jinyu Material`;
   const bannerName = document.getElementById('pdBannerName');
-  if (bannerName) bannerName.textContent = product.name;
+  if (bannerName) bannerName.textContent = name;
 
   // Fill info
-  document.getElementById('pdCategory').textContent = product.category;
-  document.getElementById('pdName').textContent = product.name;
-  document.getElementById('pdDesc').textContent = product.desc;
+  document.getElementById('pdCategory').textContent = category;
+  document.getElementById('pdName').textContent = name;
+  document.getElementById('pdDesc').textContent = desc;
 
-  // Placeholder SVG when image fails
-  function placeholderSVG(name) {
-    const txt = encodeURIComponent(name.length > 20 ? name.slice(0, 20) + '…' : name);
-    return `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600'%3E%3Crect width='800' height='600' fill='%23f0f0f0'/%3E%3Ctext x='50%25' y='48%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='22' fill='%23999'%3E${txt}%3C/text%3E%3C/svg%3E`;
-  }
-
-  // Main image
+  // Images
+  const images = getImages(product);
   const mainImg = document.getElementById('pdMainImg');
-  mainImg.src = product.img;
-  mainImg.alt = product.name;
-  mainImg.onerror = () => { mainImg.src = placeholderSVG(product.name); mainImg.onerror = null; };
-
-  // Thumbnails
   const thumbsBox = document.getElementById('pdThumbs');
-  const allImgs = [product.img, ...(product.thumbs || [])].filter(Boolean);
-  if (allImgs.length > 1) {
-    allImgs.forEach((src, i) => {
+  const mainSrc = getMainImage(product) || placeholderSVG(name);
+  mainImg.src = mainSrc;
+  mainImg.alt = name;
+  mainImg.onerror = () => { mainImg.src = placeholderSVG(name); mainImg.onerror = null; };
+
+  if (images.length > 1) {
+    images.forEach((src, i) => {
       const img = document.createElement('img');
-      img.className = 'pd-thumb' + (i === 0 ? ' active' : '');
+      img.className = 'pd-thumb' + (i === (parseInt(product.main_image)||0) ? ' active' : '');
       img.src = src;
-      img.alt = product.name;
-      img.onerror = () => { img.src = placeholderSVG(product.name); img.onerror = null; };
+      img.alt = name;
+      img.onerror = () => { img.style.opacity = '0.3'; img.onerror = null; };
       img.onclick = () => {
         mainImg.src = src;
         thumbsBox.querySelectorAll('.pd-thumb').forEach(t => t.classList.remove('active'));
@@ -1597,8 +1647,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Specs table
   const specTable = document.getElementById('pdSpecTable');
-  if (product.specs && product.specs.length > 0) {
-    product.specs.forEach(([key, val]) => {
+  const specs = product.specs || [];
+  if (specs.length > 0) {
+    specs.forEach(([key, val]) => {
       const tr = document.createElement('tr');
       tr.innerHTML = `<td>${key}</td><td>${val}</td>`;
       specTable.appendChild(tr);
@@ -1609,8 +1660,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Features
   const featureList = document.getElementById('pdFeatureList');
-  if (product.features && product.features.length > 0) {
-    product.features.forEach(f => {
+  const features = product.features || [];
+  if (features.length > 0) {
+    features.forEach(f => {
       const li = document.createElement('li');
       li.textContent = f;
       featureList.appendChild(li);
@@ -1619,18 +1671,30 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('pdFeaturesBox').style.display = 'none';
   }
 
-  // Related products (up to 4)
+  // Related products: 优先 API（同分类前4个，排除自身），fallback 本地 related 数组
   const relatedGrid = document.getElementById('pdRelatedGrid');
-  const relatedIds = (product.related || []).slice(0, 4);
-  relatedIds.forEach(relId => {
-    const rel = PRODUCTS[relId];
-    if (!rel) return;
+  let relatedList = [];
+  if (allApiProducts.length > 0) {
+    relatedList = allApiProducts
+      .filter(p => p.category_id === product.category_id && p.id !== id)
+      .slice(0, 4)
+      .map(p => ({ id: p.id, name: getName(p), img: getMainImage(p) }));
+  }
+  if (relatedList.length === 0 && product.related && typeof PRODUCTS !== 'undefined') {
+    relatedList = (product.related || []).slice(0, 4)
+      .map(relId => {
+        const rel = PRODUCTS[relId];
+        if (!rel) return null;
+        return { id: relId, name: rel.name, img: rel.img };
+      }).filter(Boolean);
+  }
+  relatedList.forEach(({ id: relId, name: relName, img: relImg }) => {
     const card = document.createElement('div');
     card.className = 'pd-rel-card';
     card.onclick = () => { window.location.href = `product-detail.html?id=${relId}`; };
     card.innerHTML = `
-      <img src="${rel.img}" alt="${rel.name}" loading="lazy">
-      <div class="pd-rel-card-name">${rel.name}</div>
+      <img src="${relImg || placeholderSVG(relName)}" alt="${relName}" loading="lazy" onerror="this.style.opacity=0.3">
+      <div class="pd-rel-card-name">${relName}</div>
     `;
     relatedGrid.appendChild(card);
   });

@@ -776,88 +776,56 @@ document.querySelector('.quote-form').addEventListener('submit', function(e) {
 
   // For demo: show success message
   // In production: send to backend
-  alert('Thank you for your inquiry! We will get back to you within 24 hours.');
+  showSuccessModal();
   this.reset();
 });
 
-// ── Home Products: Random 6 from full product catalogue ──────────────────────
-(function renderHomeProducts() {
-  const HOME_PRODUCTS = [
-    { id: "self-adhesive-vinyl",      name: "Self Adhesive Vinyl",               category: "Advertising Media", img: "images/self-adhesive-vinyl.svg" },
-    { id: "transparent-vinyl",        name: "Transparent Self Adhesive Vinyl",   category: "Advertising Media", img: "images/transparent-vinyl.svg" },
-    { id: "160-vinyl",                name: "160 Self Adhesive Vinyl",            category: "Advertising Media", img: "images/160-vinyl.svg" },
-    { id: "black-glue-vinyl",         name: "Black Glue Self Adhesive Vinyl",    category: "Advertising Media", img: "images/black-glue-vinyl.svg" },
-    { id: "photo-paper",              name: "Photo Paper",                        category: "Advertising Media", img: "images/photo-paper.svg" },
-    { id: "pet-film",                 name: "PET Film",                           category: "Advertising Media", img: "images/pet-film.svg" },
-    { id: "backlit-film",             name: "Backlit Film For Light Box",         category: "Advertising Media", img: "images/backlit-film.svg" },
-    { id: "eco-pp-banner",            name: "ECO PP Banner",                      category: "Advertising Media", img: "images/eco-pp-banner.svg" },
-    { id: "one-way-vision",           name: "One Way Vision",                     category: "Advertising Media", img: "images/one-way-vision.svg" },
-    { id: "cutting-vinyl",            name: "Cutting Vinyl",                      category: "Advertising Media", img: "images/cutting-vinyl.svg" },
-    { id: "pvc-flex-banner",          name: "PVC Flex Banner",                    category: "Advertising Media", img: "images/pvc-flex-banner.svg" },
-    { id: "polymeric-vinyl-140",      name: "140 Polymeric Self-Adhesive Vinyl",  category: "Advertising Media", img: "images/polymeric-vinyl-140.svg" },
-    { id: "cold-lamination-140",      name: "140 Polymeric Cold Lamination Film", category: "Advertising Media", img: "images/cold-lamination-140.svg" },
-    { id: "cold-lamination-film",     name: "Cold Lamination Film",               category: "Advertising Media", img: "images/cold-lamination-film.svg" },
-    { id: "3d-cold-lamination",       name: "3D Cold Lamination Film",            category: "Advertising Media", img: "images/3d-cold-lamination.svg" },
-    { id: "window-film",              name: "Window Film",                        category: "Advertising Media", img: "images/window-film.svg" },
-    { id: "reflective-materials",     name: "Reflective Materials",               category: "Advertising Media", img: "images/reflective-materials.svg" },
-    { id: "canvas-flag-fabric",       name: "Canvas / Flag Fabric",               category: "Advertising Media", img: "images/canvas-flag-fabric.svg" },
-    { id: "pvc-foam-board",           name: "PVC Foam Board",                     category: "Advertising Panel", img: "images/pvc-foam-board.svg" },
-    { id: "acrylic-sheet",            name: "Acrylic Sheet",                      category: "Advertising Panel", img: "images/acrylic-sheet.svg" },
-    { id: "polystyrene-sheet",        name: "Polystyrene Sheet",                  category: "Advertising Panel", img: "images/polystyrene-sheet.svg" },
-    { id: "pp-hollow-sheet",          name: "PP Hollow Sheet",                    category: "Advertising Panel", img: "images/pp-hollow-sheet.svg" },
-    { id: "aluminum-composite-panel", name: "Aluminum Composite Panel",           category: "Advertising Panel", img: "images/aluminum-composite-panel.svg" },
-    { id: "abs-pvc-kt-board",         name: "ABS / PVC KT Board",                 category: "Advertising Panel", img: "images/abs-pvc-kt-board.svg" },
-    { id: "x-banner",                 name: "X Banner Stand",                     category: "Display Stand",     img: "images/x-banner.svg" },
-    { id: "roll-up-stand",            name: "Roll-Up Stand",                      category: "Display Stand",     img: "images/roll-up-stand.svg" },
-    { id: "pop-up-banner",            name: "Pop-Up Banner Stand",                category: "Display Stand",     img: "images/pop-up-banner.svg" },
-    { id: "aluminum-reception",       name: "Aluminum Reception Counter",         category: "Display Stand",     img: "images/aluminum-reception.svg" },
-    { id: "pp-promotion-table",       name: "PP Promotion Table",                 category: "Display Stand",     img: "images/pp-promotion-table.svg" },
-    { id: "tripod-pop-easel",         name: "Tripod Pop Easel",                   category: "Display Stand",     img: "images/tripod-pop-easel.svg" },
-    { id: "outdoor-flagpole",         name: "Outdoor Flagpole",                   category: "Display Stand",     img: "images/outdoor-flagpole.svg" },
-    { id: "folding-shelf",            name: "Folding Shelf",                      category: "Display Stand",     img: "images/folding-shelf.svg" },
-    { id: "poster-stand",             name: "Poster Stand",                       category: "Display Stand",     img: "images/poster-stand.svg" },
-    { id: "crystal-light-box",        name: "Crystal Light Box",                  category: "Display Stand",     img: "images/crystal-light-box.svg" },
-    { id: "aluminum-light-box",       name: "Aluminum Light Box",                 category: "Display Stand",     img: "images/aluminum-light-box.svg" },
-    { id: "water-injection-flagpole", name: "Water Injection Flagpole",           category: "Display Stand",     img: "images/water-injection-flagpole.svg" },
-    { id: "lgate-banner",             name: "L-Gate Banner",                      category: "Display Stand",     img: "images/lgate-banner.svg" },
-    { id: "luxury-folding-shelf",     name: "Luxury Folding Shelf",               category: "Display Stand",     img: "images/luxury-folding-shelf.svg" },
-    { id: "message-display",          name: "Message Display Stand",              category: "Display Stand",     img: "images/message-display.svg" },
-    { id: "grommet-machine",          name: "Grommet Machine",                    category: "Accessory",         img: "images/grommet-machine.svg" },
-    { id: "led-channelletter-trim",   name: "LED Channel Letter Trim",            category: "Accessory",         img: "images/led-channelletter-trim.svg" },
-    { id: "led-module",               name: "LED Module",                         category: "Accessory",         img: "images/led-module.svg" },
-    { id: "led-lightbox",             name: "LED Light Box Strip",                category: "Accessory",         img: "images/led-lightbox.svg" },
-    { id: "led-strip",                name: "LED Flexible Strip",                 category: "Accessory",         img: "images/led-strip.svg" },
-    { id: "led-power-supply",         name: "LED Power Supply",                   category: "Accessory",         img: "images/led-power-supply.svg" },
-    { id: "cutting-mat",              name: "Cutting Mat",                        category: "Accessory",         img: "images/cutting-mat.svg" },
-    { id: "squeegee",                 name: "Squeegee",                           category: "Accessory",         img: "images/squeegee.svg" },
-    { id: "knife",                    name: "Multi-Functional Knife & Blade",     category: "Accessory",         img: "images/knife.svg" },
-    { id: "advertising-glue",         name: "Advertising Glue",                   category: "Accessory",         img: "images/advertising-glue.svg" },
-    { id: "double-sided-adhesive",    name: "Double-Sided Adhesive Sponge Sticker", category: "Accessory",      img: "images/double-sided-adhesive.svg" },
-    { id: "nylon-cable-tie",          name: "Nylon Cable Tie",                    category: "Accessory",         img: "images/nylon-cable-tie.svg" },
-    { id: "hot-wind-gun",             name: "Hot Wind Gun",                       category: "Accessory",         img: "images/hot-wind-gun.svg" }
-  ];
-
-  // Fisher-Yates shuffle → take first 6
-  const arr = HOME_PRODUCTS.slice();
-  for (let i = arr.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [arr[i], arr[j]] = [arr[j], arr[i]];
-  }
-  const picked = arr.slice(0, 6);
-
+// ── Home Products: API-driven, random 6 ─────────────────────────────────────
+(async function renderHomeProducts() {
   const grid = document.getElementById('homeProductsGrid');
   if (!grid) return;
-  grid.innerHTML = picked.map(p => `
+
+  function getMainImage(p) {
+    if (Array.isArray(p.images) && p.images.length > 0) {
+      const idx = parseInt(p.main_image) || 0;
+      return p.images[idx] || p.images[0];
+    }
+    return p.image || '';
+  }
+
+  try {
+    const resp = await fetch('/api/products');
+    const json = await resp.json();
+    if (!json.success || !json.data.length) return;
+
+    // Fisher-Yates shuffle → take first 6
+    const arr = json.data.slice();
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    const picked = arr.slice(0, 6);
+
+    const CAT = {'advertising-media':'Advertising Media','advertising-panel':'Advertising Panel','display-stand':'Display Stand','accessory':'Accessory'};
+    grid.innerHTML = picked.map(p => {
+      const name = p.name_en || p.name || p.id;
+      const img  = getMainImage(p);
+      const cat  = CAT[p.category_id] || p.category_id || '';
+      const imgHtml = img
+        ? `<img src="${img}" alt="${name}" loading="lazy" onerror="this.style.opacity=0.3">`
+        : `<div style="width:100%;height:100%;background:#f0f0f0;display:flex;align-items:center;justify-content:center;color:#aaa;font-size:12px;">No Image</div>`;
+      return `
     <div class="card product-card" onclick="location.href='product-detail.html?id=${p.id}'" style="cursor:pointer;">
-      <div class="card-img">
-        <img src="${p.img}" alt="${p.name}" loading="lazy" />
-      </div>
+      <div class="card-img">${imgHtml}</div>
       <div class="card-body">
-        <div class="card-tag">${p.category}</div>
-        <h3>${p.name}</h3>
+        <div class="card-tag">${cat}</div>
+        <h3>${name}</h3>
       </div>
-    </div>
-  `).join('');
+    </div>`;
+    }).join('');
+  } catch(e) {
+    console.error('renderHomeProducts error:', e);
+  }
 })();
 </script>
 
@@ -879,5 +847,43 @@ window.addEventListener('scroll', function() {
   if (fab) { if (window.scrollY > 300) fab.classList.add('visible'); else fab.classList.remove('visible'); }
 });
 </script>
+
+<!-- ===== SUCCESS MODAL ===== -->
+<div class="success-modal-overlay" id="successModal" onclick="closeSuccessModal(event)">
+  <div class="success-modal">
+    <div class="success-modal-icon">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <polyline points="20 6 9 17 4 12"></polyline>
+      </svg>
+    </div>
+    <h3>Inquiry Received!</h3>
+    <p>Thanks for Your Inquiry, We will Get back to You within 8 Working Hours!</p>
+    <button class="success-close-btn" onclick="closeSuccessModal()">Got It</button>
+  </div>
+</div>
+
+
+<script>
+// ── Success Modal ──────────────────────────────────────────────────────────────
+function showSuccessModal() {
+  var overlay = document.getElementById('successModal');
+  if (overlay) {
+    overlay.classList.add('show');
+    document.body.style.overflow = 'hidden';
+  }
+}
+function closeSuccessModal(e) {
+  if (e && e.target !== document.getElementById('successModal') && !e.target.classList.contains('success-close-btn')) return;
+  var overlay = document.getElementById('successModal');
+  if (overlay) {
+    overlay.classList.remove('show');
+    document.body.style.overflow = '';
+  }
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeSuccessModal({target: document.getElementById('successModal')});
+});
+</script>
+
 </body>
 </html>

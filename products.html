@@ -125,615 +125,24 @@
 <!-- Tab锚点 -->
 <div id="tabAnchor" style="position:relative; top:0;"></div>
 
-<!-- CATEGORY TABS BAR -->
+<!-- CATEGORY TABS BAR (API-driven) -->
 <div class="pcat-tabs-bar" id="pcatTabsBar">
   <div class="container">
-<div class="pcat-tabs">
-  <button class="pcat-tab active" data-cat="advertising-media" onclick="switchCat('advertising-media')" >
-    <span class="pcat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span>
-    <span class="pcat-label" data-i18n-en="Advertising Media" data-i18n-zh="广告介质">Advertising Media</span>
-    <span class="pcat-count">18</span>
-  </button>
-  <button class="pcat-tab" data-cat="advertising-panel" onclick="switchCat('advertising-panel')" >
-    <span class="pcat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg></span>
-    <span class="pcat-label" data-i18n-en="Advertising Panel" data-i18n-zh="广告板材">Advertising Panel</span>
-    <span class="pcat-count">6</span>
-  </button>
-  <button class="pcat-tab" data-cat="display-stand" onclick="switchCat('display-stand')" >
-    <span class="pcat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18v13H3z"/><path d="M12 16v5M8 21h8"/></svg></span>
-    <span class="pcat-label" data-i18n-en="Display Stand" data-i18n-zh="展示架">Display Stand</span>
-    <span class="pcat-count">16</span>
-  </button>
-  <button class="pcat-tab" data-cat="accessory" onclick="switchCat('accessory')" >
-    <span class="pcat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3-3a1 1 0 000-1.4l-1.6-1.6a1 1 0 00-1.4 0l-3 3z"/><path d="M5 19L3 21M9.4 13.6L5 19"/><circle cx="10" cy="13" r="3"/></svg></span>
-    <span class="pcat-label" data-i18n-en="Accessory" data-i18n-zh="配件">Accessory</span>
-    <span class="pcat-count">12</span>
-  </button>
-</div>
+    <div class="pcat-tabs" id="pcatTabsList">
+      <!-- 由 JS 从 /api/categories 动态渲染 -->
+    </div>
   </div>
 </div>
 
-<!-- CONTENT PANELS -->
+<!-- CONTENT PANELS (API dynamic) -->
 <div class="pcat-content">
-
-<div class="pcat-panel" id="panel-advertising-media">
-  <!-- Section header -->
-  <div class="container" style="padding-top:48px;">
-    <div class="pcat-section-header">
-      <h2 data-i18n-en="Advertising Media" data-i18n-zh="广告介质">Advertising Media</h2>
-      <p data-i18n-en="High-quality printing media for indoor & outdoor advertising." data-i18n-zh="适用于室内外广告印刷的优质介质材料。">High-quality printing media for indoor & outdoor advertising.</p>
-    </div>
-    <div class="pcat-grid">
-        <div class="product-card-new" id="self-adhesive-vinyl" onclick="location.href='product-detail.html?id=self-adhesive-vinyl'">
-          <div class="pcn-img">
-            <img src="images/self-adhesive-vinyl.svg" alt="Self Adhesive Vinyl" loading="lazy" />
-            <div class="pcn-overlay">
-              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
-            </div>
-          </div>
-          <div class="pcn-body">
-            <h3 class="pcn-name" data-i18n-en="Self Adhesive Vinyl" data-i18n-zh="自粘乙烯基">Self Adhesive Vinyl</h3>
-          </div>
-        </div>        <div class="product-card-new" id="transparent-vinyl" onclick="location.href='product-detail.html?id=transparent-vinyl'">
-          <div class="pcn-img">
-            <img src="images/transparent-vinyl.svg" alt="Transparent Self Adhesive Vinyl" loading="lazy" />
-            <div class="pcn-overlay">
-              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
-            </div>
-          </div>
-          <div class="pcn-body">
-            <h3 class="pcn-name" data-i18n-en="Transparent Self Adhesive Vinyl" data-i18n-zh="透明自粘乙烯基">Transparent Self Adhesive Vinyl</h3>
-          </div>
-        </div>        <div class="product-card-new" id="160-vinyl" onclick="location.href='product-detail.html?id=160-vinyl'">
-          <div class="pcn-img">
-            <img src="images/160-vinyl.svg" alt="160 Self Adhesive Vinyl" loading="lazy" />
-            <div class="pcn-overlay">
-              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
-            </div>
-          </div>
-          <div class="pcn-body">
-            <h3 class="pcn-name" data-i18n-en="160 Self Adhesive Vinyl" data-i18n-zh="160 自粘乙烯基">160 Self Adhesive Vinyl</h3>
-          </div>
-        </div>        <div class="product-card-new" id="black-glue-vinyl" onclick="location.href='product-detail.html?id=black-glue-vinyl'">
-          <div class="pcn-img">
-            <img src="images/black-glue-vinyl.svg" alt="Black Glue Self Adhesive Vinyl" loading="lazy" />
-            <div class="pcn-overlay">
-              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
-            </div>
-          </div>
-          <div class="pcn-body">
-            <h3 class="pcn-name" data-i18n-en="Black Glue Self Adhesive Vinyl" data-i18n-zh="黑胶自粘乙烯基">Black Glue Self Adhesive Vinyl</h3>
-          </div>
-        </div>        <div class="product-card-new" id="photo-paper" onclick="location.href='product-detail.html?id=photo-paper'">
-          <div class="pcn-img">
-            <img src="images/photo-paper.svg" alt="Photo Paper" loading="lazy" />
-            <div class="pcn-overlay">
-              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
-            </div>
-          </div>
-          <div class="pcn-body">
-            <h3 class="pcn-name" data-i18n-en="Photo Paper" data-i18n-zh="相纸">Photo Paper</h3>
-          </div>
-        </div>        <div class="product-card-new" id="pet-film" onclick="location.href='product-detail.html?id=pet-film'">
-          <div class="pcn-img">
-            <img src="images/pet-film.svg" alt="PET Film" loading="lazy" />
-            <div class="pcn-overlay">
-              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
-            </div>
-          </div>
-          <div class="pcn-body">
-            <h3 class="pcn-name" data-i18n-en="PET Film" data-i18n-zh="PET 膜">PET Film</h3>
-          </div>
-        </div>        <div class="product-card-new" id="backlit-film" onclick="location.href='product-detail.html?id=backlit-film'">
-          <div class="pcn-img">
-            <img src="images/backlit-film.svg" alt="Backlit Film For Light Box" loading="lazy" />
-            <div class="pcn-overlay">
-              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
-            </div>
-          </div>
-          <div class="pcn-body">
-            <h3 class="pcn-name" data-i18n-en="Backlit Film For Light Box" data-i18n-zh="灯箱背光膜">Backlit Film For Light Box</h3>
-          </div>
-        </div>        <div class="product-card-new" id="eco-pp-banner" onclick="location.href='product-detail.html?id=eco-pp-banner'">
-          <div class="pcn-img">
-            <img src="images/eco-pp-banner.svg" alt="ECO PP Banner" loading="lazy" />
-            <div class="pcn-overlay">
-              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
-            </div>
-          </div>
-          <div class="pcn-body">
-            <h3 class="pcn-name" data-i18n-en="ECO PP Banner" data-i18n-zh="ECO PP 横幅">ECO PP Banner</h3>
-          </div>
-        </div>        <div class="product-card-new" id="one-way-vision" onclick="location.href='product-detail.html?id=one-way-vision'">
-          <div class="pcn-img">
-            <img src="images/one-way-vision.svg" alt="One Way Vision" loading="lazy" />
-            <div class="pcn-overlay">
-              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
-            </div>
-          </div>
-          <div class="pcn-body">
-            <h3 class="pcn-name" data-i18n-en="One Way Vision" data-i18n-zh="单向透视膜">One Way Vision</h3>
-          </div>
-        </div>        <div class="product-card-new" id="cutting-vinyl" onclick="location.href='product-detail.html?id=cutting-vinyl'">
-          <div class="pcn-img">
-            <img src="images/cutting-vinyl.svg" alt="Cutting Vinyl" loading="lazy" />
-            <div class="pcn-overlay">
-              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
-            </div>
-          </div>
-          <div class="pcn-body">
-            <h3 class="pcn-name" data-i18n-en="Cutting Vinyl" data-i18n-zh="刻字膜">Cutting Vinyl</h3>
-          </div>
-        </div>        <div class="product-card-new" id="pvc-flex-banner" onclick="location.href='product-detail.html?id=pvc-flex-banner'">
-          <div class="pcn-img">
-            <img src="images/pvc-flex-banner.svg" alt="PVC Flex Banner" loading="lazy" />
-            <div class="pcn-overlay">
-              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
-            </div>
-          </div>
-          <div class="pcn-body">
-            <h3 class="pcn-name" data-i18n-en="PVC Flex Banner" data-i18n-zh="PVC 柔性横幅">PVC Flex Banner</h3>
-          </div>
-        </div>        <div class="product-card-new" id="polymeric-vinyl-140" onclick="location.href='product-detail.html?id=polymeric-vinyl-140'">
-          <div class="pcn-img">
-            <img src="images/polymeric-vinyl-140.svg" alt="140 Polymeric Self-Adhesive Vinyl" loading="lazy" />
-            <div class="pcn-overlay">
-              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
-            </div>
-          </div>
-          <div class="pcn-body">
-            <h3 class="pcn-name" data-i18n-en="140 Polymeric Self-Adhesive Vinyl" data-i18n-zh="140 聚合自粘乙烯基">140 Polymeric Self-Adhesive Vinyl</h3>
-          </div>
-        </div>        <div class="product-card-new" id="cold-lamination-140" onclick="location.href='product-detail.html?id=cold-lamination-140'">
-          <div class="pcn-img">
-            <img src="images/cold-lamination-140.svg" alt="140 Polymeric Cold Lamination Film" loading="lazy" />
-            <div class="pcn-overlay">
-              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
-            </div>
-          </div>
-          <div class="pcn-body">
-            <h3 class="pcn-name" data-i18n-en="140 Polymeric Cold Lamination Film" data-i18n-zh="140 聚合冷裱膜">140 Polymeric Cold Lamination Film</h3>
-          </div>
-        </div>        <div class="product-card-new" id="cold-lamination-film" onclick="location.href='product-detail.html?id=cold-lamination-film'">
-          <div class="pcn-img">
-            <img src="images/cold-lamination-film.svg" alt="Cold Lamination Film" loading="lazy" />
-            <div class="pcn-overlay">
-              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
-            </div>
-          </div>
-          <div class="pcn-body">
-            <h3 class="pcn-name" data-i18n-en="Cold Lamination Film" data-i18n-zh="冷裱膜">Cold Lamination Film</h3>
-          </div>
-        </div>        <div class="product-card-new" id="3d-cold-lamination" onclick="location.href='product-detail.html?id=3d-cold-lamination'">
-          <div class="pcn-img">
-            <img src="images/3d-cold-lamination.svg" alt="3D Cold Lamination Film" loading="lazy" />
-            <div class="pcn-overlay">
-              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
-            </div>
-          </div>
-          <div class="pcn-body">
-            <h3 class="pcn-name" data-i18n-en="3D Cold Lamination Film" data-i18n-zh="3D 冷裱膜">3D Cold Lamination Film</h3>
-          </div>
-        </div>        <div class="product-card-new" id="window-film" onclick="location.href='product-detail.html?id=window-film'">
-          <div class="pcn-img">
-            <img src="images/window-film.svg" alt="Window Film" loading="lazy" />
-            <div class="pcn-overlay">
-              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
-            </div>
-          </div>
-          <div class="pcn-body">
-            <h3 class="pcn-name" data-i18n-en="Window Film" data-i18n-zh="窗膜">Window Film</h3>
-          </div>
-        </div>        <div class="product-card-new" id="reflective-materials" onclick="location.href='product-detail.html?id=reflective-materials'">
-          <div class="pcn-img">
-            <img src="images/reflective-materials.svg" alt="Reflective Materials" loading="lazy" />
-            <div class="pcn-overlay">
-              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
-            </div>
-          </div>
-          <div class="pcn-body">
-            <h3 class="pcn-name" data-i18n-en="Reflective Materials" data-i18n-zh="反光材料">Reflective Materials</h3>
-          </div>
-        </div>        <div class="product-card-new" id="canvas-flag-fabric" onclick="location.href='product-detail.html?id=canvas-flag-fabric'">
-          <div class="pcn-img">
-            <img src="images/canvas-flag-fabric.svg" alt="Canvas, Flag Fabric, Soft Film, Heat Transfer Series" loading="lazy" />
-            <div class="pcn-overlay">
-              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
-            </div>
-          </div>
-          <div class="pcn-body">
-            <h3 class="pcn-name" data-i18n-en="Canvas, Flag Fabric, Soft Film, Heat Transfer Series" data-i18n-zh="画布、旗帜布、软膜、热转印系列">Canvas, Flag Fabric, Soft Film, Heat Transfer Series</h3>
-          </div>
-        </div>
+  <div id="pcatContent">
+    <!-- Loading state -->
+    <div id="pcatLoading" style="text-align:center;padding:80px 20px;color:#94a3b8;">
+      <div style="font-size:2rem;margin-bottom:12px;">&#8987;</div>
+      <p>Loading products...</p>
     </div>
   </div>
-</div>
-</div>
-
-<div class="pcat-panel" id="panel-advertising-panel" style="display:none">
-  <!-- Section header -->
-  <div class="container" style="padding-top:48px;">
-    <div class="pcat-section-header">
-      <h2 data-i18n-en="Advertising Panel" data-i18n-zh="广告板材">Advertising Panel</h2>
-      <p data-i18n-en="Rigid substrates for signs, displays and construction." data-i18n-zh="适用于标识、展示和建筑的硬质基材。">Rigid substrates for signs, displays and construction.</p>
-    </div>
-    <div class="pcat-grid">
-        <div class="product-card-new" id="pvc-foam-board" onclick="location.href='product-detail.html?id=pvc-foam-board'">
-          <div class="pcn-img">
-            <img src="images/pvc-foam-board.svg" alt="PVC Foam Board" loading="lazy" />
-            <div class="pcn-overlay">
-              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
-            </div>
-          </div>
-          <div class="pcn-body">
-            <h3 class="pcn-name" data-i18n-en="PVC Foam Board" data-i18n-zh="PVC 发泡板">PVC Foam Board</h3>
-          </div>
-        </div>        <div class="product-card-new" id="acrylic-sheet" onclick="location.href='product-detail.html?id=acrylic-sheet'">
-          <div class="pcn-img">
-            <img src="images/acrylic-sheet.svg" alt="Acrylic Sheet" loading="lazy" />
-            <div class="pcn-overlay">
-              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
-            </div>
-          </div>
-          <div class="pcn-body">
-            <h3 class="pcn-name" data-i18n-en="Acrylic Sheet" data-i18n-zh="亚克力板">Acrylic Sheet</h3>
-          </div>
-        </div>        <div class="product-card-new" id="polystyrene-sheet" onclick="location.href='product-detail.html?id=polystyrene-sheet'">
-          <div class="pcn-img">
-            <img src="images/polystyrene-sheet.svg" alt="Polystyrene Sheet" loading="lazy" />
-            <div class="pcn-overlay">
-              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
-            </div>
-          </div>
-          <div class="pcn-body">
-            <h3 class="pcn-name" data-i18n-en="Polystyrene Sheet" data-i18n-zh="聚苯乙烯板">Polystyrene Sheet</h3>
-          </div>
-        </div>        <div class="product-card-new" id="pp-hollow-sheet" onclick="location.href='product-detail.html?id=pp-hollow-sheet'">
-          <div class="pcn-img">
-            <img src="images/pp-hollow-sheet.svg" alt="PP Hollow Sheet" loading="lazy" />
-            <div class="pcn-overlay">
-              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
-            </div>
-          </div>
-          <div class="pcn-body">
-            <h3 class="pcn-name" data-i18n-en="PP Hollow Sheet" data-i18n-zh="PP 中空板">PP Hollow Sheet</h3>
-          </div>
-        </div>        <div class="product-card-new" id="aluminum-composite-panel" onclick="location.href='product-detail.html?id=aluminum-composite-panel'">
-          <div class="pcn-img">
-            <img src="images/aluminum-composite-panel.svg" alt="Aluminum Composite Panel" loading="lazy" />
-            <div class="pcn-overlay">
-              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
-            </div>
-          </div>
-          <div class="pcn-body">
-            <h3 class="pcn-name" data-i18n-en="Aluminum Composite Panel" data-i18n-zh="铝塑板">Aluminum Composite Panel</h3>
-          </div>
-        </div>        <div class="product-card-new" id="abs-pvc-kt-board" onclick="location.href='product-detail.html?id=abs-pvc-kt-board'">
-          <div class="pcn-img">
-            <img src="images/abs-pvc-kt-board.svg" alt="ABS Sheet, ABS Double Color Sheet, PVC Rigid Sheet, KT Board" loading="lazy" />
-            <div class="pcn-overlay">
-              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
-            </div>
-          </div>
-          <div class="pcn-body">
-            <h3 class="pcn-name" data-i18n-en="ABS Sheet, ABS Double Color Sheet, PVC Rigid Sheet, KT Board" data-i18n-zh="ABS 板、ABS 双色板、PVC 硬板、KT 板">ABS Sheet, ABS Double Color Sheet, PVC Rigid Sheet, KT Board</h3>
-          </div>
-        </div>
-    </div>
-  </div>
-</div>
-</div>
-
-<div class="pcat-panel" id="panel-display-stand" style="display:none">
-  <!-- Section header -->
-  <div class="container" style="padding-top:48px;">
-    <div class="pcat-section-header">
-      <h2 data-i18n-en="Display Stand" data-i18n-zh="展示架">Display Stand</h2>
-      <p data-i18n-en="Professional display stands for events, retail and exhibitions." data-i18n-zh="适用于活动、零售和展览的专业展示架。">Professional display stands for events, retail and exhibitions.</p>
-    </div>
-    <div class="pcat-grid">
-        <div class="product-card-new" id="x-banner" onclick="location.href='product-detail.html?id=x-banner'">
-          <div class="pcn-img">
-            <img src="images/x-banner.svg" alt="X-Banner Series" loading="lazy" />
-            <div class="pcn-overlay">
-              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
-            </div>
-          </div>
-          <div class="pcn-body">
-            <h3 class="pcn-name" data-i18n-en="X-Banner Series" data-i18n-zh="展架系列">X-Banner Series</h3>
-          </div>
-        </div>        <div class="product-card-new" id="roll-up-stand" onclick="location.href='product-detail.html?id=roll-up-stand'">
-          <div class="pcn-img">
-            <img src="images/roll-up-stand.svg" alt="Roll Up Stand Series" loading="lazy" />
-            <div class="pcn-overlay">
-              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
-            </div>
-          </div>
-          <div class="pcn-body">
-            <h3 class="pcn-name" data-i18n-en="Roll Up Stand Series" data-i18n-zh="易拉宝系列">Roll Up Stand Series</h3>
-          </div>
-        </div>        <div class="product-card-new" id="pop-up-banner" onclick="location.href='product-detail.html?id=pop-up-banner'">
-          <div class="pcn-img">
-            <img src="images/pop-up-banner.svg" alt="POP Up Banner" loading="lazy" />
-            <div class="pcn-overlay">
-              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
-            </div>
-          </div>
-          <div class="pcn-body">
-            <h3 class="pcn-name" data-i18n-en="POP Up Banner" data-i18n-zh="POP 展架">POP Up Banner</h3>
-          </div>
-        </div>        <div class="product-card-new" id="aluminum-reception" onclick="location.href='product-detail.html?id=aluminum-reception'">
-          <div class="pcn-img">
-            <img src="images/aluminum-reception.svg" alt="Aluminum Reception" loading="lazy" />
-            <div class="pcn-overlay">
-              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
-            </div>
-          </div>
-          <div class="pcn-body">
-            <h3 class="pcn-name" data-i18n-en="Aluminum Reception" data-i18n-zh="铝合金接待台">Aluminum Reception</h3>
-          </div>
-        </div>        <div class="product-card-new" id="pp-promotion-table" onclick="location.href='product-detail.html?id=pp-promotion-table'">
-          <div class="pcn-img">
-            <img src="images/pp-promotion-table.svg" alt="PP Promotion Table" loading="lazy" />
-            <div class="pcn-overlay">
-              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
-            </div>
-          </div>
-          <div class="pcn-body">
-            <h3 class="pcn-name" data-i18n-en="PP Promotion Table" data-i18n-zh="PP 促销台">PP Promotion Table</h3>
-          </div>
-        </div>        <div class="product-card-new" id="tripod-pop-easel" onclick="location.href='product-detail.html?id=tripod-pop-easel'">
-          <div class="pcn-img">
-            <img src="images/tripod-pop-easel.svg" alt="Tripod POP Easel" loading="lazy" />
-            <div class="pcn-overlay">
-              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
-            </div>
-          </div>
-          <div class="pcn-body">
-            <h3 class="pcn-name" data-i18n-en="Tripod POP Easel" data-i18n-zh="三脚架 POP 画架">Tripod POP Easel</h3>
-          </div>
-        </div>        <div class="product-card-new" id="outdoor-flagpole" onclick="location.href='product-detail.html?id=outdoor-flagpole'">
-          <div class="pcn-img">
-            <img src="images/outdoor-flagpole.svg" alt="Outdoor Flagpole Series" loading="lazy" />
-            <div class="pcn-overlay">
-              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
-            </div>
-          </div>
-          <div class="pcn-body">
-            <h3 class="pcn-name" data-i18n-en="Outdoor Flagpole Series" data-i18n-zh="户外旗杆系列">Outdoor Flagpole Series</h3>
-          </div>
-        </div>        <div class="product-card-new" id="folding-shelf" onclick="location.href='product-detail.html?id=folding-shelf'">
-          <div class="pcn-img">
-            <img src="images/folding-shelf.svg" alt="Folding Shelf" loading="lazy" />
-            <div class="pcn-overlay">
-              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
-            </div>
-          </div>
-          <div class="pcn-body">
-            <h3 class="pcn-name" data-i18n-en="Folding Shelf" data-i18n-zh="折叠展示架">Folding Shelf</h3>
-          </div>
-        </div>        <div class="product-card-new" id="poster-stand" onclick="location.href='product-detail.html?id=poster-stand'">
-          <div class="pcn-img">
-            <img src="images/poster-stand.svg" alt="Poster Stand" loading="lazy" />
-            <div class="pcn-overlay">
-              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
-            </div>
-          </div>
-          <div class="pcn-body">
-            <h3 class="pcn-name" data-i18n-en="Poster Stand" data-i18n-zh="海报架">Poster Stand</h3>
-          </div>
-        </div>        <div class="product-card-new" id="crystal-light-box" onclick="location.href='product-detail.html?id=crystal-light-box'">
-          <div class="pcn-img">
-            <img src="images/crystal-light-box.svg" alt="Crystal Slim Light Box" loading="lazy" />
-            <div class="pcn-overlay">
-              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
-            </div>
-          </div>
-          <div class="pcn-body">
-            <h3 class="pcn-name" data-i18n-en="Crystal Slim Light Box" data-i18n-zh="水晶超薄灯箱">Crystal Slim Light Box</h3>
-          </div>
-        </div>        <div class="product-card-new" id="aluminum-light-box" onclick="location.href='product-detail.html?id=aluminum-light-box'">
-          <div class="pcn-img">
-            <img src="images/aluminum-light-box.svg" alt="Aluminum Light Box" loading="lazy" />
-            <div class="pcn-overlay">
-              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
-            </div>
-          </div>
-          <div class="pcn-body">
-            <h3 class="pcn-name" data-i18n-en="Aluminum Light Box" data-i18n-zh="铝制灯箱">Aluminum Light Box</h3>
-          </div>
-        </div>        <div class="product-card-new" id="water-injection-flagpole" onclick="location.href='product-detail.html?id=water-injection-flagpole'">
-          <div class="pcn-img">
-            <img src="images/water-injection-flagpole.svg" alt="Water-Injection Flagpole" loading="lazy" />
-            <div class="pcn-overlay">
-              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
-            </div>
-          </div>
-          <div class="pcn-body">
-            <h3 class="pcn-name" data-i18n-en="Water-Injection Flagpole" data-i18n-zh="注水旗杆">Water-Injection Flagpole</h3>
-          </div>
-        </div>        <div class="product-card-new" id="lgate-banner" onclick="location.href='product-detail.html?id=lgate-banner'">
-          <div class="pcn-img">
-            <img src="images/lgate-banner.svg" alt="Lgate Banner" loading="lazy" />
-            <div class="pcn-overlay">
-              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
-            </div>
-          </div>
-          <div class="pcn-body">
-            <h3 class="pcn-name" data-i18n-en="Lgate Banner" data-i18n-zh="Lgate 横幅架">Lgate Banner</h3>
-          </div>
-        </div>        <div class="product-card-new" id="luxury-folding-shelf" onclick="location.href='product-detail.html?id=luxury-folding-shelf'">
-          <div class="pcn-img">
-            <img src="images/luxury-folding-shelf.svg" alt="Luxury Folding Shelf" loading="lazy" />
-            <div class="pcn-overlay">
-              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
-            </div>
-          </div>
-          <div class="pcn-body">
-            <h3 class="pcn-name" data-i18n-en="Luxury Folding Shelf" data-i18n-zh="高档折叠架">Luxury Folding Shelf</h3>
-          </div>
-        </div>        <div class="product-card-new" id="message-display" onclick="location.href='product-detail.html?id=message-display'">
-          <div class="pcn-img">
-            <img src="images/message-display.svg" alt="Message Display" loading="lazy" />
-            <div class="pcn-overlay">
-              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
-            </div>
-          </div>
-          <div class="pcn-body">
-            <h3 class="pcn-name" data-i18n-en="Message Display" data-i18n-zh="信息展示架">Message Display</h3>
-          </div>
-        </div>        <div class="product-card-new" id="grommet-machine" onclick="location.href='product-detail.html?id=grommet-machine'">
-          <div class="pcn-img">
-            <img src="images/grommet-machine.svg" alt="Grommet Machine" loading="lazy" />
-            <div class="pcn-overlay">
-              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
-            </div>
-          </div>
-          <div class="pcn-body">
-            <h3 class="pcn-name" data-i18n-en="Grommet Machine" data-i18n-zh="打扣机">Grommet Machine</h3>
-          </div>
-        </div>
-    </div>
-  </div>
-</div>
-</div>
-
-<div class="pcat-panel" id="panel-accessory" style="display:none">
-  <!-- Section header -->
-  <div class="container" style="padding-top:48px;">
-    <div class="pcat-section-header">
-      <h2 data-i18n-en="Accessory" data-i18n-zh="配件">Accessory</h2>
-      <p data-i18n-en="Essential tools and accessories for advertising professionals." data-i18n-zh="广告从业者必备的工具和配件。">Essential tools and accessories for advertising professionals.</p>
-    </div>
-    <div class="pcat-grid">
-        <div class="product-card-new" id="led-channelletter-trim" onclick="location.href='product-detail.html?id=led-channelletter-trim'">
-          <div class="pcn-img">
-            <img src="images/led-channelletter-trim.svg" alt="LED Channelletter Trim" loading="lazy" />
-            <div class="pcn-overlay">
-              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
-            </div>
-          </div>
-          <div class="pcn-body">
-            <h3 class="pcn-name" data-i18n-en="LED Channelletter Trim" data-i18n-zh="LED 围边字包边条">LED Channelletter Trim</h3>
-          </div>
-        </div>        <div class="product-card-new" id="led-module" onclick="location.href='product-detail.html?id=led-module'">
-          <div class="pcn-img">
-            <img src="images/led-module.svg" alt="LED Module" loading="lazy" />
-            <div class="pcn-overlay">
-              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
-            </div>
-          </div>
-          <div class="pcn-body">
-            <h3 class="pcn-name" data-i18n-en="LED Module" data-i18n-zh="LED 模组">LED Module</h3>
-          </div>
-        </div>        <div class="product-card-new" id="led-lightbox" onclick="location.href='product-detail.html?id=led-lightbox'">
-          <div class="pcn-img">
-            <img src="images/led-lightbox.svg" alt="LED Special for Light Box" loading="lazy" />
-            <div class="pcn-overlay">
-              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
-            </div>
-          </div>
-          <div class="pcn-body">
-            <h3 class="pcn-name" data-i18n-en="LED Special for Light Box" data-i18n-zh="灯箱专用 LED 灯">LED Special for Light Box</h3>
-          </div>
-        </div>        <div class="product-card-new" id="led-strip" onclick="location.href='product-detail.html?id=led-strip'">
-          <div class="pcn-img">
-            <img src="images/led-strip.svg" alt="LED Flexible Strip" loading="lazy" />
-            <div class="pcn-overlay">
-              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
-            </div>
-          </div>
-          <div class="pcn-body">
-            <h3 class="pcn-name" data-i18n-en="LED Flexible Strip" data-i18n-zh="LED 灯带">LED Flexible Strip</h3>
-          </div>
-        </div>        <div class="product-card-new" id="led-power-supply" onclick="location.href='product-detail.html?id=led-power-supply'">
-          <div class="pcn-img">
-            <img src="images/led-power-supply.svg" alt="LED Power Supply" loading="lazy" />
-            <div class="pcn-overlay">
-              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
-            </div>
-          </div>
-          <div class="pcn-body">
-            <h3 class="pcn-name" data-i18n-en="LED Power Supply" data-i18n-zh="LED 电源">LED Power Supply</h3>
-          </div>
-        </div>        <div class="product-card-new" id="cutting-mat" onclick="location.href='product-detail.html?id=cutting-mat'">
-          <div class="pcn-img">
-            <img src="images/cutting-mat.svg" alt="Cutting Mat" loading="lazy" />
-            <div class="pcn-overlay">
-              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
-            </div>
-          </div>
-          <div class="pcn-body">
-            <h3 class="pcn-name" data-i18n-en="Cutting Mat" data-i18n-zh="切割垫">Cutting Mat</h3>
-          </div>
-        </div>        <div class="product-card-new" id="squeegee" onclick="location.href='product-detail.html?id=squeegee'">
-          <div class="pcn-img">
-            <img src="images/squeegee.svg" alt="Squeegee" loading="lazy" />
-            <div class="pcn-overlay">
-              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
-            </div>
-          </div>
-          <div class="pcn-body">
-            <h3 class="pcn-name" data-i18n-en="Squeegee" data-i18n-zh="刮胶板">Squeegee</h3>
-          </div>
-        </div>        <div class="product-card-new" id="knife" onclick="location.href='product-detail.html?id=knife'">
-          <div class="pcn-img">
-            <img src="images/knife.svg" alt="Multi-functional Knife" loading="lazy" />
-            <div class="pcn-overlay">
-              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
-            </div>
-          </div>
-          <div class="pcn-body">
-            <h3 class="pcn-name" data-i18n-en="Multi-functional Knife" data-i18n-zh="多功能刀具">Multi-functional Knife</h3>
-          </div>
-        </div>        <div class="product-card-new" id="advertising-glue" onclick="location.href='product-detail.html?id=advertising-glue'">
-          <div class="pcn-img">
-            <img src="images/advertising-glue.svg" alt="Advertising Glue Series" loading="lazy" />
-            <div class="pcn-overlay">
-              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
-            </div>
-          </div>
-          <div class="pcn-body">
-            <h3 class="pcn-name" data-i18n-en="Advertising Glue Series" data-i18n-zh="广告胶水系列">Advertising Glue Series</h3>
-          </div>
-        </div>        <div class="product-card-new" id="double-sided-adhesive" onclick="location.href='product-detail.html?id=double-sided-adhesive'">
-          <div class="pcn-img">
-            <img src="images/double-sided-adhesive.svg" alt="Double Sides Adhesive, Sponge Sticker" loading="lazy" />
-            <div class="pcn-overlay">
-              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
-            </div>
-          </div>
-          <div class="pcn-body">
-            <h3 class="pcn-name" data-i18n-en="Double Sides Adhesive, Sponge Sticker" data-i18n-zh="双面胶、海绵胶">Double Sides Adhesive, Sponge Sticker</h3>
-          </div>
-        </div>        <div class="product-card-new" id="nylon-cable-tie" onclick="location.href='product-detail.html?id=nylon-cable-tie'">
-          <div class="pcn-img">
-            <img src="images/nylon-cable-tie.svg" alt="Nylon Cable Tie, Banner Rope" loading="lazy" />
-            <div class="pcn-overlay">
-              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
-            </div>
-          </div>
-          <div class="pcn-body">
-            <h3 class="pcn-name" data-i18n-en="Nylon Cable Tie, Banner Rope" data-i18n-zh="尼龙扎带、广告绳">Nylon Cable Tie, Banner Rope</h3>
-          </div>
-        </div>        <div class="product-card-new" id="hot-wind-gun" onclick="location.href='product-detail.html?id=hot-wind-gun'">
-          <div class="pcn-img">
-            <img src="images/hot-wind-gun.svg" alt="Hot Wind Gun" loading="lazy" />
-            <div class="pcn-overlay">
-              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
-            </div>
-          </div>
-          <div class="pcn-body">
-            <h3 class="pcn-name" data-i18n-en="Hot Wind Gun" data-i18n-zh="热风枪">Hot Wind Gun</h3>
-          </div>
-        </div>
-    </div>
-  </div>
-</div>
-
-</div>
-</div>
-
 </div><!-- /pcat-content -->
 <!-- CTA BANNER -->
 <section class="section cta-banner">
@@ -1082,6 +491,24 @@ function switchCat(cat) {
       }
     });
   });
+
+  // Quote Form Submission
+  const qForm = document.querySelector('.quote-form');
+  if (qForm) {
+    qForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('quote-name').value;
+      const email = document.getElementById('quote-email').value;
+      const phone = document.getElementById('quote-phone').value;
+      const message = document.getElementById('quote-message').value;
+      if (!name || !email || !phone || !message) {
+        alert('Please fill in all required fields (*)');
+        return;
+      }
+      showSuccessModal();
+      this.reset();
+    });
+  }
 })();
 </script>
 
@@ -1102,6 +529,222 @@ window.addEventListener('scroll', function() {
   const fab = document.getElementById('fabTop');
   if (fab) { if (window.scrollY > 300) fab.classList.add('visible'); else fab.classList.remove('visible'); }
 });
+</script>
+
+<!-- ===== SUCCESS MODAL ===== -->
+<div class="success-modal-overlay" id="successModal" onclick="closeSuccessModal(event)">
+  <div class="success-modal">
+    <div class="success-modal-icon">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <polyline points="20 6 9 17 4 12"></polyline>
+      </svg>
+    </div>
+    <h3>Inquiry Received!</h3>
+    <p>Thanks for Your Inquiry, We will Get back to You within 8 Working Hours!</p>
+    <button class="success-close-btn" onclick="closeSuccessModal()">Got It</button>
+  </div>
+</div>
+
+
+<script>
+// ── Success Modal ──────────────────────────────────────────────────────────────
+function showSuccessModal() {
+  var overlay = document.getElementById('successModal');
+  if (overlay) {
+    overlay.classList.add('show');
+    document.body.style.overflow = 'hidden';
+  }
+}
+function closeSuccessModal(e) {
+  if (e && e.target !== document.getElementById('successModal') && !e.target.classList.contains('success-close-btn')) return;
+  var overlay = document.getElementById('successModal');
+  if (overlay) {
+    overlay.classList.remove('show');
+    document.body.style.overflow = '';
+  }
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeSuccessModal({target: document.getElementById('successModal')});
+});
+</script>
+
+
+<script>
+// ═══════════════════════════════════════════════════════════
+//  Products Page – API-driven rendering (categories + products)
+// ═══════════════════════════════════════════════════════════
+(function() {
+  // 分类图标（按 slug 匹配，匹配不到用默认图标）
+  const CAT_ICONS = {
+    'advertising-media':  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>',
+    'advertising-panel':  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>',
+    'display-stand':      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18v13H3z"/><path d="M12 16v5M8 21h8"/></svg>',
+    'accessory':          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3-3a1 1 0 000-1.4l-1.6-1.6a1 1 0 00-1.4 0l-3 3z"/><path d="M5 19L3 21M9.4 13.6L5 19"/><circle cx="10" cy="13" r="3"/></svg>',
+    '_default':           '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>'
+  };
+
+  let allProducts  = [];
+  let allCategories = [];
+  let currentCat   = '';
+
+  function getLang() {
+    try { return localStorage.getItem('lang') || 'en'; } catch(e) { return 'en'; }
+  }
+
+  // 获取产品主图
+  function getProductImage(p) {
+    if (Array.isArray(p.images) && p.images.length > 0) {
+      const idx = parseInt(p.main_image) || 0;
+      return p.images[idx] || p.images[0];
+    }
+    return p.image || '';
+  }
+
+  // 渲染单个产品卡片
+  function renderCard(p, lang) {
+    const name = (lang === 'zh' ? p.name_zh : '') || p.name_en || p.id;
+    const img  = getProductImage(p);
+    const imgHtml = img
+      ? `<img src="${img}" alt="${name}" loading="lazy" onerror="this.style.opacity=0.3">`
+      : `<div style="width:100%;height:100%;background:linear-gradient(135deg,#f0f0f0,#e8e8e8);display:flex;align-items:center;justify-content:center;color:#aaa;font-size:12px;">No Image</div>`;
+    return `
+<div class="product-card-new" id="${p.id}" onclick="location.href='product-detail.html?id=${p.id}'">
+  <div class="pcn-img">
+    ${imgHtml}
+    <div class="pcn-overlay">
+      <a href="product-detail.html?id=${p.id}" class="pcn-btn pcn-detail-btn" onclick="event.stopPropagation()">View Details</a>
+    </div>
+  </div>
+  <div class="pcn-body">
+    <h3 class="pcn-name" data-i18n-en="${p.name_en||''}" data-i18n-zh="${p.name_zh||''}">${name}</h3>
+  </div>
+</div>`;
+  }
+
+  // 渲染分类面板
+  function renderPanel(cat, products, lang) {
+    const slug = cat.slug || cat.id;
+    const labelEn = cat.name_en || slug;
+    const labelZh = cat.name_zh || labelEn;
+    const descEn  = cat.description_en || '';
+    const descZh  = cat.description_zh || descEn;
+    const catProducts = products.filter(p => p.category_id === slug);
+    const cards = catProducts.map(p => renderCard(p, lang)).join('');
+    const isActive = (slug === currentCat);
+    return `
+<div class="pcat-panel" id="panel-${slug}" ${isActive ? '' : 'style="display:none"'}>
+  <div class="container" style="padding-top:48px;">
+    <div class="pcat-section-header">
+      <h2 data-i18n-en="${labelEn}" data-i18n-zh="${labelZh}">${lang==='zh'?labelZh:labelEn}</h2>
+      <p data-i18n-en="${descEn}" data-i18n-zh="${descZh}">${lang==='zh'?descZh:descEn}</p>
+    </div>
+    <div class="pcat-grid">${cards || '<p style="color:#aaa;padding:24px 0;">No products in this category.</p>'}</div>
+  </div>
+</div>`;
+  }
+
+  // 渲染分类 Tab 栏
+  function renderTabs(categories, products, lang) {
+    const tabsList = document.getElementById('pcatTabsList');
+    if (!tabsList) return;
+    tabsList.innerHTML = categories.map(cat => {
+      const slug     = cat.slug || cat.id;
+      const icon     = CAT_ICONS[slug] || CAT_ICONS['_default'];
+      const labelEn  = cat.name_en || slug;
+      const labelZh  = cat.name_zh || labelEn;
+      const label    = lang === 'zh' ? labelZh : labelEn;
+      const count    = products.filter(p => p.category_id === slug).length;
+      const isActive = slug === currentCat;
+      return `<button class="pcat-tab${isActive?' active':''}" data-cat="${slug}" onclick="switchCat('${slug}')">
+  <span class="pcat-icon">${icon}</span>
+  <span class="pcat-label" data-i18n-en="${labelEn}" data-i18n-zh="${labelZh}">${label}</span>
+  <span class="pcat-count" data-cat-count>${count}</span>
+</button>`;
+    }).join('');
+  }
+
+  // 更新 Tab 上的数量徽章
+  function updateCounts(products) {
+    document.querySelectorAll('.pcat-tab').forEach(btn => {
+      const cat   = btn.getAttribute('data-cat');
+      const count = products.filter(p => p.category_id === cat).length;
+      const badge = btn.querySelector('[data-cat-count]');
+      if (badge) badge.textContent = count;
+    });
+  }
+
+  // 主渲染
+  function renderAll(products, categories) {
+    const lang = getLang();
+    const container = document.getElementById('pcatContent');
+    if (!container) return;
+    // 渲染 Tabs
+    renderTabs(categories, products, lang);
+    // 渲染内容面板
+    const panels = categories.map(cat => renderPanel(cat, products, lang)).join('');
+    container.innerHTML = panels;
+    if (window.applyI18n) window.applyI18n();
+  }
+
+  // 加载所有数据
+  async function loadAll() {
+    try {
+      const [prodResp, catResp] = await Promise.all([
+        fetch('/api/products'),
+        fetch('/api/categories')
+      ]);
+      const prodJson = await prodResp.json();
+      const catJson  = await catResp.json();
+
+      allProducts   = prodJson.success ? prodJson.data   : [];
+      allCategories = catJson.success  ? catJson.data    : [];
+
+      // 按 sort_order 排序
+      allCategories.sort((a, b) => (parseInt(a.sort_order)||0) - (parseInt(b.sort_order)||0));
+
+      // 确定初始分类
+      if (!currentCat && allCategories.length > 0) {
+        currentCat = allCategories[0].slug || allCategories[0].id;
+      }
+
+      renderAll(allProducts, allCategories);
+
+      // 隐藏 loading
+      const loading = document.getElementById('pcatLoading');
+      if (loading) loading.style.display = 'none';
+
+    } catch(e) {
+      const el = document.getElementById('pcatLoading');
+      if (el) el.innerHTML = '<p style="color:#f87171;">Failed to load products. Please refresh.</p>';
+    }
+  }
+
+  // 语言切换时重新渲染
+  window.addEventListener('storage', function(e) {
+    if (e.key === 'lang' && allProducts.length > 0) renderAll(allProducts, allCategories);
+  });
+  window.addEventListener('langchange', function() {
+    if (allProducts.length > 0) renderAll(allProducts, allCategories);
+  });
+
+  // switchCat 全局暴露
+  window.switchCat = function(cat) {
+    currentCat = cat;
+    document.querySelectorAll('.pcat-panel').forEach(el => { el.style.display = 'none'; });
+    const target = document.getElementById('panel-' + cat);
+    if (target) target.style.display = '';
+    document.querySelectorAll('.pcat-tab').forEach(btn => {
+      btn.classList.toggle('active', btn.getAttribute('data-cat') === cat);
+    });
+    document.getElementById('tabAnchor')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
+  // 处理 URL hash 切换分类
+  const hash = location.hash.replace('#','');
+  if (hash) currentCat = hash;
+
+  document.addEventListener('DOMContentLoaded', loadAll);
+})();
 </script>
 </body>
 </html>

@@ -113,6 +113,17 @@
   </div>
 </div>
 
+
+<!-- ═══ API-driven case sections ═══ -->
+<div id="caseSectionsContainer">
+  <div style="text-align:center;padding:80px 20px;color:#94a3b8;">
+    <div style="font-size:2rem;margin-bottom:12px;">⏳</div>
+    <p>Loading case studies...</p>
+  </div>
+</div>
+
+<!-- ═══ FALLBACK: original static content ═══ -->
+<div id="caseStaticFallback" style="display:none">
 <div class="container">
 
   <!-- CASE 1 -->
@@ -254,7 +265,81 @@
     </div>
   </div>
 
-</div>
+</div><!-- /.container -->
+</div><!-- #caseStaticFallback -->
+
+<script>
+(function() {
+  function getLang() {
+    try { return localStorage.getItem('lang') || 'en'; } catch(e) { return 'en'; }
+  }
+
+  function renderCases(items, lang) {
+    const container = document.getElementById('caseSectionsContainer');
+    if (!items || items.length === 0) {
+      container.style.display = 'none';
+      document.getElementById('caseStaticFallback').style.display = '';
+      return;
+    }
+
+    const cards = items.map((c, idx) => {
+      const title = (lang === 'zh' ? c.title_zh : '') || c.title_en || '';
+      const desc  = (lang === 'zh' ? c.description_zh : '') || c.description_en || '';
+      const slug  = c.slug || ('case-' + idx);
+      const img   = c.cover_image || (Array.isArray(c.images) && c.images[0]) || c.image || '';
+      const imgHtml = img
+        ? `<img src="${img}" alt="${title}" style="width:100%;height:360px;object-fit:cover;border-radius:var(--radius-lg);box-shadow:var(--shadow-md);" onerror="this.parentElement.innerHTML='<div style=width:100%;height:360px;background:linear-gradient(135deg,#e0f2fe,#bfdbfe);border-radius:var(--radius-lg);display:flex;align-items:center;justify-content:center;><span style=font-size:60px>🏆</span></div>'">`
+        : `<div style="width:100%;height:360px;background:linear-gradient(135deg,#e0f2fe,#bfdbfe);border-radius:var(--radius-lg);display:flex;align-items:center;justify-content:center;"><span style="font-size:60px">🏆</span></div>`;
+
+      const metaItems = [
+        c.client_name ? `<div class="case-meta-item">🏢 <strong>Client:</strong> ${c.client_name}</div>` : '',
+        c.location    ? `<div class="case-meta-item">📍 <strong>Location:</strong> ${c.location}</div>` : '',
+        c.industry    ? `<div class="case-meta-item">🏭 <strong>Industry:</strong> ${c.industry}</div>` : '',
+        c.project_scale ? `<div class="case-meta-item">📐 <strong>Scale:</strong> ${c.project_scale}</div>` : '',
+      ].filter(Boolean).join('');
+
+      const productsHtml = c.products_used
+        ? `<p style="font-size:14px;color:var(--gray-600);margin-top:12px;"><strong>Materials Used:</strong> ${c.products_used}</p>`
+        : '';
+
+      return `
+<div class="case-detail" id="${slug}">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;">
+    <div>${imgHtml}</div>
+    <div>
+      <div class="card-tag" style="margin-bottom:12px;">${c.industry || 'Case Study'}</div>
+      <h2 style="font-family:Montserrat,sans-serif;font-size:26px;font-weight:800;color:var(--primary);margin-bottom:16px;">${title}</h2>
+      <div class="case-meta">${metaItems}</div>
+      <p style="color:var(--gray-700);line-height:1.75;margin-bottom:20px;">${desc}</p>
+      ${productsHtml}
+    </div>
+  </div>
+</div>`;
+    }).join('\n');
+
+    container.innerHTML = `<div class="container">${cards}</div>`;
+  }
+
+  async function loadCases() {
+    try {
+      const resp = await fetch('/api/case-studies');
+      const json = await resp.json();
+      const lang = getLang();
+      renderCases(json.success ? json.data : [], lang);
+    } catch(e) {
+      document.getElementById('caseSectionsContainer').style.display = 'none';
+      document.getElementById('caseStaticFallback').style.display = '';
+    }
+  }
+
+  window.addEventListener('storage', function(e) {
+    if (e.key === 'lang') loadCases();
+  });
+  window.addEventListener('langchange', loadCases);
+
+  document.addEventListener('DOMContentLoaded', loadCases);
+})();
+</script>
 
 <section class="section cta-banner" style="margin-top:0;">
   <div class="container">
@@ -592,9 +677,47 @@ document.querySelector('.quote-form').addEventListener('submit', function(e) {
 
   // For demo: show success message
   // In production: send to backend
-  alert('Thank you for your inquiry! We will get back to you within 24 hours.');
+  showSuccessModal();
   this.reset();
 });
 </script>
+
+<!-- ===== SUCCESS MODAL ===== -->
+<div class="success-modal-overlay" id="successModal" onclick="closeSuccessModal(event)">
+  <div class="success-modal">
+    <div class="success-modal-icon">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <polyline points="20 6 9 17 4 12"></polyline>
+      </svg>
+    </div>
+    <h3>Inquiry Received!</h3>
+    <p>Thanks for Your Inquiry, We will Get back to You within 8 Working Hours!</p>
+    <button class="success-close-btn" onclick="closeSuccessModal()">Got It</button>
+  </div>
+</div>
+
+
+<script>
+// ── Success Modal ──────────────────────────────────────────────────────────────
+function showSuccessModal() {
+  var overlay = document.getElementById('successModal');
+  if (overlay) {
+    overlay.classList.add('show');
+    document.body.style.overflow = 'hidden';
+  }
+}
+function closeSuccessModal(e) {
+  if (e && e.target !== document.getElementById('successModal') && !e.target.classList.contains('success-close-btn')) return;
+  var overlay = document.getElementById('successModal');
+  if (overlay) {
+    overlay.classList.remove('show');
+    document.body.style.overflow = '';
+  }
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeSuccessModal({target: document.getElementById('successModal')});
+});
+</script>
+
 </body>
 </html>
