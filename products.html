@@ -36,18 +36,10 @@
         <li class="nav-item">
           <a href="products.html" class="nav-link active" data-i18n="nav.products">Products <svg viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
           <div class="dropdown">
-            <a href="#self-adhesive-vinyl">Self Adhesive Vinyl</a>
-            <a href="#flex-banner">Flex Banner</a>
-            <a href="#one-way-vision">One Way Vision</a>
-            <a href="#cutting-vinyl">Cutting Vinyl</a>
-            <a href="#polymeric-vinyl">Polymeric / Lamination</a>
-            <a href="#window-film">Window Film / Reflective</a>
-            <a href="#pvc-foam-board">PVC Foam Board</a>
-            <a href="#acrylic-sheet">Acrylic Sheet</a>
-            <a href="#aluminum-composite-panel">ACP</a>
-            <a href="#pp-hollow-sheet">PP Hollow Sheet</a>
-            <a href="#display-stand">Display Stand</a>
-            <a href="#accessories">Accessories</a>
+            <a href="#advertising-media" data-i18n="products_page.cat.advertisingMedia">Advertising Media</a>
+            <a href="#advertising-panel" data-i18n="products_page.cat.advertisingPanel">Advertising Panel</a>
+            <a href="#display-stand" data-i18n="products_page.cat.displayStand">Display Stand</a>
+            <a href="#accessory" data-i18n="products_page.cat.accessory">Accessory</a>
           </div>
         </li>
         <li class="nav-item">
@@ -116,558 +108,644 @@
   </div>
 </nav>
 
+
 <!-- PAGE BANNER -->
 <div class="page-banner">
   <div class="container">
     <div class="breadcrumb">
       <a href="index.html" data-i18n="nav.home">Home</a>
       <span class="sep">›</span>
-      <span class="current" data-i18n="products_page.breadcrumb">Products</span>
+      <span class="current" data-i18n="nav.products">Products</span>
     </div>
-    <h1 data-i18n="products_page.pageTitle">Advertising Material Products</h1>
-    <p data-i18n="products_page.pageSubtitle">Comprehensive range of advertising substrates and display materials. Factory-direct pricing, custom specifications, global shipping.</p>
+    <h1 data-i18n="products_page.pageTitle">Our Products</h1>
+    <p data-i18n="products_page.pageSubtitle">Factory-direct advertising materials. Custom specs, competitive pricing, global shipping.</p>
   </div>
 </div>
 
-<!-- PRODUCT CATEGORY NAV -->
-<div style="background:white;border-bottom:1px solid var(--gray-200);position:sticky;top:72px;z-index:100;">
+<!-- Tab锚点 -->
+<div id="tabAnchor" style="position:relative; top:0;"></div>
+
+<!-- CATEGORY TABS BAR -->
+<div class="pcat-tabs-bar" id="pcatTabsBar">
   <div class="container">
-    <div style="display:flex;gap:4px;overflow-x:auto;padding:12px 0;scrollbar-width:none;">
-      <a href="#self-adhesive-vinyl" class="btn btn-sm btn-outline-dark" style="white-space:nowrap;font-size:12px;" data-i18n="products_page.nav.selfAdhesiveVinyl">Self Adhesive Vinyl</a>
-      <a href="#flex-banner" class="btn btn-sm btn-outline-dark" style="white-space:nowrap;font-size:12px;" data-i18n="products_page.nav.flexBanner">Flex Banner</a>
-      <a href="#one-way-vision" class="btn btn-sm btn-outline-dark" style="white-space:nowrap;font-size:12px;" data-i18n="products_page.nav.oneWayVision">One Way Vision</a>
-      <a href="#cutting-vinyl" class="btn btn-sm btn-outline-dark" style="white-space:nowrap;font-size:12px;" data-i18n="products_page.nav.cuttingVinyl">Cutting Vinyl</a>
-      <a href="#polymeric-vinyl" class="btn btn-sm btn-outline-dark" style="white-space:nowrap;font-size:12px;" data-i18n="products_page.nav.polymericVinyl">Polymeric / Lamination</a>
-      <a href="#window-film" class="btn btn-sm btn-outline-dark" style="white-space:nowrap;font-size:12px;" data-i18n="products_page.nav.windowFilm">Window Film / Reflective</a>
-      <a href="#pvc-foam-board" class="btn btn-sm btn-outline-dark" style="white-space:nowrap;font-size:12px;" data-i18n="products_page.nav.pvcFoamBoard">PVC Foam Board</a>
-      <a href="#acrylic-sheet" class="btn btn-sm btn-outline-dark" style="white-space:nowrap;font-size:12px;" data-i18n="products_page.nav.acrylicSheet">Acrylic Sheet</a>
-      <a href="#aluminum-composite-panel" class="btn btn-sm btn-outline-dark" style="white-space:nowrap;font-size:12px;" data-i18n="products_page.nav.acp">ACP</a>
-      <a href="#pp-hollow-sheet" class="btn btn-sm btn-outline-dark" style="white-space:nowrap;font-size:12px;" data-i18n="products_page.nav.ppHollowSheet">PP Hollow Sheet</a>
-      <a href="#display-stand" class="btn btn-sm btn-outline-dark" style="white-space:nowrap;font-size:12px;" data-i18n="products_page.nav.displayStand">Display Stand</a>
-      <a href="#accessories" class="btn btn-sm btn-outline-dark" style="white-space:nowrap;font-size:12px;" data-i18n="products_page.nav.accessories">Accessories</a>
+<div class="pcat-tabs">
+  <button class="pcat-tab active" data-cat="advertising-media" onclick="switchCat('advertising-media')" >
+    <span class="pcat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span>
+    <span class="pcat-label" data-i18n-en="Advertising Media" data-i18n-zh="广告介质">Advertising Media</span>
+    <span class="pcat-count">18</span>
+  </button>
+  <button class="pcat-tab" data-cat="advertising-panel" onclick="switchCat('advertising-panel')" >
+    <span class="pcat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg></span>
+    <span class="pcat-label" data-i18n-en="Advertising Panel" data-i18n-zh="广告板材">Advertising Panel</span>
+    <span class="pcat-count">6</span>
+  </button>
+  <button class="pcat-tab" data-cat="display-stand" onclick="switchCat('display-stand')" >
+    <span class="pcat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18v13H3z"/><path d="M12 16v5M8 21h8"/></svg></span>
+    <span class="pcat-label" data-i18n-en="Display Stand" data-i18n-zh="展示架">Display Stand</span>
+    <span class="pcat-count">16</span>
+  </button>
+  <button class="pcat-tab" data-cat="accessory" onclick="switchCat('accessory')" >
+    <span class="pcat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3-3a1 1 0 000-1.4l-1.6-1.6a1 1 0 00-1.4 0l-3 3z"/><path d="M5 19L3 21M9.4 13.6L5 19"/><circle cx="10" cy="13" r="3"/></svg></span>
+    <span class="pcat-label" data-i18n-en="Accessory" data-i18n-zh="配件">Accessory</span>
+    <span class="pcat-count">12</span>
+  </button>
+</div>
+  </div>
+</div>
+
+<!-- CONTENT PANELS -->
+<div class="pcat-content">
+
+<div class="pcat-panel" id="panel-advertising-media">
+  <!-- Section header -->
+  <div class="container" style="padding-top:48px;">
+    <div class="pcat-section-header">
+      <h2 data-i18n-en="Advertising Media" data-i18n-zh="广告介质">Advertising Media</h2>
+      <p data-i18n-en="High-quality printing media for indoor & outdoor advertising." data-i18n-zh="适用于室内外广告印刷的优质介质材料。">High-quality printing media for indoor & outdoor advertising.</p>
+    </div>
+    <div class="pcat-grid">
+        <div class="product-card-new" id="self-adhesive-vinyl" onclick="location.href='product-detail.html?id=self-adhesive-vinyl'">
+          <div class="pcn-img">
+            <img src="images/self-adhesive-vinyl.svg" alt="Self Adhesive Vinyl" loading="lazy" />
+            <div class="pcn-overlay">
+              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
+            </div>
+          </div>
+          <div class="pcn-body">
+            <h3 class="pcn-name" data-i18n-en="Self Adhesive Vinyl" data-i18n-zh="自粘乙烯基">Self Adhesive Vinyl</h3>
+          </div>
+        </div>        <div class="product-card-new" id="transparent-vinyl" onclick="location.href='product-detail.html?id=transparent-vinyl'">
+          <div class="pcn-img">
+            <img src="images/transparent-vinyl.svg" alt="Transparent Self Adhesive Vinyl" loading="lazy" />
+            <div class="pcn-overlay">
+              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
+            </div>
+          </div>
+          <div class="pcn-body">
+            <h3 class="pcn-name" data-i18n-en="Transparent Self Adhesive Vinyl" data-i18n-zh="透明自粘乙烯基">Transparent Self Adhesive Vinyl</h3>
+          </div>
+        </div>        <div class="product-card-new" id="160-vinyl" onclick="location.href='product-detail.html?id=160-vinyl'">
+          <div class="pcn-img">
+            <img src="images/160-vinyl.svg" alt="160 Self Adhesive Vinyl" loading="lazy" />
+            <div class="pcn-overlay">
+              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
+            </div>
+          </div>
+          <div class="pcn-body">
+            <h3 class="pcn-name" data-i18n-en="160 Self Adhesive Vinyl" data-i18n-zh="160 自粘乙烯基">160 Self Adhesive Vinyl</h3>
+          </div>
+        </div>        <div class="product-card-new" id="black-glue-vinyl" onclick="location.href='product-detail.html?id=black-glue-vinyl'">
+          <div class="pcn-img">
+            <img src="images/black-glue-vinyl.svg" alt="Black Glue Self Adhesive Vinyl" loading="lazy" />
+            <div class="pcn-overlay">
+              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
+            </div>
+          </div>
+          <div class="pcn-body">
+            <h3 class="pcn-name" data-i18n-en="Black Glue Self Adhesive Vinyl" data-i18n-zh="黑胶自粘乙烯基">Black Glue Self Adhesive Vinyl</h3>
+          </div>
+        </div>        <div class="product-card-new" id="photo-paper" onclick="location.href='product-detail.html?id=photo-paper'">
+          <div class="pcn-img">
+            <img src="images/photo-paper.svg" alt="Photo Paper" loading="lazy" />
+            <div class="pcn-overlay">
+              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
+            </div>
+          </div>
+          <div class="pcn-body">
+            <h3 class="pcn-name" data-i18n-en="Photo Paper" data-i18n-zh="相纸">Photo Paper</h3>
+          </div>
+        </div>        <div class="product-card-new" id="pet-film" onclick="location.href='product-detail.html?id=pet-film'">
+          <div class="pcn-img">
+            <img src="images/pet-film.svg" alt="PET Film" loading="lazy" />
+            <div class="pcn-overlay">
+              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
+            </div>
+          </div>
+          <div class="pcn-body">
+            <h3 class="pcn-name" data-i18n-en="PET Film" data-i18n-zh="PET 膜">PET Film</h3>
+          </div>
+        </div>        <div class="product-card-new" id="backlit-film" onclick="location.href='product-detail.html?id=backlit-film'">
+          <div class="pcn-img">
+            <img src="images/backlit-film.svg" alt="Backlit Film For Light Box" loading="lazy" />
+            <div class="pcn-overlay">
+              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
+            </div>
+          </div>
+          <div class="pcn-body">
+            <h3 class="pcn-name" data-i18n-en="Backlit Film For Light Box" data-i18n-zh="灯箱背光膜">Backlit Film For Light Box</h3>
+          </div>
+        </div>        <div class="product-card-new" id="eco-pp-banner" onclick="location.href='product-detail.html?id=eco-pp-banner'">
+          <div class="pcn-img">
+            <img src="images/eco-pp-banner.svg" alt="ECO PP Banner" loading="lazy" />
+            <div class="pcn-overlay">
+              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
+            </div>
+          </div>
+          <div class="pcn-body">
+            <h3 class="pcn-name" data-i18n-en="ECO PP Banner" data-i18n-zh="ECO PP 横幅">ECO PP Banner</h3>
+          </div>
+        </div>        <div class="product-card-new" id="one-way-vision" onclick="location.href='product-detail.html?id=one-way-vision'">
+          <div class="pcn-img">
+            <img src="images/one-way-vision.svg" alt="One Way Vision" loading="lazy" />
+            <div class="pcn-overlay">
+              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
+            </div>
+          </div>
+          <div class="pcn-body">
+            <h3 class="pcn-name" data-i18n-en="One Way Vision" data-i18n-zh="单向透视膜">One Way Vision</h3>
+          </div>
+        </div>        <div class="product-card-new" id="cutting-vinyl" onclick="location.href='product-detail.html?id=cutting-vinyl'">
+          <div class="pcn-img">
+            <img src="images/cutting-vinyl.svg" alt="Cutting Vinyl" loading="lazy" />
+            <div class="pcn-overlay">
+              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
+            </div>
+          </div>
+          <div class="pcn-body">
+            <h3 class="pcn-name" data-i18n-en="Cutting Vinyl" data-i18n-zh="刻字膜">Cutting Vinyl</h3>
+          </div>
+        </div>        <div class="product-card-new" id="pvc-flex-banner" onclick="location.href='product-detail.html?id=pvc-flex-banner'">
+          <div class="pcn-img">
+            <img src="images/pvc-flex-banner.svg" alt="PVC Flex Banner" loading="lazy" />
+            <div class="pcn-overlay">
+              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
+            </div>
+          </div>
+          <div class="pcn-body">
+            <h3 class="pcn-name" data-i18n-en="PVC Flex Banner" data-i18n-zh="PVC 柔性横幅">PVC Flex Banner</h3>
+          </div>
+        </div>        <div class="product-card-new" id="polymeric-vinyl-140" onclick="location.href='product-detail.html?id=polymeric-vinyl-140'">
+          <div class="pcn-img">
+            <img src="images/polymeric-vinyl-140.svg" alt="140 Polymeric Self-Adhesive Vinyl" loading="lazy" />
+            <div class="pcn-overlay">
+              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
+            </div>
+          </div>
+          <div class="pcn-body">
+            <h3 class="pcn-name" data-i18n-en="140 Polymeric Self-Adhesive Vinyl" data-i18n-zh="140 聚合自粘乙烯基">140 Polymeric Self-Adhesive Vinyl</h3>
+          </div>
+        </div>        <div class="product-card-new" id="cold-lamination-140" onclick="location.href='product-detail.html?id=cold-lamination-140'">
+          <div class="pcn-img">
+            <img src="images/cold-lamination-140.svg" alt="140 Polymeric Cold Lamination Film" loading="lazy" />
+            <div class="pcn-overlay">
+              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
+            </div>
+          </div>
+          <div class="pcn-body">
+            <h3 class="pcn-name" data-i18n-en="140 Polymeric Cold Lamination Film" data-i18n-zh="140 聚合冷裱膜">140 Polymeric Cold Lamination Film</h3>
+          </div>
+        </div>        <div class="product-card-new" id="cold-lamination-film" onclick="location.href='product-detail.html?id=cold-lamination-film'">
+          <div class="pcn-img">
+            <img src="images/cold-lamination-film.svg" alt="Cold Lamination Film" loading="lazy" />
+            <div class="pcn-overlay">
+              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
+            </div>
+          </div>
+          <div class="pcn-body">
+            <h3 class="pcn-name" data-i18n-en="Cold Lamination Film" data-i18n-zh="冷裱膜">Cold Lamination Film</h3>
+          </div>
+        </div>        <div class="product-card-new" id="3d-cold-lamination" onclick="location.href='product-detail.html?id=3d-cold-lamination'">
+          <div class="pcn-img">
+            <img src="images/3d-cold-lamination.svg" alt="3D Cold Lamination Film" loading="lazy" />
+            <div class="pcn-overlay">
+              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
+            </div>
+          </div>
+          <div class="pcn-body">
+            <h3 class="pcn-name" data-i18n-en="3D Cold Lamination Film" data-i18n-zh="3D 冷裱膜">3D Cold Lamination Film</h3>
+          </div>
+        </div>        <div class="product-card-new" id="window-film" onclick="location.href='product-detail.html?id=window-film'">
+          <div class="pcn-img">
+            <img src="images/window-film.svg" alt="Window Film" loading="lazy" />
+            <div class="pcn-overlay">
+              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
+            </div>
+          </div>
+          <div class="pcn-body">
+            <h3 class="pcn-name" data-i18n-en="Window Film" data-i18n-zh="窗膜">Window Film</h3>
+          </div>
+        </div>        <div class="product-card-new" id="reflective-materials" onclick="location.href='product-detail.html?id=reflective-materials'">
+          <div class="pcn-img">
+            <img src="images/reflective-materials.svg" alt="Reflective Materials" loading="lazy" />
+            <div class="pcn-overlay">
+              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
+            </div>
+          </div>
+          <div class="pcn-body">
+            <h3 class="pcn-name" data-i18n-en="Reflective Materials" data-i18n-zh="反光材料">Reflective Materials</h3>
+          </div>
+        </div>        <div class="product-card-new" id="canvas-flag-fabric" onclick="location.href='product-detail.html?id=canvas-flag-fabric'">
+          <div class="pcn-img">
+            <img src="images/canvas-flag-fabric.svg" alt="Canvas, Flag Fabric, Soft Film, Heat Transfer Series" loading="lazy" />
+            <div class="pcn-overlay">
+              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
+            </div>
+          </div>
+          <div class="pcn-body">
+            <h3 class="pcn-name" data-i18n-en="Canvas, Flag Fabric, Soft Film, Heat Transfer Series" data-i18n-zh="画布、旗帜布、软膜、热转印系列">Canvas, Flag Fabric, Soft Film, Heat Transfer Series</h3>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="pcat-panel" id="panel-advertising-panel" style="display:none">
+  <!-- Section header -->
+  <div class="container" style="padding-top:48px;">
+    <div class="pcat-section-header">
+      <h2 data-i18n-en="Advertising Panel" data-i18n-zh="广告板材">Advertising Panel</h2>
+      <p data-i18n-en="Rigid substrates for signs, displays and construction." data-i18n-zh="适用于标识、展示和建筑的硬质基材。">Rigid substrates for signs, displays and construction.</p>
+    </div>
+    <div class="pcat-grid">
+        <div class="product-card-new" id="pvc-foam-board" onclick="location.href='product-detail.html?id=pvc-foam-board'">
+          <div class="pcn-img">
+            <img src="images/pvc-foam-board.svg" alt="PVC Foam Board" loading="lazy" />
+            <div class="pcn-overlay">
+              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
+            </div>
+          </div>
+          <div class="pcn-body">
+            <h3 class="pcn-name" data-i18n-en="PVC Foam Board" data-i18n-zh="PVC 发泡板">PVC Foam Board</h3>
+          </div>
+        </div>        <div class="product-card-new" id="acrylic-sheet" onclick="location.href='product-detail.html?id=acrylic-sheet'">
+          <div class="pcn-img">
+            <img src="images/acrylic-sheet.svg" alt="Acrylic Sheet" loading="lazy" />
+            <div class="pcn-overlay">
+              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
+            </div>
+          </div>
+          <div class="pcn-body">
+            <h3 class="pcn-name" data-i18n-en="Acrylic Sheet" data-i18n-zh="亚克力板">Acrylic Sheet</h3>
+          </div>
+        </div>        <div class="product-card-new" id="polystyrene-sheet" onclick="location.href='product-detail.html?id=polystyrene-sheet'">
+          <div class="pcn-img">
+            <img src="images/polystyrene-sheet.svg" alt="Polystyrene Sheet" loading="lazy" />
+            <div class="pcn-overlay">
+              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
+            </div>
+          </div>
+          <div class="pcn-body">
+            <h3 class="pcn-name" data-i18n-en="Polystyrene Sheet" data-i18n-zh="聚苯乙烯板">Polystyrene Sheet</h3>
+          </div>
+        </div>        <div class="product-card-new" id="pp-hollow-sheet" onclick="location.href='product-detail.html?id=pp-hollow-sheet'">
+          <div class="pcn-img">
+            <img src="images/pp-hollow-sheet.svg" alt="PP Hollow Sheet" loading="lazy" />
+            <div class="pcn-overlay">
+              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
+            </div>
+          </div>
+          <div class="pcn-body">
+            <h3 class="pcn-name" data-i18n-en="PP Hollow Sheet" data-i18n-zh="PP 中空板">PP Hollow Sheet</h3>
+          </div>
+        </div>        <div class="product-card-new" id="aluminum-composite-panel" onclick="location.href='product-detail.html?id=aluminum-composite-panel'">
+          <div class="pcn-img">
+            <img src="images/aluminum-composite-panel.svg" alt="Aluminum Composite Panel" loading="lazy" />
+            <div class="pcn-overlay">
+              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
+            </div>
+          </div>
+          <div class="pcn-body">
+            <h3 class="pcn-name" data-i18n-en="Aluminum Composite Panel" data-i18n-zh="铝塑板">Aluminum Composite Panel</h3>
+          </div>
+        </div>        <div class="product-card-new" id="abs-pvc-kt-board" onclick="location.href='product-detail.html?id=abs-pvc-kt-board'">
+          <div class="pcn-img">
+            <img src="images/abs-pvc-kt-board.svg" alt="ABS Sheet, ABS Double Color Sheet, PVC Rigid Sheet, KT Board" loading="lazy" />
+            <div class="pcn-overlay">
+              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
+            </div>
+          </div>
+          <div class="pcn-body">
+            <h3 class="pcn-name" data-i18n-en="ABS Sheet, ABS Double Color Sheet, PVC Rigid Sheet, KT Board" data-i18n-zh="ABS 板、ABS 双色板、PVC 硬板、KT 板">ABS Sheet, ABS Double Color Sheet, PVC Rigid Sheet, KT Board</h3>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="pcat-panel" id="panel-display-stand" style="display:none">
+  <!-- Section header -->
+  <div class="container" style="padding-top:48px;">
+    <div class="pcat-section-header">
+      <h2 data-i18n-en="Display Stand" data-i18n-zh="展示架">Display Stand</h2>
+      <p data-i18n-en="Professional display stands for events, retail and exhibitions." data-i18n-zh="适用于活动、零售和展览的专业展示架。">Professional display stands for events, retail and exhibitions.</p>
+    </div>
+    <div class="pcat-grid">
+        <div class="product-card-new" id="x-banner" onclick="location.href='product-detail.html?id=x-banner'">
+          <div class="pcn-img">
+            <img src="images/x-banner.svg" alt="X-Banner Series" loading="lazy" />
+            <div class="pcn-overlay">
+              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
+            </div>
+          </div>
+          <div class="pcn-body">
+            <h3 class="pcn-name" data-i18n-en="X-Banner Series" data-i18n-zh="展架系列">X-Banner Series</h3>
+          </div>
+        </div>        <div class="product-card-new" id="roll-up-stand" onclick="location.href='product-detail.html?id=roll-up-stand'">
+          <div class="pcn-img">
+            <img src="images/roll-up-stand.svg" alt="Roll Up Stand Series" loading="lazy" />
+            <div class="pcn-overlay">
+              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
+            </div>
+          </div>
+          <div class="pcn-body">
+            <h3 class="pcn-name" data-i18n-en="Roll Up Stand Series" data-i18n-zh="易拉宝系列">Roll Up Stand Series</h3>
+          </div>
+        </div>        <div class="product-card-new" id="pop-up-banner" onclick="location.href='product-detail.html?id=pop-up-banner'">
+          <div class="pcn-img">
+            <img src="images/pop-up-banner.svg" alt="POP Up Banner" loading="lazy" />
+            <div class="pcn-overlay">
+              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
+            </div>
+          </div>
+          <div class="pcn-body">
+            <h3 class="pcn-name" data-i18n-en="POP Up Banner" data-i18n-zh="POP 展架">POP Up Banner</h3>
+          </div>
+        </div>        <div class="product-card-new" id="aluminum-reception" onclick="location.href='product-detail.html?id=aluminum-reception'">
+          <div class="pcn-img">
+            <img src="images/aluminum-reception.svg" alt="Aluminum Reception" loading="lazy" />
+            <div class="pcn-overlay">
+              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
+            </div>
+          </div>
+          <div class="pcn-body">
+            <h3 class="pcn-name" data-i18n-en="Aluminum Reception" data-i18n-zh="铝合金接待台">Aluminum Reception</h3>
+          </div>
+        </div>        <div class="product-card-new" id="pp-promotion-table" onclick="location.href='product-detail.html?id=pp-promotion-table'">
+          <div class="pcn-img">
+            <img src="images/pp-promotion-table.svg" alt="PP Promotion Table" loading="lazy" />
+            <div class="pcn-overlay">
+              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
+            </div>
+          </div>
+          <div class="pcn-body">
+            <h3 class="pcn-name" data-i18n-en="PP Promotion Table" data-i18n-zh="PP 促销台">PP Promotion Table</h3>
+          </div>
+        </div>        <div class="product-card-new" id="tripod-pop-easel" onclick="location.href='product-detail.html?id=tripod-pop-easel'">
+          <div class="pcn-img">
+            <img src="images/tripod-pop-easel.svg" alt="Tripod POP Easel" loading="lazy" />
+            <div class="pcn-overlay">
+              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
+            </div>
+          </div>
+          <div class="pcn-body">
+            <h3 class="pcn-name" data-i18n-en="Tripod POP Easel" data-i18n-zh="三脚架 POP 画架">Tripod POP Easel</h3>
+          </div>
+        </div>        <div class="product-card-new" id="outdoor-flagpole" onclick="location.href='product-detail.html?id=outdoor-flagpole'">
+          <div class="pcn-img">
+            <img src="images/outdoor-flagpole.svg" alt="Outdoor Flagpole Series" loading="lazy" />
+            <div class="pcn-overlay">
+              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
+            </div>
+          </div>
+          <div class="pcn-body">
+            <h3 class="pcn-name" data-i18n-en="Outdoor Flagpole Series" data-i18n-zh="户外旗杆系列">Outdoor Flagpole Series</h3>
+          </div>
+        </div>        <div class="product-card-new" id="folding-shelf" onclick="location.href='product-detail.html?id=folding-shelf'">
+          <div class="pcn-img">
+            <img src="images/folding-shelf.svg" alt="Folding Shelf" loading="lazy" />
+            <div class="pcn-overlay">
+              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
+            </div>
+          </div>
+          <div class="pcn-body">
+            <h3 class="pcn-name" data-i18n-en="Folding Shelf" data-i18n-zh="折叠展示架">Folding Shelf</h3>
+          </div>
+        </div>        <div class="product-card-new" id="poster-stand" onclick="location.href='product-detail.html?id=poster-stand'">
+          <div class="pcn-img">
+            <img src="images/poster-stand.svg" alt="Poster Stand" loading="lazy" />
+            <div class="pcn-overlay">
+              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
+            </div>
+          </div>
+          <div class="pcn-body">
+            <h3 class="pcn-name" data-i18n-en="Poster Stand" data-i18n-zh="海报架">Poster Stand</h3>
+          </div>
+        </div>        <div class="product-card-new" id="crystal-light-box" onclick="location.href='product-detail.html?id=crystal-light-box'">
+          <div class="pcn-img">
+            <img src="images/crystal-light-box.svg" alt="Crystal Slim Light Box" loading="lazy" />
+            <div class="pcn-overlay">
+              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
+            </div>
+          </div>
+          <div class="pcn-body">
+            <h3 class="pcn-name" data-i18n-en="Crystal Slim Light Box" data-i18n-zh="水晶超薄灯箱">Crystal Slim Light Box</h3>
+          </div>
+        </div>        <div class="product-card-new" id="aluminum-light-box" onclick="location.href='product-detail.html?id=aluminum-light-box'">
+          <div class="pcn-img">
+            <img src="images/aluminum-light-box.svg" alt="Aluminum Light Box" loading="lazy" />
+            <div class="pcn-overlay">
+              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
+            </div>
+          </div>
+          <div class="pcn-body">
+            <h3 class="pcn-name" data-i18n-en="Aluminum Light Box" data-i18n-zh="铝制灯箱">Aluminum Light Box</h3>
+          </div>
+        </div>        <div class="product-card-new" id="water-injection-flagpole" onclick="location.href='product-detail.html?id=water-injection-flagpole'">
+          <div class="pcn-img">
+            <img src="images/water-injection-flagpole.svg" alt="Water-Injection Flagpole" loading="lazy" />
+            <div class="pcn-overlay">
+              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
+            </div>
+          </div>
+          <div class="pcn-body">
+            <h3 class="pcn-name" data-i18n-en="Water-Injection Flagpole" data-i18n-zh="注水旗杆">Water-Injection Flagpole</h3>
+          </div>
+        </div>        <div class="product-card-new" id="lgate-banner" onclick="location.href='product-detail.html?id=lgate-banner'">
+          <div class="pcn-img">
+            <img src="images/lgate-banner.svg" alt="Lgate Banner" loading="lazy" />
+            <div class="pcn-overlay">
+              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
+            </div>
+          </div>
+          <div class="pcn-body">
+            <h3 class="pcn-name" data-i18n-en="Lgate Banner" data-i18n-zh="Lgate 横幅架">Lgate Banner</h3>
+          </div>
+        </div>        <div class="product-card-new" id="luxury-folding-shelf" onclick="location.href='product-detail.html?id=luxury-folding-shelf'">
+          <div class="pcn-img">
+            <img src="images/luxury-folding-shelf.svg" alt="Luxury Folding Shelf" loading="lazy" />
+            <div class="pcn-overlay">
+              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
+            </div>
+          </div>
+          <div class="pcn-body">
+            <h3 class="pcn-name" data-i18n-en="Luxury Folding Shelf" data-i18n-zh="高档折叠架">Luxury Folding Shelf</h3>
+          </div>
+        </div>        <div class="product-card-new" id="message-display" onclick="location.href='product-detail.html?id=message-display'">
+          <div class="pcn-img">
+            <img src="images/message-display.svg" alt="Message Display" loading="lazy" />
+            <div class="pcn-overlay">
+              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
+            </div>
+          </div>
+          <div class="pcn-body">
+            <h3 class="pcn-name" data-i18n-en="Message Display" data-i18n-zh="信息展示架">Message Display</h3>
+          </div>
+        </div>        <div class="product-card-new" id="grommet-machine" onclick="location.href='product-detail.html?id=grommet-machine'">
+          <div class="pcn-img">
+            <img src="images/grommet-machine.svg" alt="Grommet Machine" loading="lazy" />
+            <div class="pcn-overlay">
+              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
+            </div>
+          </div>
+          <div class="pcn-body">
+            <h3 class="pcn-name" data-i18n-en="Grommet Machine" data-i18n-zh="打扣机">Grommet Machine</h3>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="pcat-panel" id="panel-accessory" style="display:none">
+  <!-- Section header -->
+  <div class="container" style="padding-top:48px;">
+    <div class="pcat-section-header">
+      <h2 data-i18n-en="Accessory" data-i18n-zh="配件">Accessory</h2>
+      <p data-i18n-en="Essential tools and accessories for advertising professionals." data-i18n-zh="广告从业者必备的工具和配件。">Essential tools and accessories for advertising professionals.</p>
+    </div>
+    <div class="pcat-grid">
+        <div class="product-card-new" id="led-channelletter-trim" onclick="location.href='product-detail.html?id=led-channelletter-trim'">
+          <div class="pcn-img">
+            <img src="images/led-channelletter-trim.svg" alt="LED Channelletter Trim" loading="lazy" />
+            <div class="pcn-overlay">
+              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
+            </div>
+          </div>
+          <div class="pcn-body">
+            <h3 class="pcn-name" data-i18n-en="LED Channelletter Trim" data-i18n-zh="LED 围边字包边条">LED Channelletter Trim</h3>
+          </div>
+        </div>        <div class="product-card-new" id="led-module" onclick="location.href='product-detail.html?id=led-module'">
+          <div class="pcn-img">
+            <img src="images/led-module.svg" alt="LED Module" loading="lazy" />
+            <div class="pcn-overlay">
+              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
+            </div>
+          </div>
+          <div class="pcn-body">
+            <h3 class="pcn-name" data-i18n-en="LED Module" data-i18n-zh="LED 模组">LED Module</h3>
+          </div>
+        </div>        <div class="product-card-new" id="led-lightbox" onclick="location.href='product-detail.html?id=led-lightbox'">
+          <div class="pcn-img">
+            <img src="images/led-lightbox.svg" alt="LED Special for Light Box" loading="lazy" />
+            <div class="pcn-overlay">
+              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
+            </div>
+          </div>
+          <div class="pcn-body">
+            <h3 class="pcn-name" data-i18n-en="LED Special for Light Box" data-i18n-zh="灯箱专用 LED 灯">LED Special for Light Box</h3>
+          </div>
+        </div>        <div class="product-card-new" id="led-strip" onclick="location.href='product-detail.html?id=led-strip'">
+          <div class="pcn-img">
+            <img src="images/led-strip.svg" alt="LED Flexible Strip" loading="lazy" />
+            <div class="pcn-overlay">
+              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
+            </div>
+          </div>
+          <div class="pcn-body">
+            <h3 class="pcn-name" data-i18n-en="LED Flexible Strip" data-i18n-zh="LED 灯带">LED Flexible Strip</h3>
+          </div>
+        </div>        <div class="product-card-new" id="led-power-supply" onclick="location.href='product-detail.html?id=led-power-supply'">
+          <div class="pcn-img">
+            <img src="images/led-power-supply.svg" alt="LED Power Supply" loading="lazy" />
+            <div class="pcn-overlay">
+              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
+            </div>
+          </div>
+          <div class="pcn-body">
+            <h3 class="pcn-name" data-i18n-en="LED Power Supply" data-i18n-zh="LED 电源">LED Power Supply</h3>
+          </div>
+        </div>        <div class="product-card-new" id="cutting-mat" onclick="location.href='product-detail.html?id=cutting-mat'">
+          <div class="pcn-img">
+            <img src="images/cutting-mat.svg" alt="Cutting Mat" loading="lazy" />
+            <div class="pcn-overlay">
+              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
+            </div>
+          </div>
+          <div class="pcn-body">
+            <h3 class="pcn-name" data-i18n-en="Cutting Mat" data-i18n-zh="切割垫">Cutting Mat</h3>
+          </div>
+        </div>        <div class="product-card-new" id="squeegee" onclick="location.href='product-detail.html?id=squeegee'">
+          <div class="pcn-img">
+            <img src="images/squeegee.svg" alt="Squeegee" loading="lazy" />
+            <div class="pcn-overlay">
+              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
+            </div>
+          </div>
+          <div class="pcn-body">
+            <h3 class="pcn-name" data-i18n-en="Squeegee" data-i18n-zh="刮胶板">Squeegee</h3>
+          </div>
+        </div>        <div class="product-card-new" id="knife" onclick="location.href='product-detail.html?id=knife'">
+          <div class="pcn-img">
+            <img src="images/knife.svg" alt="Multi-functional Knife" loading="lazy" />
+            <div class="pcn-overlay">
+              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
+            </div>
+          </div>
+          <div class="pcn-body">
+            <h3 class="pcn-name" data-i18n-en="Multi-functional Knife" data-i18n-zh="多功能刀具">Multi-functional Knife</h3>
+          </div>
+        </div>        <div class="product-card-new" id="advertising-glue" onclick="location.href='product-detail.html?id=advertising-glue'">
+          <div class="pcn-img">
+            <img src="images/advertising-glue.svg" alt="Advertising Glue Series" loading="lazy" />
+            <div class="pcn-overlay">
+              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
+            </div>
+          </div>
+          <div class="pcn-body">
+            <h3 class="pcn-name" data-i18n-en="Advertising Glue Series" data-i18n-zh="广告胶水系列">Advertising Glue Series</h3>
+          </div>
+        </div>        <div class="product-card-new" id="double-sided-adhesive" onclick="location.href='product-detail.html?id=double-sided-adhesive'">
+          <div class="pcn-img">
+            <img src="images/double-sided-adhesive.svg" alt="Double Sides Adhesive, Sponge Sticker" loading="lazy" />
+            <div class="pcn-overlay">
+              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
+            </div>
+          </div>
+          <div class="pcn-body">
+            <h3 class="pcn-name" data-i18n-en="Double Sides Adhesive, Sponge Sticker" data-i18n-zh="双面胶、海绵胶">Double Sides Adhesive, Sponge Sticker</h3>
+          </div>
+        </div>        <div class="product-card-new" id="nylon-cable-tie" onclick="location.href='product-detail.html?id=nylon-cable-tie'">
+          <div class="pcn-img">
+            <img src="images/nylon-cable-tie.svg" alt="Nylon Cable Tie, Banner Rope" loading="lazy" />
+            <div class="pcn-overlay">
+              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
+            </div>
+          </div>
+          <div class="pcn-body">
+            <h3 class="pcn-name" data-i18n-en="Nylon Cable Tie, Banner Rope" data-i18n-zh="尼龙扎带、广告绳">Nylon Cable Tie, Banner Rope</h3>
+          </div>
+        </div>        <div class="product-card-new" id="hot-wind-gun" onclick="location.href='product-detail.html?id=hot-wind-gun'">
+          <div class="pcn-img">
+            <img src="images/hot-wind-gun.svg" alt="Hot Wind Gun" loading="lazy" />
+            <div class="pcn-overlay">
+              <a href="#" class="pcn-btn pcn-detail-btn">View Details</a>
+            </div>
+          </div>
+          <div class="pcn-body">
+            <h3 class="pcn-name" data-i18n-en="Hot Wind Gun" data-i18n-zh="热风枪">Hot Wind Gun</h3>
+          </div>
+        </div>
     </div>
   </div>
 </div>
 
-<!-- ===== PRODUCT 1: SELF ADHESIVE VINYL ===== -->
-<section class="section" id="self-adhesive-vinyl">
-  <div class="container">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;">
-      <div>
-        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80" alt="Self Adhesive Vinyl" style="width:100%;height:360px;object-fit:cover;border-radius:var(--radius-lg);box-shadow:var(--shadow-md);" />
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px;">
-          <img src="https://images.unsplash.com/photo-1572021335469-31706a17aaef?w=400&q=75" alt="Self Adhesive Vinyl Detail" style="width:100%;height:140px;object-fit:cover;border-radius:var(--radius);" />
-          <img src="https://images.unsplash.com/photo-1605117882932-f9e32b03fea9?w=400&q=75" alt="Self Adhesive Vinyl Application" style="width:100%;height:140px;object-fit:cover;border-radius:var(--radius);" />
-        </div>
-      </div>
-      <div>
-        <div class="card-tag" style="margin-bottom:12px;" data-i18n="products_page.selfAdhesiveVinyl.tag">Vinyl Films</div>
-        <h2 style="font-family:Montserrat,sans-serif;font-size:28px;font-weight:800;color:var(--primary);margin-bottom:16px;" data-i18n="products_page.selfAdhesiveVinyl.title">Self Adhesive Vinyl</h2>
-        <p style="color:var(--gray-700);line-height:1.75;margin-bottom:24px;" data-i18n="products_page.selfAdhesiveVinyl.desc">Premium self-adhesive vinyl available in multiple weights and finishes. Suitable for vehicle wraps, window graphics, promotional displays, floor graphics and general signage applications. Strong adhesion, easy application, clean removable options available.</p>
-        <h3 style="font-size:15px;font-weight:700;color:var(--primary);margin-bottom:12px;" data-i18n="products_page.selfAdhesiveVinyl.specs">Specifications</h3>
-        <div style="overflow-x:auto;margin-bottom:24px;">
-          <table class="spec-table">
-            <tr><th data-i18n="products_page.selfAdhesiveVinyl.model">Model</th><th data-i18n="products_page.selfAdhesiveVinyl.weight">Weight</th><th data-i18n="products_page.selfAdhesiveVinyl.thickness">Thickness</th><th data-i18n="products_page.selfAdhesiveVinyl.finish">Finish</th></tr>
-            <tr><td>JY-SAV-80</td><td>80 g/m²</td><td>80 μm</td><td data-i18n="products_page.selfAdhesiveVinyl.glossyMatte">Glossy / Matte</td></tr>
-            <tr><td>JY-SAV-100</td><td>100 g/m²</td><td>100 μm</td><td data-i18n="products_page.selfAdhesiveVinyl.glossyMatte">Glossy / Matte</td></tr>
-            <tr><td>JY-SAV-120</td><td>120 g/m²</td><td>120 μm</td><td data-i18n="products_page.selfAdhesiveVinyl.glossyMatte">Glossy / Matte</td></tr>
-            <tr><td>JY-SAV-140</td><td>140 g/m²</td><td>140 μm</td><td data-i18n="products_page.selfAdhesiveVinyl.transparent">Transparent</td></tr>
-            <tr><td>JY-SAV-160</td><td>160 g/m²</td><td>160 μm</td><td data-i18n="products_page.selfAdhesiveVinyl.blackBack">Black Back / High Gloss</td></tr>
-          </table>
-        </div>
-        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px;">
-          <span class="spec-tag" data-i18n="products_page.selfAdhesiveVinyl.width">Width: 0.61 / 1.07 / 1.27 / 1.52 m</span>
-          <span class="spec-tag" data-i18n="products_page.selfAdhesiveVinyl.rollLength">Roll Length: 50 m standard</span>
-          <span class="spec-tag" data-i18n="products_page.selfAdhesiveVinyl.customRoll">Custom roll available</span>
-          <span class="spec-tag" data-i18n="products_page.selfAdhesiveVinyl.printable">Solvent / Eco / UV printable</span>
-        </div>
-        <h3 style="font-size:15px;font-weight:700;color:var(--primary);margin-bottom:10px;" data-i18n="products_page.selfAdhesiveVinyl.keyFeatures">Key Features</h3>
-        <ul style="margin-bottom:24px;">
-          <li style="display:flex;gap:10px;margin-bottom:8px;font-size:14px;color:var(--gray-700);"><span style="color:var(--accent-blue);">✓</span> <span data-i18n="products_page.selfAdhesiveVinyl.feature1">High-tack and removable adhesive options</span></li>
-          <li style="display:flex;gap:10px;margin-bottom:8px;font-size:14px;color:var(--gray-700);"><span style="color:var(--accent-blue);">✓</span> <span data-i18n="products_page.selfAdhesiveVinyl.feature2">Excellent ink absorption for vivid color output</span></li>
-          <li style="display:flex;gap:10px;margin-bottom:8px;font-size:14px;color:var(--gray-700);"><span style="color:var(--accent-blue);">✓</span> <span data-i18n="products_page.selfAdhesiveVinyl.feature3">UV-resistant surface coating for outdoor durability (3–5 years)</span></li>
-          <li style="display:flex;gap:10px;font-size:14px;color:var(--gray-700);"><span style="color:var(--accent-blue);">✓</span> <span data-i18n="products_page.selfAdhesiveVinyl.feature4">Export packaging: sealed roll in carton, moisture-proof</span></li>
-        </ul>
-        <div style="display:flex;gap:12px;flex-wrap:wrap;">
-          <a href="contact.html" class="btn btn-primary" data-i18n="products_page.selfAdhesiveVinyl.getQuote">Get a Quote</a>
-          <a href="https://wa.me/8613808828019" target="_blank" class="btn btn-outline-dark" data-i18n="products_page.selfAdhesiveVinyl.whatsapp">💬 WhatsApp</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+</div>
+</div>
 
-<!-- ===== PRODUCT 2: FLEX BANNER ===== -->
-<section class="section bg-light" id="flex-banner">
-  <div class="container">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;">
-      <div>
-        <div class="card-tag" style="margin-bottom:12px;" data-i18n="products_page.flexBanner.tag">Banner Media</div>
-        <h2 style="font-family:Montserrat,sans-serif;font-size:28px;font-weight:800;color:var(--primary);margin-bottom:16px;" data-i18n="products_page.flexBanner.title">PVC Flex Banner</h2>
-        <p style="color:var(--gray-700);line-height:1.75;margin-bottom:24px;" data-i18n="products_page.flexBanner.desc">High-quality PVC flex banner for large format outdoor and indoor advertising. Available in front-lit, back-lit, knife-coated and blockout types. Excellent tensile strength, waterproof, tear-resistant, and compatible with all major solvent and UV printers.</p>
-        <h3 style="font-size:15px;font-weight:700;color:var(--primary);margin-bottom:12px;" data-i18n="products_page.flexBanner.specs">Specifications</h3>
-        <div style="overflow-x:auto;margin-bottom:24px;">
-          <table class="spec-table">
-            <tr><th data-i18n="products_page.flexBanner.type">Type</th><th data-i18n="products_page.flexBanner.weight">Weight</th><th data-i18n="products_page.flexBanner.application">Application</th></tr>
-            <tr><td data-i18n="products_page.flexBanner.frontLit">Front-lit</td><td>440 – 650 g/m²</td><td data-i18n="products_page.flexBanner.frontLitApp">Outdoor billboards, sunlit signage</td></tr>
-            <tr><td data-i18n="products_page.flexBanner.backLit">Back-lit</td><td>440 – 500 g/m²</td><td data-i18n="products_page.flexBanner.backLitApp">Light boxes, illuminated signs</td></tr>
-            <tr><td data-i18n="products_page.flexBanner.knifeCoated">Knife-coated</td><td>440 – 600 g/m²</td><td data-i18n="products_page.flexBanner.knifeCoatedApp">High-resolution outdoor printing</td></tr>
-            <tr><td data-i18n="products_page.flexBanner.blockout">Blockout</td><td>500 – 650 g/m²</td><td data-i18n="products_page.flexBanner.blockoutApp">Double-sided, opaque applications</td></tr>
-          </table>
-        </div>
-        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px;">
-          <span class="spec-tag" data-i18n="products_page.flexBanner.width">Width: 2.5 / 3.2 / 5.0 m</span>
-          <span class="spec-tag" data-i18n="products_page.flexBanner.length">Length: 50 m per roll</span>
-          <span class="spec-tag" data-i18n="products_page.flexBanner.finishing">Welded / Hemmed finishing</span>
-        </div>
-        <ul style="margin-bottom:24px;">
-          <li style="display:flex;gap:10px;margin-bottom:8px;font-size:14px;color:var(--gray-700);"><span style="color:var(--accent-blue);">✓</span> <span data-i18n="products_page.flexBanner.feature1">High tensile strength – withstands wind and weather</span></li>
-          <li style="display:flex;gap:10px;margin-bottom:8px;font-size:14px;color:var(--gray-700);"><span style="color:var(--accent-blue);">✓</span> <span data-i18n="products_page.flexBanner.feature2">Waterproof, mildew-proof, UV-stabilized</span></li>
-          <li style="display:flex;gap:10px;font-size:14px;color:var(--gray-700);"><span style="color:var(--accent-blue);">✓</span> <span data-i18n="products_page.flexBanner.feature3">Compliant with EU RoHS and REACH standards</span></li>
-        </ul>
-        <div style="display:flex;gap:12px;flex-wrap:wrap;">
-          <a href="contact.html" class="btn btn-primary" data-i18n="products_page.flexBanner.getQuote">Get a Quote</a>
-          <a href="https://wa.me/8613808828019" target="_blank" class="btn btn-outline-dark" data-i18n="products_page.flexBanner.whatsapp">💬 WhatsApp</a>
-        </div>
-      </div>
-      <div>
-        <img src="https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=800&q=80" alt="PVC Flex Banner" style="width:100%;height:360px;object-fit:cover;border-radius:var(--radius-lg);box-shadow:var(--shadow-md);" />
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px;">
-          <img src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=400&q=75" alt="Flex Banner Billboard" style="width:100%;height:140px;object-fit:cover;border-radius:var(--radius);" />
-          <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=400&q=75" alt="Flex Banner Light Box" style="width:100%;height:140px;object-fit:cover;border-radius:var(--radius);" />
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== PRODUCT 3: ONE WAY VISION ===== -->
-<section class="section" id="one-way-vision">
-  <div class="container">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;">
-      <div>
-        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80" alt="One Way Vision Film" style="width:100%;height:360px;object-fit:cover;border-radius:var(--radius-lg);box-shadow:var(--shadow-md);" />
-      </div>
-      <div>
-        <div class="card-tag" style="margin-bottom:12px;" data-i18n="products_page.oneWayVision.tag">Window Media</div>
-        <h2 style="font-family:Montserrat,sans-serif;font-size:28px;font-weight:800;color:var(--primary);margin-bottom:16px;" data-i18n="products_page.oneWayVision.title">One Way Vision</h2>
-        <p style="color:var(--gray-700);line-height:1.75;margin-bottom:24px;" data-i18n="products_page.oneWayVision.desc">Perforated window film that provides full graphic display on the exterior while maintaining visibility from the inside. Ideal for shop windows, vehicle windows, glass partitions and large window advertising.</p>
-        <div style="overflow-x:auto;margin-bottom:24px;">
-          <table class="spec-table">
-            <tr><th data-i18n="products_page.oneWayVision.specification">Specification</th><th data-i18n="products_page.oneWayVision.value">Value</th></tr>
-            <tr><td data-i18n="products_page.oneWayVision.perforation">Perforation</td><td data-i18n="products_page.oneWayVision.perforationVal">50/50 (standard) / 60/40 available</td></tr>
-            <tr><td data-i18n="products_page.oneWayVision.width">Width</td><td data-i18n="products_page.oneWayVision.widthVal">1.07 m / 1.27 m / 1.52 m</td></tr>
-            <tr><td data-i18n="products_page.oneWayVision.surface">Surface</td><td data-i18n="products_page.oneWayVision.surfaceVal">Glossy / Matte</td></tr>
-            <tr><td data-i18n="products_page.oneWayVision.adhesive">Adhesive</td><td data-i18n="products_page.oneWayVision.adhesiveVal">Grey permanent adhesive</td></tr>
-            <tr><td data-i18n="products_page.oneWayVision.outdoorLife">Outdoor life</td><td data-i18n="products_page.oneWayVision.outdoorLifeVal">3–5 years</td></tr>
-          </table>
-        </div>
-        <ul style="margin-bottom:24px;">
-          <li style="display:flex;gap:10px;margin-bottom:8px;font-size:14px;color:var(--gray-700);"><span style="color:var(--accent-blue);">✓</span> <span data-i18n="products_page.oneWayVision.feature1">See-through from inside, full graphic from outside</span></li>
-          <li style="display:flex;gap:10px;margin-bottom:8px;font-size:14px;color:var(--gray-700);"><span style="color:var(--accent-blue);">✓</span> <span data-i18n="products_page.oneWayVision.feature2">Excellent sunlight resistance and color fastness</span></li>
-          <li style="display:flex;gap:10px;font-size:14px;color:var(--gray-700);"><span style="color:var(--accent-blue);">✓</span> <span data-i18n="products_page.oneWayVision.feature3">Compatible with eco-solvent and UV printing</span></li>
-        </ul>
-        <div style="display:flex;gap:12px;flex-wrap:wrap;">
-          <a href="contact.html" class="btn btn-primary" data-i18n="products_page.oneWayVision.getQuote">Get a Quote</a>
-          <a href="https://wa.me/8613808828019" target="_blank" class="btn btn-outline-dark" data-i18n="products_page.oneWayVision.whatsapp">💬 WhatsApp</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== PRODUCT 4: CUTTING VINYL ===== -->
-<section class="section bg-light" id="cutting-vinyl">
-  <div class="container">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;">
-      <div>
-        <div class="card-tag" style="margin-bottom:12px;" data-i18n="products_page.cuttingVinyl.tag">Vinyl Films</div>
-        <h2 style="font-family:Montserrat,sans-serif;font-size:28px;font-weight:800;color:var(--primary);margin-bottom:16px;" data-i18n="products_page.cuttingVinyl.title">Cutting Vinyl</h2>
-        <p style="color:var(--gray-700);line-height:1.75;margin-bottom:24px;" data-i18n="products_page.cuttingVinyl.desc">Professional grade cutting vinyl for plotter cutting applications. Available in 150+ solid colors, metallic, chrome, and specialty finishes. Consistent thickness for clean cutting and easy weeding. Used in sign-making, vehicle lettering, and craft applications.</p>
-        <div style="overflow-x:auto;margin-bottom:24px;">
-          <table class="spec-table">
-            <tr><th data-i18n="products_page.cuttingVinyl.category">Category</th><th data-i18n="products_page.cuttingVinyl.thickness">Thickness</th><th data-i18n="products_page.cuttingVinyl.colors">Colors</th></tr>
-            <tr><td data-i18n="products_page.cuttingVinyl.monomeric">Monomeric</td><td>80 μm</td><td data-i18n="products_page.cuttingVinyl.solidColors">100+ solid colors</td></tr>
-            <tr><td data-i18n="products_page.cuttingVinyl.polymeric">Polymeric</td><td>100 μm</td><td data-i18n="products_page.cuttingVinyl.solidColors">100+ solid colors</td></tr>
-            <tr><td data-i18n="products_page.cuttingVinyl.metallic">Metallic</td><td>100 μm</td><td data-i18n="products_page.cuttingVinyl.metallicColors">Gold, Silver, Chrome</td></tr>
-            <tr><td data-i18n="products_page.cuttingVinyl.fluorescent">Fluorescent</td><td>80 μm</td><td data-i18n="products_page.cuttingVinyl.neonColors">10 neon colors</td></tr>
-            <tr><td data-i18n="products_page.cuttingVinyl.reflective">Reflective</td><td>150 μm</td><td data-i18n="products_page.cuttingVinyl.safetyColors">15 safety colors</td></tr>
-          </table>
-        </div>
-        <ul style="margin-bottom:24px;">
-          <li style="display:flex;gap:10px;margin-bottom:8px;font-size:14px;color:var(--gray-700);"><span style="color:var(--accent-blue);">✓</span> <span data-i18n="products_page.cuttingVinyl.feature1">Clean, precise cutting with standard plotter blades</span></li>
-          <li style="display:flex;gap:10px;margin-bottom:8px;font-size:14px;color:var(--gray-700);"><span style="color:var(--accent-blue);">✓</span> <span data-i18n="products_page.cuttingVinyl.feature2">Easy to weed – even fine details</span></li>
-          <li style="display:flex;gap:10px;font-size:14px;color:var(--gray-700);"><span style="color:var(--accent-blue);">✓</span> <span data-i18n="products_page.cuttingVinyl.feature3">Pantone color matching available for OEM orders</span></li>
-        </ul>
-        <div style="display:flex;gap:12px;flex-wrap:wrap;">
-          <a href="contact.html" class="btn btn-primary" data-i18n="products_page.cuttingVinyl.getQuote">Get a Quote</a>
-          <a href="https://wa.me/8613808828019" target="_blank" class="btn btn-outline-dark" data-i18n="products_page.cuttingVinyl.whatsapp">💬 WhatsApp</a>
-        </div>
-      </div>
-      <div>
-        <img src="https://images.unsplash.com/photo-1572021335469-31706a17aaef?w=800&q=80" alt="Cutting Vinyl" style="width:100%;height:360px;object-fit:cover;border-radius:var(--radius-lg);box-shadow:var(--shadow-md);" />
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== PRODUCT 5: POLYMERIC VINYL & COLD LAMINATION ===== -->
-<section class="section" id="polymeric-vinyl">
-  <div class="container">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;">
-      <div>
-        <img src="https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?w=800&q=80" alt="Polymeric Vinyl and Cold Lamination Film" style="width:100%;height:360px;object-fit:cover;border-radius:var(--radius-lg);box-shadow:var(--shadow-md);" />
-      </div>
-      <div>
-        <div class="card-tag" style="margin-bottom:12px;" data-i18n="products_page.polymericVinyl.tag">Specialty Films</div>
-        <h2 style="font-family:Montserrat,sans-serif;font-size:28px;font-weight:800;color:var(--primary);margin-bottom:16px;" data-i18n="products_page.polymericVinyl.title">Polymeric Vinyl &amp; Cold Lamination Film</h2>
-        <p style="color:var(--gray-700);line-height:1.75;margin-bottom:24px;" data-i18n="products_page.polymericVinyl.desc">Calendered and cast polymeric vinyl for demanding outdoor applications. Paired with cold lamination films (glossy, matte, satin) for UV and scratch protection on printed graphics.</p>
-        <div style="overflow-x:auto;margin-bottom:24px;">
-          <table class="spec-table">
-            <tr><th data-i18n="products_page.polymericVinyl.product">Product</th><th data-i18n="products_page.polymericVinyl.type">Type</th><th data-i18n="products_page.polymericVinyl.outdoorLife">Outdoor Life</th></tr>
-            <tr><td data-i18n="products_page.polymericVinyl.polyVinyl">Polymeric Vinyl</td><td data-i18n="products_page.polymericVinyl.calendered">Calendered PVC</td><td>5–7 years</td></tr>
-            <tr><td data-i18n="products_page.polymericVinyl.castVinyl">Cast Vinyl</td><td data-i18n="products_page.polymericVinyl.castPvc">Cast PVC</td><td>7–10 years</td></tr>
-            <tr><td data-i18n="products_page.polymericVinyl.coldLamGlossy">Cold Lam – Glossy</td><td>PET film</td><td>3–5 years</td></tr>
-            <tr><td data-i18n="products_page.polymericVinyl.coldLamMatte">Cold Lam – Matte</td><td>PET film</td><td>3–5 years</td></tr>
-            <tr><td data-i18n="products_page.polymericVinyl.coldLamSatin">Cold Lam – Satin</td><td>PET film</td><td>3–5 years</td></tr>
-          </table>
-        </div>
-        <ul style="margin-bottom:24px;">
-          <li style="display:flex;gap:10px;margin-bottom:8px;font-size:14px;color:var(--gray-700);"><span style="color:var(--accent-blue);">✓</span> <span data-i18n="products_page.polymericVinyl.feature1">Conformable to curved surfaces without wrinkling</span></li>
-          <li style="display:flex;gap:10px;margin-bottom:8px;font-size:14px;color:var(--gray-700);"><span style="color:var(--accent-blue);">✓</span> <span data-i18n="products_page.polymericVinyl.feature2">Lamination films provide scratch and chemical resistance</span></li>
-          <li style="display:flex;gap:10px;font-size:14px;color:var(--gray-700);"><span style="color:var(--accent-blue);">✓</span> <span data-i18n="products_page.polymericVinyl.feature3">Anti-UV coating prolongs print life significantly</span></li>
-        </ul>
-        <div style="display:flex;gap:12px;flex-wrap:wrap;">
-          <a href="contact.html" class="btn btn-primary" data-i18n="products_page.polymericVinyl.getQuote">Get a Quote</a>
-          <a href="https://wa.me/8613808828019" target="_blank" class="btn btn-outline-dark" data-i18n="products_page.polymericVinyl.whatsapp">💬 WhatsApp</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== PRODUCT 6: WINDOW FILM & REFLECTIVE SHEET ===== -->
-<section class="section bg-light" id="window-film">
-  <div class="container">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;">
-      <div>
-        <div class="card-tag" style="margin-bottom:12px;" data-i18n="products_page.windowFilm.tag">Safety &amp; Decorative</div>
-        <h2 style="font-family:Montserrat,sans-serif;font-size:28px;font-weight:800;color:var(--primary);margin-bottom:16px;" data-i18n="products_page.windowFilm.title">Window Film &amp; Reflective Sheeting</h2>
-        <p style="color:var(--gray-700);line-height:1.75;margin-bottom:24px;" data-i18n="products_page.windowFilm.desc">Frosted and decorative window films for privacy and aesthetics. Engineering-grade, high-intensity, and diamond-grade reflective sheeting for road safety, traffic signs, vehicle markings, and emergency equipment.</p>
-        <div style="overflow-x:auto;margin-bottom:24px;">
-          <table class="spec-table">
-            <tr><th data-i18n="products_page.windowFilm.product">Product</th><th data-i18n="products_page.windowFilm.gradeType">Grade / Type</th><th data-i18n="products_page.windowFilm.application">Application</th></tr>
-            <tr><td data-i18n="products_page.windowFilm.frosted">Frosted Window Film</td><td data-i18n="products_page.windowFilm.translucent">Translucent PVC</td><td data-i18n="products_page.windowFilm.frostedApp">Privacy glass, office partitions</td></tr>
-            <tr><td data-i18n="products_page.windowFilm.solar">Solar Control Film</td><td data-i18n="products_page.windowFilm.metallized">Metallized PET</td><td data-i18n="products_page.windowFilm.solarApp">Heat reduction, glare control</td></tr>
-            <tr><td data-i18n="products_page.windowFilm.eg">Reflective Sheet – EG</td><td data-i18n="products_page.windowFilm.engGrade">Engineering Grade</td><td data-i18n="products_page.windowFilm.egApp">Road signs, parking lots</td></tr>
-            <tr><td data-i18n="products_page.windowFilm.hi">Reflective Sheet – HI</td><td data-i18n="products_page.windowFilm.highIntensity">High Intensity</td><td data-i18n="products_page.windowFilm.hiApp">Highway signs, safety vests</td></tr>
-            <tr><td data-i18n="products_page.windowFilm.dg">Reflective Sheet – DG</td><td data-i18n="products_page.windowFilm.diamondGrade">Diamond Grade</td><td data-i18n="products_page.windowFilm.dgApp">Premium traffic control</td></tr>
-          </table>
-        </div>
-        <ul style="margin-bottom:24px;">
-          <li style="display:flex;gap:10px;margin-bottom:8px;font-size:14px;color:var(--gray-700);"><span style="color:var(--accent-blue);">✓</span> <span data-i18n="products_page.windowFilm.feature1">Reflective sheeting meets ASTM D4956 standards</span></li>
-          <li style="display:flex;gap:10px;margin-bottom:8px;font-size:14px;color:var(--gray-700);"><span style="color:var(--accent-blue);">✓</span> <span data-i18n="products_page.windowFilm.feature2">Available in all standard safety colors</span></li>
-          <li style="display:flex;gap:10px;font-size:14px;color:var(--gray-700);"><span style="color:var(--accent-blue);">✓</span> <span data-i18n="products_page.windowFilm.feature3">Window films with permanent or static-cling adhesive</span></li>
-        </ul>
-        <div style="display:flex;gap:12px;flex-wrap:wrap;">
-          <a href="contact.html" class="btn btn-primary" data-i18n="products_page.windowFilm.getQuote">Get a Quote</a>
-          <a href="https://wa.me/8613808828019" target="_blank" class="btn btn-outline-dark" data-i18n="products_page.windowFilm.whatsapp">💬 WhatsApp</a>
-        </div>
-      </div>
-      <div>
-        <img src="https://images.unsplash.com/photo-1545231027-637d2f6210f8?w=800&q=80" alt="Reflective Sheet" style="width:100%;height:360px;object-fit:cover;border-radius:var(--radius-lg);box-shadow:var(--shadow-md);" />
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== PRODUCT 7: PVC FOAM BOARD ===== -->
-<section class="section" id="pvc-foam-board">
-  <div class="container">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;">
-      <div>
-        <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=800&q=80" alt="PVC Foam Board" style="width:100%;height:360px;object-fit:cover;border-radius:var(--radius-lg);box-shadow:var(--shadow-md);" />
-      </div>
-      <div>
-        <div class="card-tag" style="margin-bottom:12px;" data-i18n="products_page.pvcFoamBoard.tag">Rigid Board</div>
-        <h2 style="font-family:Montserrat,sans-serif;font-size:28px;font-weight:800;color:var(--primary);margin-bottom:16px;" data-i18n="products_page.pvcFoamBoard.title">PVC Foam Board</h2>
-        <p style="color:var(--gray-700);line-height:1.75;margin-bottom:24px;" data-i18n="products_page.pvcFoamBoard.desc">Closed-cell PVC foam board – lightweight, rigid, waterproof, and easy to fabricate. Available in 1–30mm thickness. Used widely in advertising signs, exhibition panels, furniture backing, wall cladding, and construction decoration.</p>
-        <div style="overflow-x:auto;margin-bottom:24px;">
-          <table class="spec-table">
-            <tr><th data-i18n="products_page.pvcFoamBoard.thickness">Thickness</th><th data-i18n="products_page.pvcFoamBoard.density">Density</th><th data-i18n="products_page.pvcFoamBoard.commonUse">Common Use</th></tr>
-            <tr><td data-i18n="products_page.pvcFoamBoard.thick1">1 – 3 mm</td><td>0.55 g/cm³</td><td data-i18n="products_page.pvcFoamBoard.use1">Display boards, printing substrate</td></tr>
-            <tr><td data-i18n="products_page.pvcFoamBoard.thick2">5 – 8 mm</td><td>0.50 g/cm³</td><td data-i18n="products_page.pvcFoamBoard.use2">Sign boards, shop signs</td></tr>
-            <tr><td data-i18n="products_page.pvcFoamBoard.thick3">10 – 15 mm</td><td>0.45 g/cm³</td><td data-i18n="products_page.pvcFoamBoard.use3">Exhibition stands, partitions</td></tr>
-            <tr><td data-i18n="products_page.pvcFoamBoard.thick4">18 – 25 mm</td><td>0.40 g/cm³</td><td data-i18n="products_page.pvcFoamBoard.use4">Furniture backing, shelving</td></tr>
-            <tr><td data-i18n="products_page.pvcFoamBoard.thick5">30 mm</td><td>0.35 g/cm³</td><td data-i18n="products_page.pvcFoamBoard.use5">Structural display applications</td></tr>
-          </table>
-        </div>
-        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px;">
-          <span class="spec-tag" data-i18n="products_page.pvcFoamBoard.standard">Standard: 1220×2440 mm</span>
-          <span class="spec-tag" data-i18n="products_page.pvcFoamBoard.customSize">Custom sheet size</span>
-          <span class="spec-tag" data-i18n="products_page.pvcFoamBoard.colors">White / Black / Color</span>
-          <span class="spec-tag" data-i18n="products_page.pvcFoamBoard.uvPrint">UV printable</span>
-        </div>
-        <ul style="margin-bottom:24px;">
-          <li style="display:flex;gap:10px;margin-bottom:8px;font-size:14px;color:var(--gray-700);"><span style="color:var(--accent-blue);">✓</span> <span data-i18n="products_page.pvcFoamBoard.feature1">Waterproof, moisture-resistant, pest-proof</span></li>
-          <li style="display:flex;gap:10px;margin-bottom:8px;font-size:14px;color:var(--gray-700);"><span style="color:var(--accent-blue);">✓</span> <span data-i18n="products_page.pvcFoamBoard.feature2">Easy to cut, rout, glue, and screw</span></li>
-          <li style="display:flex;gap:10px;font-size:14px;color:var(--gray-700);"><span style="color:var(--accent-blue);">✓</span> <span data-i18n="products_page.pvcFoamBoard.feature3">Custom thickness and sheet size available for OEM</span></li>
-        </ul>
-        <div style="display:flex;gap:12px;flex-wrap:wrap;">
-          <a href="contact.html" class="btn btn-primary" data-i18n="products_page.pvcFoamBoard.getQuote">Get a Quote</a>
-          <a href="https://wa.me/8613808828019" target="_blank" class="btn btn-outline-dark" data-i18n="products_page.pvcFoamBoard.whatsapp">💬 WhatsApp</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== PRODUCT 8: ACRYLIC SHEET ===== -->
-<section class="section bg-light" id="acrylic-sheet">
-  <div class="container">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;">
-      <div>
-        <div class="card-tag" style="margin-bottom:12px;" data-i18n="products_page.acrylicSheet.tag">Rigid Board</div>
-        <h2 style="font-family:Montserrat,sans-serif;font-size:28px;font-weight:800;color:var(--primary);margin-bottom:16px;" data-i18n="products_page.acrylicSheet.title">Acrylic Sheet</h2>
-        <p style="color:var(--gray-700);line-height:1.75;margin-bottom:24px;" data-i18n="products_page.acrylicSheet.desc">High optical clarity acrylic (PMMA) sheets in cast and extruded form. Available 1–50mm in clear, frosted, opal, tinted, and mirror finishes. Ideal for light boxes, illuminated signs, display racks, architectural features, and premium signage.</p>
-        <div style="overflow-x:auto;margin-bottom:24px;">
-          <table class="spec-table">
-            <tr><th data-i18n="products_page.acrylicSheet.type">Type</th><th data-i18n="products_page.acrylicSheet.thickness">Thickness</th><th data-i18n="products_page.acrylicSheet.transparency">Transparency</th></tr>
-            <tr><td data-i18n="products_page.acrylicSheet.clearCast">Clear Cast</td><td>1–50 mm</td><td>92%</td></tr>
-            <tr><td data-i18n="products_page.acrylicSheet.opalFrosted">Opal / Frosted</td><td>2–20 mm</td><td data-i18n="products_page.acrylicSheet.diffused">Diffused light</td></tr>
-            <tr><td data-i18n="products_page.acrylicSheet.tinted">Tinted / Color</td><td>2–20 mm</td><td data-i18n="products_page.acrylicSheet.various">Various options</td></tr>
-            <tr><td data-i18n="products_page.acrylicSheet.mirror">Mirror Acrylic</td><td>2–5 mm</td><td data-i18n="products_page.acrylicSheet.reflective">Reflective surface</td></tr>
-            <tr><td data-i18n="products_page.acrylicSheet.fluorescent">Fluorescent</td><td>3–10 mm</td><td data-i18n="products_page.acrylicSheet.uvGlow">UV-reactive glow</td></tr>
-          </table>
-        </div>
-        <ul style="margin-bottom:24px;">
-          <li style="display:flex;gap:10px;margin-bottom:8px;font-size:14px;color:var(--gray-700);"><span style="color:var(--accent-blue);">✓</span> Superior UV resistance, maintains clarity long-term</li>
-          <li style="display:flex;gap:10px;margin-bottom:8px;font-size:14px;color:var(--gray-700);"><span style="color:var(--accent-blue);">✓</span> 10× stronger than glass, half the weight</li>
-          <li style="display:flex;gap:10px;font-size:14px;color:var(--gray-700);"><span style="color:var(--accent-blue);">✓</span> Standard 1220×2440 mm; custom cutting available</li>
-        </ul>
-        <div style="display:flex;gap:12px;flex-wrap:wrap;">
-          <a href="contact.html" class="btn btn-primary" data-i18n="products_page.acrylicSheet.getQuote">Get a Quote</a>
-          <a href="https://wa.me/8613808828019" target="_blank" class="btn btn-outline-dark" data-i18n="products_page.acrylicSheet.whatsapp">💬 WhatsApp</a>
-        </div>
-      </div>
-      <div>
-        <img src="https://images.unsplash.com/photo-1565361987956-9be6e2b9e6e5?w=800&q=80" alt="Acrylic Sheet" style="width:100%;height:360px;object-fit:cover;border-radius:var(--radius-lg);box-shadow:var(--shadow-md);" />
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== PRODUCT 9: ACP ===== -->
-<section class="section" id="aluminum-composite-panel">
-  <div class="container">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;">
-      <div>
-        <img src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=800&q=80" alt="Aluminum Composite Panel" style="width:100%;height:360px;object-fit:cover;border-radius:var(--radius-lg);box-shadow:var(--shadow-md);" />
-      </div>
-      <div>
-        <div class="card-tag" style="margin-bottom:12px;" data-i18n="products_page.acp.tag">Panel System</div>
-        <h2 style="font-family:Montserrat,sans-serif;font-size:28px;font-weight:800;color:var(--primary);margin-bottom:16px;" data-i18n="products_page.acp.title">Aluminum Composite Panel (ACP)</h2>
-        <p style="color:var(--gray-700);line-height:1.75;margin-bottom:24px;" data-i18n="products_page.acp.desc">Two aluminum skins bonded to a PE or mineral-filled core. Lightweight, rigid, flat, and weather-resistant. Used extensively for building façades, shop fronts, outdoor signage, and architectural cladding.</p>
-        <div style="overflow-x:auto;margin-bottom:24px;">
-          <table class="spec-table">
-            <tr><th>Spec</th><th>Details</th></tr>
-            <tr><td>Overall Thickness</td><td>3 mm / 4 mm / 6 mm</td></tr>
-            <tr><td>Aluminum Skin</td><td>0.1mm / 0.2mm / 0.3mm / 0.5mm</td></tr>
-            <tr><td>Core Material</td><td>PE / Fire-resistant mineral</td></tr>
-            <tr><td>Coating</td><td>PVDF / Polyester / Nano</td></tr>
-            <tr><td>Standard Size</td><td>1220×2440 mm (custom available)</td></tr>
-            <tr><td>Colors</td><td>100+ standard, RAL color match</td></tr>
-          </table>
-        </div>
-        <ul style="margin-bottom:24px;">
-          <li style="display:flex;gap:10px;margin-bottom:8px;font-size:14px;color:var(--gray-700);"><span style="color:var(--accent-blue);">✓</span> PVDF coating: 25-year color warranty, superior weatherability</li>
-          <li style="display:flex;gap:10px;margin-bottom:8px;font-size:14px;color:var(--gray-700);"><span style="color:var(--accent-blue);">✓</span> Fire-resistant (FR) core meets B1/A2 fire ratings</li>
-          <li style="display:flex;gap:10px;font-size:14px;color:var(--gray-700);"><span style="color:var(--accent-blue);">✓</span> Easy to fabricate: route, fold, rivet, and bond</li>
-        </ul>
-        <div style="display:flex;gap:12px;flex-wrap:wrap;">
-          <a href="contact.html" class="btn btn-primary" data-i18n="products_page.acp.getQuote">Get a Quote</a>
-          <a href="https://wa.me/8613808828019" target="_blank" class="btn btn-outline-dark" data-i18n="products_page.acp.whatsapp">💬 WhatsApp</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== PRODUCT 10: PP HOLLOW SHEET ===== -->
-<section class="section bg-light" id="pp-hollow-sheet">
-  <div class="container">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;">
-      <div>
-        <div class="card-tag" style="margin-bottom:12px;" data-i18n="products_page.ppHollowSheet.tag">Plastic Board</div>
-        <h2 style="font-family:Montserrat,sans-serif;font-size:28px;font-weight:800;color:var(--primary);margin-bottom:16px;" data-i18n="products_page.ppHollowSheet.title">PP Hollow Sheet (Corrugated)</h2>
-        <p style="color:var(--gray-700);line-height:1.75;margin-bottom:24px;" data-i18n="products_page.ppHollowSheet.desc">Polypropylene corrugated sheet – ultra-lightweight, recyclable, waterproof, and economical. Used for temporary signage, real estate signs, political signs, packaging, and short-term display applications.</p>
-        <div style="overflow-x:auto;margin-bottom:24px;">
-          <table class="spec-table">
-            <tr><th>Thickness</th><th>Weight</th><th>Application</th></tr>
-            <tr><td>2 mm</td><td>350 g/m²</td><td>Lightweight display, election signs</td></tr>
-            <tr><td>3 mm</td><td>500 g/m²</td><td>Real estate signs, packaging</td></tr>
-            <tr><td>4 mm</td><td>650 g/m²</td><td>Standard sign board substrate</td></tr>
-            <tr><td>5 mm</td><td>800 g/m²</td><td>Rigid display panels</td></tr>
-            <tr><td>6 mm+</td><td>950+ g/m²</td><td>Heavy-duty outdoor signage</td></tr>
-          </table>
-        </div>
-        <ul style="margin-bottom:24px;">
-          <li style="display:flex;gap:10px;margin-bottom:8px;font-size:14px;color:var(--gray-700);"><span style="color:var(--accent-blue);">✓</span> 100% recyclable, eco-friendly material</li>
-          <li style="display:flex;gap:10px;margin-bottom:8px;font-size:14px;color:var(--gray-700);"><span style="color:var(--accent-blue);">✓</span> Available in white, black, yellow, and custom colors</li>
-          <li style="display:flex;gap:10px;font-size:14px;color:var(--gray-700);"><span style="color:var(--accent-blue);">✓</span> Custom cut-to-size and die-cutting available</li>
-        </ul>
-        <div style="display:flex;gap:12px;flex-wrap:wrap;">
-          <a href="contact.html" class="btn btn-primary" data-i18n="products_page.ppHollowSheet.getQuote">Get a Quote</a>
-          <a href="https://wa.me/8613808828019" target="_blank" class="btn btn-outline-dark" data-i18n="products_page.ppHollowSheet.whatsapp">💬 WhatsApp</a>
-        </div>
-      </div>
-      <div>
-        <img src="https://images.unsplash.com/photo-1558618047-f4e90c97a65c?w=800&q=80" alt="PP Hollow Sheet" style="width:100%;height:360px;object-fit:cover;border-radius:var(--radius-lg);box-shadow:var(--shadow-md);" />
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== PRODUCT 11: DISPLAY STANDS ===== -->
-<section class="section" id="display-stand">
-  <div class="container">
-    <div class="section-header">
-      <div class="label" data-i18n="products_page.displayStand.tag">Display Solutions</div>
-      <h2 data-i18n="products_page.displayStand.title">Display Stands &amp; Exhibition Systems</h2>
-      <p data-i18n="products_page.displayStand.desc">Complete range of portable display and exhibition stand systems for trade shows, retail, and events worldwide.</p>
-    </div>
-    <div class="grid-3">
-      <div class="card">
-        <div class="card-img">
-          <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&q=75" alt="Roll Up Banner Stand" loading="lazy" />
-        </div>
-        <div class="card-body">
-          <div class="card-tag">Stand</div>
-          <h3>Roll Up Banner Stand</h3>
-          <p>Aluminum base retractable banner stands. 60cm / 80cm / 85cm / 100cm widths. Includes carry bag. Cassette mechanism for smooth operation.</p>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-img">
-          <img src="https://images.unsplash.com/photo-1481487196290-c152efe083f5?w=600&q=75" alt="X Banner Stand" loading="lazy" />
-        </div>
-        <div class="card-body">
-          <div class="card-tag">Stand</div>
-          <h3>X Banner Stand</h3>
-          <p>Lightweight X-frame banner stand with telescopic adjustable poles. Size: 60×160cm standard. Multiple sizes available.</p>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-img">
-          <img src="https://images.unsplash.com/photo-1573496358961-3c82861ab8f4?w=600&q=75" alt="Pop Up Display" loading="lazy" />
-        </div>
-        <div class="card-body">
-          <div class="card-tag">Stand</div>
-          <h3>Pop Up Display</h3>
-          <p>Magnetic snap pop-up display wall systems. 3×3 / 3×4 configuration. Fabric or graphic panel options. Quick assembly.</p>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-img">
-          <img src="https://images.unsplash.com/photo-1568992688065-536aad8a12f6?w=600&q=75" alt="Flagpole Banner" loading="lazy" />
-        </div>
-        <div class="card-body">
-          <div class="card-tag">Stand</div>
-          <h3>Flagpole Banner</h3>
-          <p>Teardrop, feather, and straight pole flags with ground spike, cross base, or car clamp. Ideal for outdoor events and promotions.</p>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-img">
-          <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=600&q=75" alt="Light Box Display" loading="lazy" />
-        </div>
-        <div class="card-body">
-          <div class="card-tag">Display</div>
-          <h3>Light Box</h3>
-          <p>Frameless LED light box, snap frame light box, fabric light box. A0 / A1 / A2 standard sizes. Custom sizes for retail and exhibitions.</p>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-img">
-          <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=600&q=75" alt="Exhibition System" loading="lazy" />
-        </div>
-        <div class="card-body">
-          <div class="card-tag">System</div>
-          <h3>Modular Exhibition System</h3>
-          <p>Aluminum profile modular exhibition display system. Flexible configuration for trade show booths of any size.</p>
-        </div>
-      </div>
-    </div>
-    <div style="text-align:center;margin-top:32px;">
-      <a href="contact.html" class="btn btn-primary" data-i18n="products_page.displayStand.requestQuote">Request Display Stand Catalog</a>
-    </div>
-  </div>
-</section>
-
-<!-- ===== PRODUCT 12: ACCESSORIES ===== -->
-<section class="section bg-light" id="accessories">
-  <div class="container">
-    <div class="section-header">
-      <div class="label" data-i18n="products_page.accessories.tag">Accessories</div>
-      <h2 data-i18n="products_page.accessories.title">Sign-Making Accessories &amp; Tools</h2>
-      <p data-i18n="products_page.accessories.desc">Complete accessories for professional sign fabrication and installation. Everything your sign shop needs, sourced from one supplier.</p>
-    </div>
-    <div class="grid-4">
-      <div class="feature-card">
-        <div class="feature-icon">💡</div>
-        <h3>LED Modules &amp; Strips</h3>
-        <p>LED modules for channel letters, light boxes. IP65 waterproof strips in warm white, cool white, RGB.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">⚡</div>
-        <h3>LED Power Supply</h3>
-        <p>12V / 24V switching power supplies. 60W, 100W, 200W, 300W. CE, UL approved options available.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">🔧</div>
-        <h3>Adhesives &amp; Tapes</h3>
-        <p>Acrylic double-sided tape, foam tape, sign bond adhesive. Professional installation bonding solutions.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">🛠️</div>
-        <h3>Installation Tools</h3>
-        <p>Application squeegees, vinyl cutters, heat guns, rivet tools, corner guards. Professional sign-making kits.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">🔩</div>
-        <h3>Eyelets &amp; Grommets</h3>
-        <p>Metal eyelets for banner finishing. Eyelet punch tools, eyelet reinforcement tape. Various sizes available.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">📏</div>
-        <h3>Edge Trim &amp; Molding</h3>
-        <p>Aluminum edge trim strips, PVC edge banding for signboards and panels. J-channel, U-channel, H-channel.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">🪛</div>
-        <h3>Stud Fixings</h3>
-        <p>Standoff bolts (barrel nuts) for acrylic and panel mounting. Brushed stainless, chrome, black finishes.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">📦</div>
-        <h3>Protective Film</h3>
-        <p>Surface protection film for panels, acrylic and ACP during transportation and fabrication. Removable PE film.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
+</div><!-- /pcat-content -->
+<!-- CTA BANNER -->
 <section class="section cta-banner">
   <div class="container">
     <div class="cta-content">
       <div class="cta-text">
-        <h2 data-i18n="products_page.cta.title">Need Specific Specifications or Custom Products?</h2>
-        <p data-i18n="products_page.cta.subtitle">Contact our team with your exact requirements. We offer OEM manufacturing, custom sizes, private label, and tailored export packaging.</p>
+        <h2 data-i18n="cta.title">Ready to Source Premium Advertising Materials?</h2>
+        <p data-i18n="cta.subtitle">Contact our team today for product specifications, pricing, and export shipping details. We respond within 24 hours on business days.</p>
       </div>
       <div class="cta-actions">
-        <a href="contact.html" class="btn btn-primary btn-lg" data-i18n="products_page.cta.getQuote">Request a Custom Quote</a>
-        <a href="https://wa.me/8613808828019" target="_blank" class="btn btn-outline btn-lg" data-i18n="products_page.cta.whatsappNow">💬 WhatsApp Now</a>
+        <a href="contact.html" class="btn btn-primary btn-lg" data-i18n="cta.getQuote">Get a Quote</a>
+        <a href="https://wa.me/8613808828019" target="_blank" class="btn btn-outline btn-lg" data-i18n="cta.whatsapp">💬 WhatsApp Us</a>
       </div>
     </div>
   </div>
@@ -714,8 +792,7 @@
           <button class="faq-tab" data-tab="shipping">Shipping & Delivery</button>
           <button class="faq-tab" data-tab="quality">Quality & Certification</button>
         </div>
-        <div class="faq-content show" id="products-faq">
-          <!-- FAQ 1: Expanded -->
+        <div class="faq-content show" id="products-faq-p">
           <div class="faq-item expanded">
             <div class="faq-question">
               What are your main products?
@@ -727,7 +804,6 @@
               We specialize in Self Adhesive Vinyl, PVC Flex Banner, Cutting Plotter Film, Acrylic Sheet, PVC Foam Board, and Display Equipment. We also offer custom specifications according to your requirements.
             </div>
           </div>
-          <!-- FAQ 2: Collapsed -->
           <div class="faq-item">
             <div class="faq-question">
               Do you offer custom sizes and specifications?
@@ -739,7 +815,6 @@
               Yes, we offer custom sizes, thickness, and specifications. Please provide your detailed requirements, and our team will provide a solution tailored to your needs.
             </div>
           </div>
-          <!-- FAQ 3: Collapsed -->
           <div class="faq-item">
             <div class="faq-question">
               What is your minimum order quantity (MOQ)?
@@ -752,8 +827,7 @@
             </div>
           </div>
         </div>
-        <div class="faq-content" id="ordering-faq">
-          <!-- FAQ 1: Collapsed -->
+        <div class="faq-content" id="ordering-faq-p">
           <div class="faq-item">
             <div class="faq-question">
               What payment methods do you accept?
@@ -765,7 +839,6 @@
               We accept T/T (Wire Transfer), PayPal, and Western Union. For new customers, we may require a 30% deposit with the balance paid before shipment.
             </div>
           </div>
-          <!-- FAQ 2: Collapsed -->
           <div class="faq-item">
             <div class="faq-question">
               How long does it take to process my order?
@@ -777,7 +850,6 @@
               Production time varies by product. Standard products ship within 3-7 days. Custom orders may take 10-15 days. We'll provide an estimated delivery date upon order confirmation.
             </div>
           </div>
-          <!-- FAQ 3: Collapsed -->
           <div class="faq-item">
             <div class="faq-question">
               Can I request samples before placing a bulk order?
@@ -790,8 +862,7 @@
             </div>
           </div>
         </div>
-        <div class="faq-content" id="shipping-faq">
-          <!-- FAQ 1: Collapsed -->
+        <div class="faq-content" id="shipping-faq-p">
           <div class="faq-item">
             <div class="faq-question">
               Do you ship internationally?
@@ -803,7 +874,6 @@
               Yes, we ship to over 50 countries worldwide. We work with major shipping carriers like DHL, FedEx, UPS, and sea freight for larger orders.
             </div>
           </div>
-          <!-- FAQ 2: Collapsed -->
           <div class="faq-item">
             <div class="faq-question">
               What are the shipping costs?
@@ -815,7 +885,6 @@
               Shipping costs depend on destination, weight, and shipping method. We provide competitive rates and will quote you the exact shipping cost when you place your order.
             </div>
           </div>
-          <!-- FAQ 3: Collapsed -->
           <div class="faq-item">
             <div class="faq-question">
               How long does delivery take?
@@ -828,8 +897,7 @@
             </div>
           </div>
         </div>
-        <div class="faq-content" id="quality-faq">
-          <!-- FAQ 1: Collapsed -->
+        <div class="faq-content" id="quality-faq-p">
           <div class="faq-item">
             <div class="faq-question">
               Are your products certified?
@@ -841,7 +909,6 @@
               Yes, we are ISO 9001:2015 certified. Our products meet international quality standards and are exported to Europe, Americas, Southeast Asia, and Middle East markets.
             </div>
           </div>
-          <!-- FAQ 2: Collapsed -->
           <div class="faq-item">
             <div class="faq-question">
               Do you offer quality guarantees?
@@ -853,7 +920,6 @@
               Absolutely! We offer a 100% quality guarantee. If you receive defective products, we will replace them free of charge or provide a full refund.
             </div>
           </div>
-          <!-- FAQ 3: Collapsed -->
           <div class="faq-item">
             <div class="faq-question">
               Can you provide test reports or samples?
@@ -871,7 +937,6 @@
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer class="footer">
   <div class="container">
     <div class="footer-grid">
@@ -911,7 +976,10 @@
         <a href="#aluminum-composite-panel">Aluminum Composite Panel</a>
         <a href="#reflective-sheet">Reflective Sheet</a>
         <a href="#display-stand">Display Stands</a>
-        <a href="#accessories">Accessories</a>
+        <a href="products.html#advertising-media">Advertising Media</a>
+        <a href="products.html#advertising-panel">Advertising Panel</a>
+        <a href="products.html#display-stand">Display Stand</a>
+        <a href="products.html#accessory">Accessory</a>
       </div>
       <div class="footer-col">
         <h4>Navigation</h4>
@@ -939,60 +1007,100 @@ window.addEventListener('scroll', () => {
   const nb = document.getElementById('navbar');
   if (window.scrollY > 60) nb.classList.add('scrolled');
   else nb.classList.remove('scrolled');
+  // Sticky tab bar shadow
+  const tb = document.getElementById('pcatTabsBar');
+  if (tb) tb.classList.toggle('scrolled', window.scrollY > 120);
 });
+
 function toggleMenu() {
   document.getElementById('navMenu').classList.toggle('open');
 }
 
-// FAQ Tab Switching
-document.querySelectorAll('.faq-tab').forEach(tab => {
-  tab.addEventListener('click', function() {
-    // Remove active class from all tabs
-    document.querySelectorAll('.faq-tab').forEach(t => t.classList.remove('active'));
-    // Add active class to clicked tab
-    this.classList.add('active');
-
-    // Hide all FAQ content
-    document.querySelectorAll('.faq-content').forEach(content => {
-      content.classList.remove('show');
-    });
-
-    // Show selected FAQ content
-    const tabName = this.getAttribute('data-tab');
-    document.getElementById(tabName + '-faq').classList.add('show');
+// ── Language helpers ──────────────────────────────────────────────────────
+function applyBilingualAttr(lang) {
+  document.querySelectorAll('[data-i18n-en]').forEach(el => {
+    el.textContent = lang === 'zh' ? (el.dataset.i18nZh || el.dataset.i18nEn) : el.dataset.i18nEn;
   });
+}
+document.addEventListener('langChanged', (e) => {
+  const lang = e.detail?.lang || 'en';
+  applyBilingualAttr(lang);
+  if (window.applyTranslations) applyTranslations();
 });
 
-// FAQ Accordion Toggle
-document.querySelectorAll('.faq-question').forEach(question => {
-  question.addEventListener('click', function() {
-    const faqItem = this.parentElement;
-    const answer = faqItem.querySelector('.faq-answer');
-
-    // Toggle expanded state
-    faqItem.classList.toggle('expanded');
-    answer.classList.toggle('show');
+// ── Category Tab Switching ────────────────────────────────────────────────
+function switchCat(cat) {
+  document.querySelectorAll('.pcat-tab').forEach(t => {
+    t.classList.toggle('active', t.dataset.cat === cat);
   });
-});
-
-// Quote Form Submission
-document.querySelector('.quote-form').addEventListener('submit', function(e) {
-  e.preventDefault();
-  const name = document.getElementById('quote-name').value;
-  const email = document.getElementById('quote-email').value;
-  const phone = document.getElementById('quote-phone').value;
-  const message = document.getElementById('quote-message').value;
-
-  // Simple validation
-  if (!name || !email || !phone || !message) {
-    alert('Please fill in all required fields (*)');
-    return;
+  document.querySelectorAll('.pcat-panel').forEach(p => {
+    p.style.display = p.id === 'panel-' + cat ? '' : 'none';
+  });
+  // 切换后滚动到 Tab 栏顶部
+  const anchor = document.getElementById('tabAnchor');
+  if (anchor) {
+    const navH = document.getElementById('navbar') ? document.getElementById('navbar').offsetHeight : 70;
+    window.scrollTo({ top: anchor.offsetTop - navH, behavior: 'smooth' });
   }
+}
 
-  // For demo: show success message
-  // In production: send to backend
-  alert('Thank you for your inquiry! We will get back to you within 24 hours.');
-  this.reset();
+// ── FAQ Tab Switching (Products Page) ────────────────────────────────────
+(function initFaqP() {
+  const tabMap = { products: 'products-faq-p', ordering: 'ordering-faq-p', shipping: 'shipping-faq-p', quality: 'quality-faq-p' };
+  const faqSection = document.getElementById('quote-faq');
+  if (!faqSection) return;
+  const tabs = faqSection.querySelectorAll('.faq-tab');
+  tabs.forEach(btn => {
+    btn.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      btn.classList.add('active');
+      const key = btn.dataset.tab;
+      Object.values(tabMap).forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.classList.remove('show');
+      });
+      const target = document.getElementById(tabMap[key]);
+      if (target) target.classList.add('show');
+    });
+  });
+
+  // FAQ accordion
+  faqSection.querySelectorAll('.faq-question').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.closest('.faq-item');
+      const ans = item.querySelector('.faq-answer');
+      const isOpen = item.classList.contains('expanded');
+      // Close all in same content block
+      const block = q.closest('.faq-content');
+      block.querySelectorAll('.faq-item').forEach(i => {
+        i.classList.remove('expanded');
+        i.querySelector('.faq-answer').classList.remove('show');
+      });
+      if (!isOpen) {
+        item.classList.add('expanded');
+        ans.classList.add('show');
+      }
+    });
+  });
+})();
+</script>
+
+<!-- FLOAT ACTION BUTTONS -->
+<div class="fab-container">
+  <button class="fab-btn fab-top" id="fabTop" title="Back to Top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+  </button>
+  <a href="#quote-faq" class="fab-btn fab-faq" title="Go to FAQ">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+  </a>
+  <a href="https://wa.me/8613808828019" target="_blank" class="fab-btn fab-wa" title="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+</div>
+<script>
+window.addEventListener('scroll', function() {
+  const fab = document.getElementById('fabTop');
+  if (fab) { if (window.scrollY > 300) fab.classList.add('visible'); else fab.classList.remove('visible'); }
 });
 </script>
 </body>

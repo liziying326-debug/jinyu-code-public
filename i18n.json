@@ -47,15 +47,15 @@
     },
     "hero": {
       "badge": "ISO 9001 Certified Manufacturer · Est. 2021",
-      "title": "Your <span style=\"color: #E8751A; font-weight: bold;\">#1</span> Advertising Material Factory in China",
+      "title": "Your <span class=\"hero-accent\">#1</span> Advertising<br>Material<br>Factory in China",
       "subtitle": "Foshan Jin Yu Advertising Material Co., Ltd – Professional manufacturer of PVC foam board, acrylic sheet, vinyl, flex banner, reflective sheet and advertising accessories. Trusted by buyers across Europe, Americas, Southeast Asia & Middle East.",
       "exploreProducts": "Explore Products",
       "getQuote": "Get a Quote",
       "stats": {
-        "countries": "Countries Exported",
-        "products": "Product Lines",
+        "countries": "Countries & Regions",
+        "products": "Core Product Lines",
         "clients": "Global Clients",
-        "certified": "ISO 9001 Certified"
+        "certified": "Quality Certified"
       }
     },
     "home": {
