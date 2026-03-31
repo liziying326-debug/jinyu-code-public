@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>检查多语言标记</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        h1 {
+            color: #333;
+            border-bottom: 2px solid #E8751A;
+            padding-bottom: 10px;
+        }
+        .section {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .section h2 {
+            color: #E8751A;
+            margin-top: 0;
+        }
+        .stats {
+            background-color: #f5f5f5;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+        .stats span {
+            font-weight: bold;
+            color: #E8751A;
+        }
+        .missing-i18n {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-left: 4px solid #f1c40f;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        .has-i18n {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-left: 4px solid #28a745;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        .element-info {
+            font-family: monospace;
+            font-size: 14px;
+            margin: 5px 0;
+        }
+        .tag {
+            background-color: #e9ecef;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 12px;
+            margin-right: 5px;
+        }
+        .language-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: white;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        button {
+            background-color: #E8751A;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background-color: #d96b15;
+        }
+    </style>
+</head>
+<body>
+    <div class="language-switcher">
+        <h3>测试语言切换</h3>
+        <button onclick="changeLanguage('en')">English</button>
+        <button onclick="changeLanguage('zh')">中文</button>
+        <button onclick="changeLanguage('vi')">Tiếng Việt</button>
+        <button onclick="changeLanguage('tl')">Filipino</button>
+    </div>
+
+    <h1>多语言系统检查报告</h1>
+    
+    <div class="stats">
+        <p>当前语言: <span id="current-lang">en</span></p>
+        <p>需要翻译的元素总数: <span id="total-elements">0</span></p>
+        <p>已标记翻译的元素: <span id="marked-elements">0</span></p>
+        <p>未标记翻译的元素: <span id="unmarked-elements">0</span></p>
+    </div>
+
+    <div id="results"></div>
+
+    <script src="i18n.js"></script>
+    <script>
+        function changeLanguage(lang) {
+            if (typeof i18n !== 'undefined') {
+                i18n.changeLanguage(lang);
+                document.getElementById('current-lang').textContent = lang;
+                setTimeout(scanForMissingI18n, 500); // 等待翻译应用后重新扫描
+            } else {
+                alert('i18n.js 未加载');
+            }
+        }
+
+        function scanForMissingI18n() {
+            // 获取所有文本元素
+            const allTextElements = Array.from(document.querySelectorAll('body *'))
+                .filter(el => 
+                    el.childNodes.length > 0 && 
+                    !el.hasAttribute('data-i18n') && 
+                    !el.hasAttribute('data-i18n-html') &&
+                    ['SCRIPT', 'STYLE', 'NOSCRIPT', 'INPUT', 'TEXTAREA'].indexOf(el.tagName) === -1
+                )
+                .filter(el => {
+                    const text = el.textContent.trim();
+                    return text.length > 3 && // 只检查长度大于3的文本
+                           !text.includes('http') && // 排除URL
+                           !text.match(/^\d+$/) && // 排除纯数字
+                           !text.includes('@') && // 排除邮箱
+                           !el.closest('.language-switcher'); // 排除测试面板
+                });
+
+            // 获取已标记的元素
+            const markedElements = Array.from(document.querySelectorAll('[data-i18n], [data-i18n-html]'));
+
+            // 按元素类型分类
+            const unmarkedByTag = {};
+            allTextElements.forEach(el => {
+                const tag = el.tagName;
+                const text = el.textContent.trim();
+                if (!unmarkedByTag[tag]) {
+                    unmarkedByTag[tag] = [];
+                }
+                unmarkedByTag[tag].push({
+                    text: text.length > 50 ? text.substring(0, 50) + '...' : text,
+                    outerHTML: el.outerHTML.substring(0, 150) + '...'
+                });
+            });
+
+            // 生成报告
+            document.getElementById('total-elements').textContent = allTextElements.length;
+            document.getElementById('marked-elements').textContent = markedElements.length;
+            document.getElementById('unmarked-elements').textContent = allTextElements.length - markedElements.length;
+
+            let resultsHTML = '';
+
+            // 显示未标记的元素
+            for (const tag in unmarkedByTag) {
+                if (unmarkedByTag[tag].length > 0) {
+                    resultsHTML += `<div class="section">
+                        <h2>&lt;${tag}&gt; 标签 (${unmarkedByTag[tag].length} 个)</h2>`;
+                    
+                    unmarkedByTag[tag].forEach(item => {
+                        resultsHTML += `<div class="missing-i18n">
+                            <div class="element-info">
+                                <span class="tag">${tag}</span>
+                                ${item.text}
+                            </div>
+                            <div style="font-size: 12px; color: #666; margin-top: 5px;">
+                                ${item.outerHTML}
+                            </div>
+                        </div>`;
+                    });
+                    
+                    resultsHTML += '</div>';
+                }
+            }
+
+            // 显示已标记的元素
+            if (markedElements.length > 0) {
+                resultsHTML += `<div class="section">
+                    <h2>已标记的元素 (${markedElements.length} 个)</h2>`;
+                
+                const translationsByKey = {};
+                markedElements.forEach(el => {
+                    const key = el.getAttribute('data-i18n') || el.getAttribute('data-i18n-html');
+                    if (!translationsByKey[key]) {
+                        translationsByKey[key] = [];
+                    }
+                    translationsByKey[key].push(el.tagName);
+                });
+
+                for (const key in translationsByKey) {
+                    resultsHTML += `<div class="has-i18n">
+                        <div class="element-info">
+                            <span class="tag">${translationsByKey[key].join(', ')}</span>
+                            <strong>${key}</strong> (${translationsByKey[key].length} 个元素)
+                        </div>
+                        <div style="font-size: 12px; color: #666; margin-top: 5px;">
+                            翻译: "${typeof i18n !== 'undefined' ? i18n.t(key) : '加载中...'}"
+                        </div>
+                    </div>`;
+                }
+                
+                resultsHTML += '</div>';
+            }
+
+            document.getElementById('results').innerHTML = resultsHTML;
+        }
+
+        // 页面加载后开始扫描
+        setTimeout(scanForMissingI18n, 1000);
+    </script>
+</body>
+</html>
