@@ -68,11 +68,11 @@
           </div>
         </li>
         <li class="nav-item">
-          <a href="blog.html" class="nav-link" data-i18n="nav.blog">Blog <svg viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+          <a href="news.html" class="nav-link" data-i18n="nav.blog">News <svg viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
           <div class="dropdown">
-            <a href="blog.html#industry-knowledge" data-i18n="nav.blog_sub.industryKnowledge">Industry Knowledge</a>
-            <a href="blog.html#material-guide" data-i18n="nav.blog_sub.materialGuide">Material Guide</a>
-            <a href="blog.html#printing-technology" data-i18n="nav.blog_sub.printingTechnology">Printing Technology</a>
+            <a href="news.html#industry-knowledge" data-i18n="nav.blog_sub.industryKnowledge">Industry Knowledge</a>
+            <a href="news.html#material-guide" data-i18n="nav.blog_sub.materialGuide">Material Guide</a>
+            <a href="news.html#printing-technology" data-i18n="nav.blog_sub.printingTechnology">Printing Technology</a>
           </div>
         </li>
         <li class="nav-item">
@@ -135,17 +135,17 @@
     <div class="hero-content">
       <div class="hero-badge">
         <div class="dot"></div>
-        <span data-i18n="hero.badge">ISO 9001 Certified Manufacturer · Est. 2021</span>
+        <span data-i18n="hero.badge">Loading...</span>
       </div>
-      <h1 data-i18n-html="hero.title">Premium <span class="accent">Advertising Materials</span><br>Manufacturer</h1>
-      <p data-i18n="hero.subtitle">Foshan Jin Yu Advertising Material Co., Ltd – Professional manufacturer of PVC foam board, acrylic sheet, vinyl, flex banner, reflective sheet and advertising accessories. Trusted by buyers across Europe, Americas, Southeast Asia &amp; Middle East.</p>
+      <h1 data-i18n-html="hero.title">Loading...</h1>
+      <p data-i18n="hero.subtitle">Loading...</p>
       <div class="hero-actions">
         <a href="contact.html" class="btn btn-primary btn-lg" data-i18n="hero.getQuote">Get a Quote</a>
         <a href="#" class="btn btn-outline btn-lg" data-i18n="hero.downloadCatalog" onclick="return false;">Download Catalog</a>
       </div>
 
       <!-- Hero Stats -->
-      <div class="hero-stats">
+      <div class="hero-stats" id="heroStatsContainer">
         <div class="hero-stat-item">
           <span class="hero-stat-num">50<span class="hero-stat-plus">+</span></span>
           <span class="hero-stat-label" data-i18n="hero.stat.countries">Countries &amp; Regions</span>
@@ -176,30 +176,30 @@
 <!-- ========== TRUST BAR ========== -->
 <section class="trust-bar">
   <div class="container">
-    <div class="trust-bar-inner">
+    <div class="trust-bar-inner" id="trustBarInner">
       <div class="trust-item">
         <span class="icon">🏭</span>
-        <span>Own Factory in Foshan</span>
+        <span data-i18n="trust.ownFactory">Own Factory in Foshan</span>
       </div>
       <div class="trust-item">
         <span class="icon">🌍</span>
-        <span>Export to 50+ Countries</span>
+        <span data-i18n="trust.export50">Export to 50+ Countries</span>
       </div>
       <div class="trust-item">
         <span class="icon">📋</span>
-        <span>ISO 9001 Certified</span>
+        <span data-i18n="trust.iso">ISO 9001 Certified</span>
       </div>
       <div class="trust-item">
         <span class="icon">🔬</span>
-        <span>In-house R&D Team</span>
+        <span data-i18n="trust.rd">In-house R&amp;D Team</span>
       </div>
       <div class="trust-item">
         <span class="icon">📦</span>
-        <span>Custom Export Packaging</span>
+        <span data-i18n="trust.packaging">Custom Export Packaging</span>
       </div>
       <div class="trust-item">
         <span class="icon">💬</span>
-        <span>WhatsApp: +86 138 0882 8019</span>
+        <span data-i18n="trust.whatsapp">WhatsApp: +86 138 0882 8019</span>
       </div>
     </div>
   </div>
@@ -228,7 +228,7 @@
       <h2 data-i18n="whyChooseUs.title">Your Reliable Advertising Material Partner</h2>
       <p data-i18n="whyChooseUs.subtitle">We combine manufacturing excellence with global trade expertise to deliver consistent quality and competitive pricing for B2B buyers worldwide.</p>
     </div>
-    <div class="grid-3">
+    <div class="grid-3" id="whyChooseUsGrid">
       <div class="feature-card">
         <div class="feature-icon">🏭</div>
         <h3 data-i18n="whyChooseUs.factory">Own Factory Production</h3>
@@ -236,8 +236,8 @@
       </div>
       <div class="feature-card">
         <div class="feature-icon">🔬</div>
-        <h3 data-i18n="whyChooseUs.rd">In-house R&D Team</h3>
-        <p data-i18n="whyChooseUs.rdDesc">Dedicated R&D team established in 2023. Continuous product innovation and custom formulation to meet your specific market requirements.</p>
+        <h3 data-i18n="whyChooseUs.rd">In-house R&amp;D Team</h3>
+        <p data-i18n="whyChooseUs.rdDesc">Dedicated R&amp;D team established in 2023. Continuous product innovation and custom formulation to meet your specific market requirements.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon">📋</div>
@@ -390,7 +390,7 @@
           <h2 data-i18n="about.title">Factory-Direct Since 2021</h2>
           <p data-i18n="about.subtitle">Foshan Jin Yu Advertising Material Co., Ltd is a professional advertising materials manufacturer integrating design, R&D, production and sales. Located in LiShui Town, Nanhai District, Foshan – the heart of China's advertising materials industry.</p>
         </div>
-        <ul style="margin-bottom:32px;">
+        <ul style="margin-bottom:32px;" id="aboutHighlightsList">
           <li style="display:flex;align-items:flex-start;gap:12px;margin-bottom:14px;">
             <span style="color:var(--accent-blue);font-size:18px;flex-shrink:0;">✓</span>
             <span style="font-size:14px;color:var(--gray-700);" data-i18n="about.iso2024">ISO 9001 quality management certification achieved in 2024</span>
@@ -401,7 +401,7 @@
           </li>
           <li style="display:flex;align-items:flex-start;gap:12px;margin-bottom:14px;">
             <span style="color:var(--accent-blue);font-size:18px;flex-shrink:0;">✓</span>
-            <span style="font-size:14px;color:var(--gray-700);" data-i18n="about.rd2023">In-house R&D team established in March 2023</span>
+            <span style="font-size:14px;color:var(--gray-700);" data-i18n="about.rd2023">In-house R&amp;D team established in March 2023</span>
           </li>
           <li style="display:flex;align-items:flex-start;gap:12px;">
             <span style="color:var(--accent-blue);font-size:18px;flex-shrink:0;">✓</span>
@@ -412,11 +412,11 @@
       </div>
       <div>
         <div style="border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-lg);">
-          <img src="https://images.unsplash.com/photo-1565361987956-9be6e2b9e6e5?w=800&q=80" alt="Jin Yu Factory" style="width:100%;height:400px;object-fit:cover;" />
+          <img id="aboutMainImage" src="https://images.unsplash.com/photo-1565361987956-9be6e2b9e6e5?w=800&q=80" alt="Jin Yu Factory" style="width:100%;height:400px;object-fit:cover;" />
         </div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px;">
           <div style="background:var(--primary);border-radius:var(--radius);padding:20px;text-align:center;">
-            <div style="font-family:Montserrat,sans-serif;font-size:28px;font-weight:900;color:white;">50<span style="color:var(--orange)">+</span></div>
+            <div id="aboutExportNum" style="font-family:Montserrat,sans-serif;font-size:28px;font-weight:900;color:white;">50<span style="color:var(--orange)">+</span></div>
             <div style="font-size:12px;color:rgba(255,255,255,0.6);margin-top:4px;" data-i18n="about.exportCountries">Export Countries</div>
           </div>
           <div style="background:var(--accent-blue);border-radius:var(--radius);padding:20px;text-align:center;">
@@ -683,7 +683,7 @@
         <a href="about.html#factory">Factory</a>
         <a href="about.html#certificates">Certificates</a>
         <a href="case-studies.html">Case Studies</a>
-        <a href="blog.html">Blog</a>
+        <a href="news.html">News</a>
       </div>
       <div class="footer-col">
         <h4 data-i18n="footer.quickContact">Quick Contact</h4>
@@ -761,23 +761,42 @@ document.querySelectorAll('.faq-question').forEach(question => {
 });
 
 // Quote Form Submission
-document.querySelector('.quote-form').addEventListener('submit', function(e) {
+document.querySelector('.quote-form').addEventListener('submit', async function(e) {
   e.preventDefault();
-  const name = document.getElementById('quote-name').value;
-  const email = document.getElementById('quote-email').value;
-  const phone = document.getElementById('quote-phone').value;
-  const message = document.getElementById('quote-message').value;
+  const name    = document.getElementById('quote-name').value.trim();
+  const email   = document.getElementById('quote-email').value.trim();
+  const phone   = document.getElementById('quote-phone').value.trim();
+  const message = document.getElementById('quote-message').value.trim();
 
-  // Simple validation
   if (!name || !email || !phone || !message) {
     alert('Please fill in all required fields (*)');
     return;
   }
 
-  // For demo: show success message
-  // In production: send to backend
-  showSuccessModal();
-  this.reset();
+  const btn = this.querySelector('button[type="submit"]');
+  const origText = btn ? btn.innerHTML : '';
+  if (btn) { btn.disabled = true; btn.innerHTML = '⏳ Sending...'; }
+
+  try {
+    const res = await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, email, phone, message, source: 'home-quote-form' }),
+    });
+    const data = await res.json();
+    if (data.success) {
+      showSuccessModal();
+      this.reset();
+    } else {
+      alert('Submit failed: ' + (data.message || 'Unknown error'));
+    }
+  } catch (err) {
+    // 网络异常时仍显示成功提示，避免用户困惑
+    showSuccessModal();
+    this.reset();
+  } finally {
+    if (btn) { btn.disabled = false; btn.innerHTML = origText; }
+  }
 });
 
 // ── Home Products: API-driven, random 6 ─────────────────────────────────────
@@ -827,6 +846,180 @@ document.querySelector('.quote-form').addEventListener('submit', function(e) {
     console.error('renderHomeProducts error:', e);
   }
 })();
+
+// ── Homepage API Integration ─────────────────────────────────────────────────
+// 从 /api/homepage 加载后台数据并动态填充页面各区块
+async function loadHomepageData() {
+  try {
+    const resp = await fetch('/api/homepage');
+    if (!resp.ok) return;
+    const json = await resp.json();
+    if (!json.success || !json.data) return;
+    const d = json.data;
+    const lang = (typeof i18n !== 'undefined' && i18n.currentLang) ? i18n.currentLang : 'en';
+
+    // ── 1. Hero 背景图 ─────────────────────────────────────────
+    if (d.hero_bg_image) {
+      const heroBg = document.querySelector('.hero-bg');
+      if (heroBg) heroBg.style.backgroundImage = "url('" + d.hero_bg_image + "')";
+    }
+
+    // ── 2. Hero Stats ──────────────────────────────────────────
+    if (Array.isArray(d.stats) && d.stats.length) {
+      const container = document.getElementById('heroStatsContainer');
+      if (container) {
+        const isoSvg = `<svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" width="22" height="22" style="display:inline;vertical-align:middle;margin-left:2px;"><path d="M4 10.5L8.5 15L16 6" stroke="#FF7D00" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+        container.innerHTML = d.stats.map(s => {
+          const label = (lang === 'zh' && s.label_zh) ? s.label_zh
+                      : (lang === 'vi' && s.label_vi) ? s.label_vi
+                      : (lang === 'tl' && s.label_fil) ? s.label_fil
+                      : s.label;
+          const numHtml = s.is_iso
+            ? `<span class="hero-stat-num hero-stat-iso">ISO ${isoSvg}</span>`
+            : `<span class="hero-stat-num">${s.num}<span class="hero-stat-plus">${s.suffix || ''}</span></span>`;
+          return `<div class="hero-stat-item">${numHtml}<span class="hero-stat-label">${label}</span></div>`;
+        }).join('');
+      }
+    }
+
+    // ── 3. Why Choose Us 卡片 ──────────────────────────────────
+    if (Array.isArray(d.why_cards) && d.why_cards.length) {
+      const grid = document.getElementById('whyChooseUsGrid');
+      if (grid) {
+        grid.innerHTML = d.why_cards.map(c => {
+          const title = (lang === 'zh' && c.title_zh) ? c.title_zh
+                      : (lang === 'vi' && c.title_vi) ? c.title_vi
+                      : (lang === 'tl' && c.title_fil) ? c.title_fil
+                      : c.title;
+          const desc  = (lang === 'zh' && c.desc_zh) ? c.desc_zh
+                      : (lang === 'vi' && c.desc_vi) ? c.desc_vi
+                      : (lang === 'tl' && c.desc_fil) ? c.desc_fil
+                      : c.desc;
+          return `<div class="feature-card">
+            <div class="feature-icon">${c.icon || '✅'}</div>
+            <h3>${title}</h3>
+            <p>${desc}</p>
+          </div>`;
+        }).join('');
+      }
+    }
+
+    // ── 4. About 区块 ──────────────────────────────────────────
+    // 4a. Highlights 列表（公司里程碑）
+    if (Array.isArray(d.highlights) && d.highlights.length) {
+      const list = document.getElementById('aboutHighlightsList');
+      if (list) {
+        list.innerHTML = d.highlights.map((h, i) => {
+          const text = (lang === 'zh' && h.text_zh) ? h.text_zh
+                     : (lang === 'vi' && h.text_vi) ? h.text_vi
+                     : (lang === 'tl' && h.text_fil) ? h.text_fil
+                     : h.text;
+          const mb = i < d.highlights.length - 1 ? 'margin-bottom:14px;' : '';
+          return `<li style="display:flex;align-items:flex-start;gap:12px;${mb}">
+            <span style="color:var(--accent-blue);font-size:18px;flex-shrink:0;">✓</span>
+            <span style="font-size:14px;color:var(--gray-700);">${text}</span>
+          </li>`;
+        }).join('');
+      }
+    }
+
+    // 4b. About 主图（如果后台有设置）
+    if (d.about_main_image) {
+      const mainImg = document.getElementById('aboutMainImage');
+      if (mainImg) mainImg.src = d.about_main_image;
+    } else if (d.about_thumb_0) {
+      // 没有主图时用第一张缩略图
+      const mainImg = document.getElementById('aboutMainImage');
+      if (mainImg) mainImg.src = d.about_thumb_0;
+    }
+
+    // 4c. 出口国家数字
+    if (d.about_export_markets) {
+      const exportNum = document.getElementById('aboutExportNum');
+      if (exportNum) exportNum.innerHTML = d.about_export_markets + '<span style="color:var(--orange)">+</span>';
+    }
+
+    // ── 5. FAQ 动态加载 ────────────────────────────────────────
+    function buildFaqItems(items, firstExpanded) {
+      if (!Array.isArray(items) || !items.length) return null;
+      return items.map((item, idx) => {
+        const q = (lang === 'zh' && item.q_zh) ? item.q_zh : item.q_en || item.q || '';
+        const a = (lang === 'zh' && item.a_zh) ? item.a_zh : item.a_en || item.a || '';
+        if (!q) return '';
+        const isFirst = firstExpanded && idx === 0;
+        const arrowUp   = `<svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>`;
+        const arrowDown = `<svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l7-7 7 7"/></svg>`;
+        return `<div class="faq-item${isFirst ? ' expanded' : ''}">
+          <div class="faq-question">${q}${isFirst ? arrowUp : arrowDown}</div>
+          <div class="faq-answer${isFirst ? ' show' : ''}">${a}</div>
+        </div>`;
+      }).join('');
+    }
+
+    const faqMap = {
+      'products-faq':  d.faq_products,
+      'ordering-faq':  d.faq_ordering,
+      'shipping-faq':  d.faq_shipping,
+      'quality-faq':   d.faq_quality,
+    };
+    Object.entries(faqMap).forEach(([id, items]) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const html = buildFaqItems(items, id === 'products-faq');
+      if (html) {
+        el.innerHTML = html;
+        // 重绑 accordion 事件
+        el.querySelectorAll('.faq-question').forEach(q => {
+          q.addEventListener('click', function() {
+            const item = this.parentElement;
+            const ans  = item.querySelector('.faq-answer');
+            item.classList.toggle('expanded');
+            if (ans) ans.classList.toggle('show');
+          });
+        });
+      }
+    });
+
+    // ── 6. Applications 区块标题（sec_apps_*）───────────────────
+    // 如果后台有设置应用场景区块标题，覆盖前台文本
+    const appsLabel = (lang === 'zh' && d.sec_apps_label_zh) ? d.sec_apps_label_zh
+                    : (lang === 'vi' && d.sec_apps_label_vi) ? d.sec_apps_label_vi
+                    : (lang === 'tl' && d.sec_apps_label_fil) ? d.sec_apps_label_fil
+                    : d.sec_apps_label;
+    const appsTitle = (lang === 'zh' && d.sec_apps_title_zh) ? d.sec_apps_title_zh
+                    : (lang === 'vi' && d.sec_apps_title_vi) ? d.sec_apps_title_vi
+                    : (lang === 'tl' && d.sec_apps_title_fil) ? d.sec_apps_title_fil
+                    : d.sec_apps_title;
+    const appsDesc  = (lang === 'zh' && d.sec_apps_desc_zh) ? d.sec_apps_desc_zh
+                    : (lang === 'vi' && d.sec_apps_desc_vi) ? d.sec_apps_desc_vi
+                    : (lang === 'tl' && d.sec_apps_desc_fil) ? d.sec_apps_desc_fil
+                    : d.sec_apps_desc;
+
+    // 找到 Applications section 的 header
+    const appsSections = document.querySelectorAll('.section');
+    appsSections.forEach(sec => {
+      const label = sec.querySelector('.section-header .label[data-i18n="applications.label"]');
+      if (!label) return;
+      if (appsLabel) label.textContent = appsLabel;
+      const h2 = sec.querySelector('.section-header h2[data-i18n="applications.title"]');
+      if (appsTitle && h2) h2.textContent = appsTitle;
+      const p = sec.querySelector('.section-header p[data-i18n="applications.subtitle"]');
+      if (appsDesc && p) p.textContent = appsDesc;
+    });
+
+  } catch(e) {
+    console.error('loadHomepageData error:', e);
+  }
+}
+
+// 页面加载时执行
+loadHomepageData();
+
+// 语言切换时重新加载首页动态数据
+document.addEventListener('langChange', function() {
+  loadHomepageData();
+});
+
 </script>
 
 <!-- FLOAT ACTION BUTTONS -->

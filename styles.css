@@ -118,7 +118,8 @@ ul { list-style: none; }
   text-align: left;
 }
 .section-header.center { text-align: center; }
-.section-header.center p { margin: 0 auto; }
+.section-header.center h2 { text-align: center; }
+.section-header.center p { text-align: center; margin: 0 auto; }
 
 /* ---------- Buttons ---------- */
 .btn {
@@ -407,7 +408,8 @@ ul { list-style: none; }
   border-top: 1px solid var(--gray-200);
   transform: rotate(45deg);
 }
-.nav-lang.active .lang-dropdown {
+.nav-lang.active .lang-dropdown,
+.lang-dropdown.show {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
@@ -514,7 +516,7 @@ ul { list-style: none; }
 /* ---------- Hero Section ---------- */
 .hero {
   position: relative;
-  min-height: calc(100vh - 72px - 56px);
+  min-height: calc(100vh - 56px);
   display: flex;
   align-items: center;
   padding-top: 100px;
@@ -618,17 +620,19 @@ ul { list-style: none; }
   gap: 40px;
   flex-wrap: wrap;
   margin-top: 32px;
+  align-items: flex-end;
 }
 .hero-stat-item {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 4px;
 }
 .hero-stat-num {
   font-size: 42px;
   font-weight: 800;
   line-height: 1;
-  color: #fff;
+  color: #ffffff;
   letter-spacing: -1px;
 }
 .hero-stat-num .hero-stat-plus {
@@ -641,10 +645,11 @@ ul { list-style: none; }
 }
 .hero-stat-label {
   font-size: 13px;
-  color: rgba(255,255,255,0.55);
+  color: rgba(255,255,255,0.7);
   font-weight: 500;
   letter-spacing: 0.3px;
   margin-top: 2px;
+  white-space: nowrap;
 }
 /* White outline button for hero */
 .btn-outline-white {
@@ -664,6 +669,7 @@ ul { list-style: none; }
   padding-top: 16px;
   margin-top: auto;
   border-top: 1px solid rgba(255,255,255,0.2);
+  align-items: flex-end;
 }
 .hero-stat-num {
   font-family: 'Montserrat', 'Arial', sans-serif;
@@ -681,8 +687,9 @@ ul { list-style: none; }
 .hero-stat-check { color: #FF7D00; font-size: 30px; font-weight: 800; }
 .hero-stat-label {
   font-size: 12px;
-  color: rgba(255,255,255,0.60);
+  color: rgba(255,255,255,0.70);
   letter-spacing: 0.3px;
+  white-space: nowrap;
 }
 /* legacy stat classes kept for compatibility */
 .hero-stat .num {
@@ -836,6 +843,8 @@ ul { list-style: none; }
   border: 1px solid var(--gray-200);
   box-shadow: var(--shadow-sm);
   transition: all var(--transition);
+  height: 100%;
+  box-sizing: border-box;
 }
 .feature-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
 .feature-icon {
@@ -1237,7 +1246,7 @@ textarea.form-control { resize: vertical; min-height: 120px; }
 }
 .faq-tab {
   padding: 8px 16px;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
   border: none;
   background: white;
@@ -2026,3 +2035,5 @@ textarea.form-control { resize: vertical; min-height: 120px; }
   .success-modal h3 { font-size: 17px; }
   .success-modal p { font-size: 14px; }
 }
+
+/* Language Top Bar removed — navbar already has language switcher */
