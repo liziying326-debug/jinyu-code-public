@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Dropdown CSS</title>
+    <!-- Load the main styles -->
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+        }
+        .test-container {
+            border: 2px solid #007bff;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .debug-log {
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-top: 10px;
+            font-family: monospace;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .css-check {
+            background: #fff3cd;
+            padding: 10px;
+            margin: 10px 0;
+            border-left: 4px solid #ffc107;
+        }
+    </style>
+</head>
+<body>
+    <h1>Debug Language Dropdown CSS</h1>
+    
+    <div class="test-container">
+        <h2>Test 1: Manual Dropdown with CSS classes</h2>
+        <div style="position: relative; display: inline-block;">
+            <div class="nav-lang" id="manual-switcher" style="margin-bottom: 20px;">
+                <div class="lang-display">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 13px; height: 13px;">
+                        <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
+                    </svg>
+                    <span class="lang-code">EN</span>
+                </div>
+            </div>
+            
+            <!-- Manual dropdown -->
+            <div class="lang-dropdown show" id="manual-dropdown" style="position: absolute; top: 100%; left: 0;">
+                <div class="lang-dropdown-arrow"></div>
+                <button class="lang-option active" data-lang="en">
+                    <span class="lang-code">EN</span>
+                    <span class="lang-name">English</span>
+                </button>
+                <button class="lang-option" data-lang="zh">
+                    <span class="lang-code">中文</span>
+                    <span class="lang-name">简体中文</span>
+                </button>
+                <button class="lang-option" data-lang="vi">
+                    <span class="lang-code">VI</span>
+                    <span class="lang-name">Tiếng Việt</span>
+                </button>
+                <button class="lang-option" data-lang="tl">
+                    <span class="lang-code">FIL</span>
+                    <span class="lang-name">Filipino</span>
+                </button>
+            </div>
+        </div>
+        
+        <button onclick="checkCSS()" style="padding: 10px 20px; background: #28a745; color: white; border: none; border-radius: 4px; cursor: pointer;">
+            Check CSS Styles
+        </button>
+        
+        <div id="css-check" class="debug-log"></div>
+    </div>
+    
+    <div class="test-container">
+        <h2>Test 2: CSS Variables Check</h2>
+        <div class="css-check">
+            <h3>CSS Variables that should be defined:</h3>
+            <ul>
+                <li>--gray-200: #E5E8ED</li>
+                <li>--gray-50: #F8F9FA</li>
+                <li>--gray-700: #3D4459</li>
+                <li>--accent-blue: #165DFF</li>
+                <li>--gray-100: #F0F2F5</li>
+            </ul>
+        </div>
+        
+        <button onclick="checkVariables()" style="padding: 10px 20px; background: #17a2b8; color: white; border: none; border-radius: 4px; cursor: pointer;">
+            Check CSS Variables
+        </button>
+        
+        <div id="variable-check" class="debug-log"></div>
+    </div>
+    
+    <script>
+        function logTo(elementId, message) {
+            const el = document.getElementById(elementId);
+            const entry = document.createElement('div');
+            entry.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
+            el.appendChild(entry);
+            el.scrollTop = el.scrollHeight;
+        }
+        
+        function checkCSS() {
+            const dropdown = document.getElementById('manual-dropdown');
+            const logEl = document.getElementById('css-check');
+            logEl.innerHTML = '';
+            
+            if (!dropdown) {
+                logTo('css-check', 'Dropdown not found');
+                return;
+            }
+            
+            const style = window.getComputedStyle(dropdown);
+            
+            logTo('css-check', '=== Checking .lang-dropdown styles ===');
+            logTo('css-check', `position: ${style.position}`);
+            logTo('css-check', `background: ${style.backgroundColor}`);
+            logTo('css-check', `border-radius: ${style.borderRadius}`);
+            logTo('css-check', `box-shadow: ${style.boxShadow}`);
+            logTo('css-check', `border: ${style.border}`);
+            logTo('css-check', `opacity: ${style.opacity}`);
+            logTo('css-check', `visibility: ${style.visibility}`);
+            logTo('css-check', `transform: ${style.transform}`);
+            logTo('css-check', `z-index: ${style.zIndex}`);
+            logTo('css-check', `min-width: ${style.minWidth}`);
+            logTo('css-check', `padding: ${style.padding}`);
+            
+            // Check arrow
+            const arrow = dropdown.querySelector('.lang-dropdown-arrow');
+            if (arrow) {
+                const arrowStyle = window.getComputedStyle(arrow);
+                logTo('css-check', '\n=== Checking .lang-dropdown-arrow ===');
+                logTo('css-check', `position: ${arrowStyle.position}`);
+                logTo('css-check', `background: ${arrowStyle.backgroundColor}`);
+                logTo('css-check', `border-left: ${arrowStyle.borderLeft}`);
+                logTo('css-check', `border-top: ${arrowStyle.borderTop}`);
+                logTo('css-check', `transform: ${arrowStyle.transform}`);
+            }
+            
+            // Check option
+            const option = dropdown.querySelector('.lang-option');
+            if (option) {
+                const optionStyle = window.getComputedStyle(option);
+                logTo('css-check', '\n=== Checking .lang-option ===');
+                logTo('css-check', `display: ${optionStyle.display}`);
+                logTo('css-check', `padding: ${optionStyle.padding}`);
+                logTo('css-check', `color: ${optionStyle.color}`);
+                logTo('css-check', `background: ${optionStyle.backgroundColor}`);
+                logTo('css-check', `cursor: ${optionStyle.cursor}`);
+            }
+        }
+        
+        function checkVariables() {
+            const root = document.documentElement;
+            const logEl = document.getElementById('variable-check');
+            logEl.innerHTML = '';
+            
+            const variables = [
+                '--gray-200',
+                '--gray-50',
+                '--gray-700',
+                '--accent-blue',
+                '--gray-100',
+                '--gray-500',
+                '--primary'
+            ];
+            
+            logTo('variable-check', '=== Checking CSS Variables ===');
+            
+            variables.forEach(varName => {
+                const value = getComputedStyle(root).getPropertyValue(varName).trim();
+                logTo('variable-check', `${varName}: ${value || 'NOT SET'}`);
+            });
+            
+            // Check if styles.css is loaded
+            const styleSheets = document.styleSheets;
+            let found = false;
+            for (let i = 0; i < styleSheets.length; i++) {
+                const sheet = styleSheets[i];
+                if (sheet.href && sheet.href.includes('styles.css')) {
+                    found = true;
+                    break;
+                }
+            }
+            
+            logTo('variable-check', `\nstyles.css loaded: ${found ? 'YES' : 'NO'}`);
+        }
+        
+        // Auto-run checks
+        setTimeout(() => {
+            checkVariables();
+            setTimeout(checkCSS, 500);
+        }, 1000);
+    </script>
+</body>
+</html>

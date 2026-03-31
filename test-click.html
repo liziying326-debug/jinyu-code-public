@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Click Event</title>
+    <style>
+        #test-area {
+            padding: 20px;
+            border: 2px solid #4CAF50;
+            margin: 20px;
+        }
+        .test-btn {
+            padding: 10px 20px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        #log {
+            background: #f5f5f5;
+            padding: 10px;
+            margin-top: 10px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <h1>Test Click Event Debugger</h1>
+    
+    <div id="test-area">
+        <h3>Test the language switcher</h3>
+        <div id="language-switcher" style="border: 2px solid blue; padding: 10px;">
+            <div class="lang-display" style="background: #ddd; padding: 10px; cursor: pointer;">
+                <span class="lang-code">EN</span>
+            </div>
+        </div>
+        
+        <button onclick="manualTest()" class="test-btn">Run Manual Test</button>
+        
+        <div id="log"></div>
+    </div>
+    
+    <script>
+        // Clear the log
+        document.getElementById('log').innerHTML = '';
+        
+        function log(msg) {
+            const logEl = document.getElementById('log');
+            logEl.innerHTML += `<div>${new Date().toLocaleTimeString()}: ${msg}</div>`;
+        }
+        
+        function manualTest() {
+            log('=== Starting Manual Test ===');
+            
+            // Find elements
+            const switcher = document.getElementById('language-switcher');
+            const display = switcher.querySelector('.lang-display');
+            
+            log(`Switcher found: ${!!switcher}`);
+            log(`Display found: ${!!display}`);
+            
+            // Test if i18n is loaded
+            log(`i18n object: ${typeof i18n}`);
+            if (typeof i18n !== 'undefined') {
+                log(`i18n.initSwitcher: ${typeof i18n.initSwitcher}`);
+                log(`i18n.currentLang: ${i18n.currentLang}`);
+            }
+            
+            // Add a simple click event
+            display.addEventListener('click', function(e) {
+                log('Direct click event fired!');
+                e.stopPropagation();
+            });
+            
+            // Try to click it
+            log('Attempting to simulate click...');
+            display.click();
+            
+            // Check for pointer-events style
+            const style = window.getComputedStyle(display);
+            log(`Pointer-events: ${style.pointerEvents}`);
+            log(`Cursor: ${style.cursor}`);
+            
+            // Check parent elements for pointer-events: none
+            let parent = display.parentElement;
+            while (parent) {
+                const parentStyle = window.getComputedStyle(parent);
+                if (parentStyle.pointerEvents === 'none') {
+                    log(`Parent ${parent.tagName}.${parent.className} has pointer-events: none`);
+                }
+                parent = parent.parentElement;
+            }
+        }
+        
+        log('Page loaded, ready for testing.');
+        
+        // Auto-test after a moment
+        setTimeout(() => {
+            log('Auto-test starting...');
+            manualTest();
+        }, 1000);
+    </script>
+    
+    <!-- Load the i18n script -->
+    <script src="i18n.js"></script>
+</body>
+</html>

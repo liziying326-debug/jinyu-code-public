@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Language Button</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .test-area {
+            border: 2px solid #007bff;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .btn {
+            background: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .log {
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-top: 10px;
+            max-height: 300px;
+            overflow-y: auto;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <h1>Debug Language Button Test</h1>
+    
+    <div class="test-area">
+        <h2>Test 1: Direct HTML</h2>
+        <div id="language-switcher">
+            <button id="lang-display" class="btn">
+                <span id="lang-code">EN</span>
+            </button>
+        </div>
+        <button onclick="testClick()" class="btn">Test Click</button>
+    </div>
+    
+    <div class="test-area">
+        <h2>Log Output</h2>
+        <div id="log" class="log"></div>
+    </div>
+    
+    <script>
+        function log(message) {
+            const logEl = document.getElementById('log');
+            const entry = document.createElement('div');
+            entry.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
+            logEl.appendChild(entry);
+            logEl.scrollTop = logEl.scrollHeight;
+        }
+        
+        function testClick() {
+            const langDisplay = document.getElementById('lang-display');
+            log('Test button clicked');
+            log(`Lang display element: ${langDisplay ? 'found' : 'not found'}`);
+            
+            // Simulate what i18n script should do
+            if (langDisplay) {
+                langDisplay.addEventListener('click', function(e) {
+                    log('Lang display clicked!');
+                    e.stopPropagation();
+                });
+                
+                // Trigger click
+                langDisplay.click();
+            }
+        }
+        
+        log('Page loaded');
+        
+        // Check if i18n script is loaded
+        setTimeout(() => {
+            if (typeof i18n !== 'undefined') {
+                log(`i18n loaded: ${i18n ? 'yes' : 'no'}`);
+                log(`i18n.currentLang: ${i18n.currentLang}`);
+                log(`i18n.initSwitcher: ${typeof i18n.initSwitcher}`);
+            } else {
+                log('i18n not loaded');
+            }
+        }, 1000);
+    </script>
+</body>
+</html>

@@ -102,17 +102,8 @@ const i18n = {
 };
 
 // ========================================
-// 语言切换器 - 下拉菜单版本
-// ========================================
-(function setupLanguageSwitcher() {
-  // 等待 DOM 加载完成
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initSwitcher);
-  } else {
-    initSwitcher();
-  }
-
-  function initSwitcher() {
+// 语言切换器初始化函数
+i18n.initSwitcher = function() {
     const switcher = document.getElementById('language-switcher');
     if (!switcher) {
       console.warn('Language switcher element not found');
@@ -194,8 +185,7 @@ const i18n = {
 
     // 初始化显示
     updateDisplay();
-  }
-})();
+  };
 
 // ========================================
 // 初始化
@@ -209,6 +199,21 @@ const i18n = {
 
   // 应用当前语言的翻译
   i18n.applyTranslations();
+  
+  // 延迟初始化语言切换器，确保DOM完全加载
+  function initLanguageSwitcher() {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', function() {
+        console.log('DOM fully loaded, initializing language switcher');
+        i18n.initSwitcher();
+      });
+    } else {
+      console.log('DOM already loaded, initializing language switcher');
+      i18n.initSwitcher();
+    }
+  }
+  
+  initLanguageSwitcher();
 
   console.log(`i18n initialized with language: ${i18n.currentLang}`);
 })();

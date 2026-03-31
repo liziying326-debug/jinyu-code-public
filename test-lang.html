@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Language Switcher</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            padding: 40px;
+            font-family: Arial, sans-serif;
+        }
+        .test-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #f9f9f9;
+            padding: 30px;
+            border-radius: 10px;
+        }
+        .nav-lang {
+            margin: 20px 0;
+        }
+        .debug-info {
+            margin-top: 30px;
+            padding: 15px;
+            background: #e0e0e0;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>Language Switcher Test</h1>
+        <p>Testing the language switcher component with full CSS.</p>
+        
+        <!-- Test the actual language switcher component -->
+        <div class="nav-lang" id="language-switcher">
+            <div class="lang-display">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"/>
+                    <line x1="2" y1="12" x2="22" y2="12"/>
+                    <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
+                </svg>
+                <span class="lang-code">EN</span>
+            </div>
+        </div>
+        
+        <div class="debug-info">
+            <h3>Debug Information:</h3>
+            <p>1. CSS should be loaded from styles.css</p>
+            <p>2. JavaScript will initialize the dropdown</p>
+            <p>3. Check browser console for errors</p>
+        </div>
+    </div>
+    
+    <!-- Load i18n.js to test the language switcher -->
+    <script src="i18n.js"></script>
+    
+    <script>
+        // Wait for i18n to initialize
+        setTimeout(() => {
+            console.log('Language switcher element:', document.getElementById('language-switcher'));
+            console.log('Dropdown element:', document.querySelector('.lang-dropdown'));
+            
+            // Manually trigger click to test dropdown
+            const langDisplay = document.querySelector('.lang-display');
+            if (langDisplay) {
+                console.log('Lang display found, adding test click handler');
+                langDisplay.addEventListener('click', function() {
+                    console.log('Lang display clicked');
+                    const dropdown = document.querySelector('.lang-dropdown');
+                    if (dropdown) {
+                        console.log('Dropdown found, toggling show class');
+                        dropdown.classList.toggle('show');
+                    } else {
+                        console.error('Dropdown not found!');
+                    }
+                });
+            }
+        }, 1000);
+    </script>
+</body>
+</html>

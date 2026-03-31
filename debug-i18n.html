@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug i18n</title>
+    <script src="i18n.js"></script>
+</head>
+<body>
+    <h1>Debug i18n System</h1>
+    
+    <div>
+        <h2>Current Language: <span id="currentLang"></span></h2>
+        <h2>Translation for "hero.title": <span id="heroTitle"></span></h2>
+        <h2>Translation for "hero.badge": <span id="heroBadge"></span></h2>
+    </div>
+    
+    <div style="margin-top: 20px;">
+        <button onclick="changeLang('en')">English</button>
+        <button onclick="changeLang('zh')">中文</button>
+        <button onclick="changeLang('vi')">Tiếng Việt</button>
+        <button onclick="changeLang('tl')">Filipino</button>
+    </div>
+    
+    <div style="margin-top: 20px; padding: 20px; background: #f0f0f0;">
+        <h3>Translation Keys Test:</h3>
+        <div id="translations"></div>
+    </div>
+    
+    <script>
+        // 页面加载时显示当前翻译状态
+        document.addEventListener('DOMContentLoaded', function() {
+            updateDisplay();
+            
+            // 监听语言变化
+            document.addEventListener('langChange', function() {
+                updateDisplay();
+            });
+        });
+        
+        function updateDisplay() {
+            document.getElementById('currentLang').textContent = i18n.currentLang;
+            document.getElementById('heroTitle').textContent = i18n.t('hero.title');
+            document.getElementById('heroBadge').textContent = i18n.t('hero.badge');
+            
+            // 测试所有关键的翻译键
+            const keys = [
+                'hero.title',
+                'hero.badge', 
+                'hero.subtitle',
+                'hero.getQuote',
+                'nav.home',
+                'nav.products'
+            ];
+            
+            let html = '<ul>';
+            keys.forEach(key => {
+                const translation = i18n.t(key);
+                html += `<li><strong>${key}:</strong> ${translation}</li>`;
+            });
+            html += '</ul>';
+            
+            document.getElementById('translations').innerHTML = html;
+        }
+        
+        function changeLang(lang) {
+            i18n.changeLanguage(lang);
+        }
+    </script>
+</body>
+</html>

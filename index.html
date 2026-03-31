@@ -858,10 +858,53 @@ async function loadHomepageData() {
     const d = json.data;
     const lang = (typeof i18n !== 'undefined' && i18n.currentLang) ? i18n.currentLang : 'en';
 
-    // ── 1. Hero 背景图 ─────────────────────────────────────────
+    // ── 1. Hero 区块（标题、徽章、副标题、背景图）───────────────
     if (d.hero_bg_image) {
       const heroBg = document.querySelector('.hero-bg');
       if (heroBg) heroBg.style.backgroundImage = "url('" + d.hero_bg_image + "')";
+    }
+    
+    // 处理Hero标题
+    const heroTitle = document.querySelector('h1[data-i18n-html="hero.title"]');
+    if (heroTitle) {
+      const titleText = (lang === 'zh' && d.hero_title_zh) ? d.hero_title_zh
+                     : (lang === 'vi' && d.hero_title_vi) ? d.hero_title_vi
+                     : (lang === 'tl' && d.hero_title_fil) ? d.hero_title_fil
+                     : d.hero_title;
+      if (titleText) {
+        // 如果API返回了标题，使用API的标题（支持HTML）
+        heroTitle.innerHTML = titleText;
+      } else {
+        // 否则使用i18n系统的翻译
+        const i18nTitle = i18n.t('hero.title');
+        if (i18nTitle !== 'hero.title') {
+          heroTitle.innerHTML = i18nTitle;
+        }
+      }
+    }
+    
+    // 处理Hero徽章
+    const heroBadge = document.querySelector('.hero-badge span[data-i18n="hero.badge"]');
+    if (heroBadge) {
+      const badgeText = (lang === 'zh' && d.hero_badge_zh) ? d.hero_badge_zh
+                     : (lang === 'vi' && d.hero_badge_vi) ? d.hero_badge_vi
+                     : (lang === 'tl' && d.hero_badge_fil) ? d.hero_badge_fil
+                     : d.hero_badge;
+      if (badgeText) {
+        heroBadge.textContent = badgeText;
+      }
+    }
+    
+    // 处理Hero副标题
+    const heroSubtitle = document.querySelector('p[data-i18n="hero.subtitle"]');
+    if (heroSubtitle) {
+      const subtitleText = (lang === 'zh' && d.hero_subtitle_zh) ? d.hero_subtitle_zh
+                        : (lang === 'vi' && d.hero_subtitle_vi) ? d.hero_subtitle_vi
+                        : (lang === 'tl' && d.hero_subtitle_fil) ? d.hero_subtitle_fil
+                        : d.hero_subtitle;
+      if (subtitleText) {
+        heroSubtitle.textContent = subtitleText;
+      }
     }
 
     // ── 2. Hero Stats ──────────────────────────────────────────
